@@ -199,3 +199,8 @@ These are 5 member who can summarize the data
    - if its a normal distribution, then 68% should fall b/w 1 sd (emprical study)
    - if 2 sd then 95% of data must sit, based on emprical study
    - if the distribution is not symentric, we called it skewed, on which-ever side its skewed, we call it right or left skewed
+
+
+---
+
+[problem 1](../notebooks/day1_b.ipynb)
