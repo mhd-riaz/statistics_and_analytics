@@ -10,19 +10,19 @@ could be classified into two categories
 
 
 Population: represents entire group, represented with `N`
-sample: a subset of a group, represented with `n`
+sample: a subset of a group, represented with `n`, should have min of 30 (cox of central limit theorem)
 
 ## descriptive statistics
-
+```
 Types
 ├── measures of central tendancy
 │   │
-│   ├── **Mean/Avg**
-│   ├── **Median** 
-│   └── **Mode**   
+│   ├── Mean/Avg
+│   ├── Median
+│   └── Mode
 │
 └── measure of variation/spread
-
+```
 
 ### measures of central tendancy
 **Mean**: tells you about averge 
@@ -52,13 +52,14 @@ $$\text{Median} = \left(\frac{n+1}{2}\right)^{\text{th}} \text{ value}$$
 **Mode**: most frequently occuring value
 
 ### measure of variation/spread
-
+```
 Types
 ├── Range
 ├── Quantile
 ├── IQR
 ├── Variance
 └── Standard Deviation
+```
 
 $$\text{Median} = \frac{\left(\frac{n}{2}\right)^{\text{th}} + \left(\frac{n}{2} + 1\right)^{\text{th}}}{2}$$
 
