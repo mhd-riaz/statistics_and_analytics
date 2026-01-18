@@ -30,13 +30,10 @@ Types
 (x bar) for avg of sample set
 (meu) for avg of population set
 
-**Mean (Arithmetic Mean)**
-
 $$
 \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
 $$
 
-Plain-text fallback: x̄ = (1/n) Σ_{i=1}^n x_i
 
 **Median**: a single measure cannont represent the whole group, coz outliers might impact the average result, thats where median comes into play.
 e.g. a company salary's avg cannot tell whole employee's common salary, as some might earn more like CEO, some might earn very low, causing outliers
@@ -93,21 +90,21 @@ $$s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
 
 - often using the Greek letter sigma (σ) for population or 's' for samples
 
-$$\sigma = \sqrt{\frac{\sum (X - \mu)^2}{n}}$$
+$$\sigma^2 = \frac{\sum (X - \mu)}{n}$$
 
 ## Types of data
 
-1. Numerical data
+1. **Numerical data**
    a. Also called quantitative data
    b. can be classsified into
-      1. Discrete - anything that is countable (e.g. how many people, entered show at this time?)
-      2. Continious - tho, represented as whole number, but they have infinite values inbetween them, e.g. timeseries or Keyword: **proportion**, **length**
+      1. **Discrete** - anything that is countable (e.g. how many people, entered show at this time?)
+      2. **Continious** - tho, represented as whole number, but they have infinite values inbetween them, e.g. timeseries or Keyword: **proportion**, **length**
 
-2. Non-numerical data
+2. **Non-numerical data**
    a. Aslo called qualitative/categorical data
    b. can be classsified into
-      1. Nominal - some repeated value, cannot be ordered e.g. fav food in a class group
-      2. Ordinal - where you can order it, ratings (bad < good < better < best)
+      1. **Nominal** - some repeated value, cannot be ordered e.g. fav food in a class group
+      2. **Ordinal** - where you can order it, ratings (bad < good < better < best)
       3. words - 
       4. open-ended(using sentiments)
 
