@@ -97,14 +97,14 @@ $$\sigma = \sqrt{\frac{\sum (X - \mu)^2}{n}}$$
 ## Types of data
 
 1. Numerical data
-   1. Also called quantitative data
-   2. can be classsified into
+   a. Also called quantitative data
+   b. can be classsified into
       1. Discrete - anything that is countable (e.g. how many people, entered show at this time?)
       2. Continious - tho, represented as whole number, but they have infinite values inbetween them, e.g. timeseries or Keyword: **proportion**, **length**
 
 2. Non-numerical data
-   1. Aslo called qualitative/categorical data
-   2. can be classsified into
+   a. Aslo called qualitative/categorical data
+   b. can be classsified into
       1. Nominal - some repeated value, cannot be ordered e.g. fav food in a class group
       2. Ordinal - where you can order it, ratings (bad < good < better < best)
       3. words - 
