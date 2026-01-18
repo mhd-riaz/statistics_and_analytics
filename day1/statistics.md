@@ -16,12 +16,16 @@ sample: a subset of a group, represented with `n`, should have min of 30 (cox of
 ```
 Types
 ├── measures of central tendancy
-│   │
 │   ├── Mean/Avg
 │   ├── Median
 │   └── Mode
 │
 └── measure of variation/spread
+    ├── Range
+    ├── Quantile
+    ├── IQR
+    ├── Variance
+    └── Standard Deviation
 ```
 
 ### measures of central tendancy
