@@ -70,8 +70,9 @@ If you are a grade 10 student doing a science fair project on which brand of bat
 ## Definition
 In probability notation, **P(A)** and **P(E)** are functionally the same thing. They both represent the probability of a specific outcome occurring. The letter inside the parentheses is simply a label or a "placeholder" for an event. Traditionally, **"E"** is used to stand for **Event**, while **"A"** (along with B and C) is used as a generic variable to distinguish between different specific events in the same problem.
 
-## Formula (Human readable formula)
-> $P(A) = P(E) = \frac{n}{N}$
+## Formula
+
+$P(A) = P(E) = \frac{n}{N}$
 
 - **$P$**: Probability function.
 - **$A$ or $E$**: The specific event or outcome we are measuring.
@@ -93,10 +94,14 @@ If a math problem asks for $P(A)$ and $P(B)$, it is simply asking you to calcula
 # Sample Space and Cardinalities
 
 ## Definition
-The **Sample Space** ($S$) is the set of all possible outcomes of a random experiment. **Cardinality**, denoted as $|S|$ or $n(S)$, is the total number of elements or outcomes contained within that sample space. It tells you "how many" possible results exist.
 
-## Formula (Human readable formula)
-> $|S| = n_1 \times n_2 \times \dots \times n_k$
+**Sample Space** ($S$) is the set of all possible outcomes of a random experiment. 
+
+**Cardinality**, denoted as $|S|$ or $n(S)$, is the total number of elements or outcomes contained within that sample space. It tells you "how many" possible results exist i.e. len(SampleSet)
+
+## Formula
+
+$|S| = n_1 \times n_2 \times \dots \times n_k$
 
 - **$S$**: The Sample Space (the set of outcomes).
 - **$|S|$**: The Cardinality (the count of outcomes).
