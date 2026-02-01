@@ -49,9 +49,9 @@ In statistics, an **experiment** is a structured process or investigation intend
 
 > $\text{Experiment} = \sum_{i=1}^{n} \text{Trial}_i$
   
-    - **Experiment**: The total collection of all repeated attempts.
-    - **Trial**: A single, individual iteration (represented by $i$).
-    - **$n$**: The total number of times the trial is repeated.
+- **Experiment**: The total collection of all repeated attempts.
+- **Trial**: A single, individual iteration (represented by $i$).
+- **$n$**: The total number of times the trial is repeated.
 
 ## Example
 Imagine you want to test if a coin is fair. You decide to flip the coin **50 times**.
