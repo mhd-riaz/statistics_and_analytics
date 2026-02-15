@@ -280,22 +280,31 @@ The latency is normally distributed with $\mu = 200ms$ and $\sigma = 20ms$.
 
 Here is a summarized comparison of the four distributions we discussed. This table highlights their primary use cases, whether they are discrete or continuous, and their core mathematical properties.
 
-| Distribution  | Type       | Key Parameter(s)                 | Typical Use Case                                                   | Main Characteristic                      |
-| :------------ | :--------- | :------------------------------- | :----------------------------------------------------------------- | :--------------------------------------- |
-| **Bernoulli** | Discrete   | $p$ (Success probability)        | A single Yes/No trial (e.g., Is a user "Premium"?)                 | Only two outcomes (0 or 1).              |
-| **Poisson**   | Discrete   | $\lambda$ (Mean rate)            | Number of events in a fixed time/space (e.g., API requests/sec)    | Mean and Variance are equal ($\lambda$). |
-| **Normal**    | Continuous | $\mu$ (Mean), $\sigma$ (Std Dev) | Natural measurements and errors (e.g., Human height, Sensor noise) | Symmetrical "Bell Curve" shape.          |
-| **Binomial*** | Discrete   | $n$ (Trials), $p$ (Probability)  | Number of successes in $n$ independent Bernoulli trials            | Sum of multiple Bernoulli events.        |
+| Distribution  | Type       | Key Parameter(s)                 | Typical Use Case                                                                         | Main Characteristic                                                                              |
+| :------------ | :--------- | :------------------------------- | :--------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
+| **Bernoulli** | Discrete   | $p$ (Success probability)        | A single Yes/No trial (e.g., Is a user "Premium"?)                                       | Only two outcomes (0 or 1).                                                                      |
+| **Binomial*** | Discrete   | $n$ (Trials), $p$ (Probability)  | Number of successes in $n$ independent Bernoulli trials                                  | Sum of multiple Bernoulli events.                                                                |
+| **Poisson**   | Discrete   | $\lambda$ (Mean rate)            | Number of events in a fixed time/space (e.g., API requests/ sec)                         | Mean and Variance are equal ($\lambda$). (Keyword - **event, avg, in a specific range of time**) |
+| **Normal**    | Continuous | $\mu$ (Mean), $\sigma$ (Std Dev) | Natural measurements and errors (e.g.,  **Time**, Human **height/weight**, Sensor noise) | Symmetrical "Bell Curve" shape.                                                                  |
 
 > **Note**: While we focused on the first three in detail, the **Binomial** distribution is the natural "next step" after Bernoulli, representing the total count of successes over multiple trials.
 
 ---
 
-### Comparison of Mean and Variance
+# formula quick reference table
 
-| Distribution  | Mean ($E[X]$) | Variance ($Var(X)$) |
-| :------------ | :------------ | :------------------ |
-| **Bernoulli** | $p$           | $p(1 - p)$          |
-| **Poisson**   | $\lambda$     | $\lambda$           |
-| **Normal**    | $\mu$         | $\sigma^2$          |
+| Distribution  | Mean ($E[X]$) | Variance ($Var(X)$) | Standard Deviation ($SD$) | PMF / PDF Formula                                                                  |
+| :------------ | :------------ | :------------------ | :------------------------ | :--------------------------------------------------------------------------------- |
+| **Bernoulli** | $p$           | $p(1 - p)$          | $\sqrt{p(1 - p)}$         | $p^x(1-p)^{1-x}$                                                                   |
+| **Binomial**  | $np$          | $np(1 - p)$         | $\sqrt{np(1 - p)}$        | $\binom{n}{x} p^x (1-p)^{n-x}$                                                     |
+| **Poisson**   | $\lambda$     | $\lambda$           | $\sqrt{\lambda}$          | $\frac{\lambda^x e^{-\lambda}}{x!}$                                                |
+| **Normal**    | $\mu$         | $\sigma^2$          | $\sigma$                  | $\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$ |
 
+**Quick Note on the Formulas:**
+* **$n$**: The total number of identical trials.
+* **$p$**: The probability of success on any single given trial.
+* **$x$**: Represents the specific outcome or value you are calculating the probability for.
+* **$\binom{n}{x}$**: Read as "n choose x", this represents the combinations formula. It calculates the total number of distinct ways to get exactly $x$ successes out of $n$ trials.
+* **$e$**: Euler's number (approximately $2.71828$).
+* **$\pi$**: Pi (approximately $3.14159$).
+* **$x!$**: Factorial of $x$ (e.g., $3! = 3 \times 2 \times 1$).
