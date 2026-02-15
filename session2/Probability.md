@@ -3,8 +3,9 @@
 ## Definition 
 Probability is the branch of mathematics that quantifies uncertainty. It measures the likelihood of an event occurring, expressed as a number between 0 and 1, where 0 indicates impossibility and 1 indicates certainty.
 
-## Formula (Human readable formula)
-> $P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}$
+## Formula 
+
+$P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}$
 
 - **$P(A)$**: The probability of event A occurring.
 - **Favorable outcomes**: The specific results you are looking for.
