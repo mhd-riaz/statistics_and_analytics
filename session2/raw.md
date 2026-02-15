@@ -254,3 +254,43 @@ A kitchen set contains 10 knifes, out of which 3 are defective, 2 knifes are dra
 # Random variable
 
 should be written in cap letter only
+
+help you to capture the uncertainity in the real word's outcome
+
+EG: probability of winning in a lottery ticket
+
+is a function that assigns each outcome to a numerical number
+
+### Probability distribution
+values taken by a random variable along with its probability, if this is recorded in a table then its called probability distribution
+
+- [ ] Types of random variable
+  - [ ] Discrete random variable
+  - [ ] Continuous random variable
+
+
+
+# Distribution
+
+## Types:
+
+### For Discrete
+1. Bernoulli distribution: used if it has one of the two favourable outcomes, boolean choice
+2. Binomial distribution: sequence of bernoulli
+3. Poisson distribution: when you know the range
+
+p - probability of success
+q - probability of failure
+
+`q = 1 - p`
+
+
+### For Continious
+4. Normal Distribution
+
+### Cumilative density
+is used when you want to find reverse
+
+
+
+can use distribution models, to generate synthetical data if fitted into correct distribution.
