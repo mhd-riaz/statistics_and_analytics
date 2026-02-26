@@ -1,7 +1,7 @@
 <p align="left">
-  <a href="./statistics.md"><b>← Previous</b></a>
+  <a href="./readme.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./data.md"><b>Next →</b></a>
+    <a href="./descriptive-stats.md"><b>Next →</b></a>
   </span>
 </p>
 
@@ -10,6 +10,15 @@
 # Data
 
 Data is a collected facts, measurements or observation such as number, words, images, ...
+
+## Attributes
+
+Attributes are the characteristics or properties of the data that can be used to describe, analyze, and understand the data. They provide information about the data and help in categorizing, organizing, and interpreting it. 
+
+Attributes can be of various types, such as:
+1. **Numerical Attributes**: These attributes represent ***quantitative data*** and can be measured on a numerical scale. Examples include age, height, weight, and income.
+2. **Categorical Attributes**: These attributes represent ***qualitative data*** and can be divided into distinct categories or groups. Examples
+
 
 ## Data sources
 
@@ -23,10 +32,10 @@ But due to the advancement and automation in place, its now more easy to collect
 
 ## Types of data
 
-1. Qualitative data
+1. Qualitative data (categorical data)
    - are non-numerical in nature
    - e.g.: gender, religion, place of birth
-2. Quantitative data
+2. Quantitative data (numerical data)
    - are numerical in nature
    - e.g.: balance in bank, total members in your family
 
@@ -82,3 +91,12 @@ But due to the advancement and automation in place, its now more easy to collect
      - No true zero-point (e.g.: the birth of a individual is not on year 0, but age is calculated from the day it is born, thus the imaginary 0)
    - Ratio
        - is a measurement that is done relative to the unit of measurement
+
+---
+
+<p align="left">
+  <a href="./readme.md"><b>← Previous</b></a>
+  <span style="float:right">
+    <a href="./descriptive-stats.md"><b>Next →</b></a>
+  </span>
+</p>
