@@ -1,7 +1,7 @@
 <p align="left">
   <a href="./descriptive-stats.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./x.md"><b>Next →</b></a>
+    <a href="../notebooks/session1/day1_a.ipynb.md"><b>Next →</b></a>
   </span>
 </p>
 
@@ -16,6 +16,6 @@
 <p align="left">
   <a href="./descriptive-stats.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./x.md"><b>Next →</b></a>
+    <a href="../notebooks/session1/day1_a.ipynb.md"><b>Next →</b></a>
   </span>
 </p>
