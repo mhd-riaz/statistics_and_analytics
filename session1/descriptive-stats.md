@@ -1,7 +1,7 @@
 <p align="left">
   <a href="./data.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./x.md"><b>Next →</b></a>
+    <a href="./visualization.md"><b>Next →</b></a>
   </span>
 </p>
 
@@ -26,12 +26,22 @@ Descriptive Statistics
 │   ├── Median
 │   └── Mode
 │
-└── Measures of Variability / Spread
-    ├── Range
-    ├── Quantiles (Quartiles & Percentiles)
-    ├── Interquartile Range (IQR)
-    ├── Variance
-    └── Standard Deviation
+├── Measures of Variability / Spread
+│   ├── Range
+│   ├── Quantiles (Quartiles & Percentiles)
+│   ├── Interquartile Range (IQR)
+│   ├── Variance
+│   └── Standard Deviation
+│
+├── Relative Measures
+│   └── Coefficient of Variation (CV)
+│
+├── Distribution Rules
+│   ├── Empirical Rule (68-95-99.7)
+│   └── Chebyshev's Theorem
+│
+└── Measures of Relationship
+    └── Correlation
 ```
 
 ### 1. Measures of central tendency
@@ -49,14 +59,55 @@ These statistics describe the **spread or dispersion** of a dataset — how far 
    3. **Interquartile Range (IQR)** - the difference between the third quartile (Q3) and the first quartile (Q1). It measures the spread of the middle 50% of the data and is less affected by outliers than the range.
    4. **Variance** - the average of the squared differences from the mean. It provides a measure of how much the values in a dataset vary from the mean.
    5. **Standard Deviation** - the square root of the variance. It is expressed in the same units as the original data and provides a measure of the average distance of each data point from the mean.
-  
+
+### 3. Relative measures
+These statistics express variability **relative to the mean**, making it possible to compare spread across datasets with different units or scales.
+
+   1. **Coefficient of Variation (CV)** - the ratio of the standard deviation to the mean, expressed as a percentage. It allows comparison of variability between datasets with different units or magnitudes.
+
+### 4. Distribution rules
+These rules describe **how data is distributed** around the mean, giving specific guarantees about what proportion of data falls within a certain number of standard deviations.
+
+   1. **Empirical Rule (68-95-99.7)** - applies only to normal (bell-shaped) distributions. States that approximately 68%, 95%, and 99.7% of data falls within 1, 2, and 3 standard deviations of the mean, respectively.
+   2. **Chebyshev's Theorem** - applies to **any** distribution (regardless of shape). Guarantees that at least $1 - \frac{1}{k^2}$ of data falls within $k$ standard deviations of the mean, for any $k > 1$.
+
+### 5. Measures of relationship
+These statistics describe the **direction and strength** of the relationship between two variables.
+
+   1. **Correlation** - a standardized measure of the linear relationship between two variables, ranging from $-1$ (perfect negative) to $+1$ (perfect positive), with $0$ indicating no linear relationship.
+
+<img src="../img/distributions_with_Q.png" alt="Distribution with quartiles" width="auto" height="500px" >
 
 Key terms related to descriptive statistics include:
 
 - *Bell curve/normal distribution/gaussian distribution*: a symmetric, bell-shaped distribution that is characterized by its mean and standard deviation. It is often used to model real-world phenomena, such as heights, weights, and test scores.
 - *Tail*: the part of a distribution that extends beyond the central part. It can be used to describe the shape of a distribution, such as whether it is skewed or symmetric.
 - *Asymptodes*: line that never touches x-axis unless or untill it reaches infinity.
+- *5 member summary*: a set of five values that summarize a dataset: minimum, first quartile (Q1), median (Q2), third quartile (Q3), and maximum. It provides a quick overview of the distribution and spread of the data.
+- *Box plot & wisher plot* : offers a graphical representation of the 5 member summary
 
+---
+
+## Variance vs Coefficient of Variation
+
+ **Variance** measures the average squared deviation from the mean — it tells you how spread out the data is, but in **squared units** (e.g., cm²), making it hard to interpret directly or compare across datasets with different scales.
+
+**Coefficient of Variation (CV)** divides the standard deviation by the mean and expresses it as a **percentage** — it's _unitless_, so you can compare variability across completely different datasets.
+
+| Aspect                | Variance ($\sigma^2$ / $s^2$)         | Coefficient of Variation ($CV$)            |
+| :-------------------- | :------------------------------------ | :----------------------------------------- |
+| **What it measures**  | Absolute spread around the mean       | Relative spread as a % of the mean         |
+| **Units**             | Squared units (e.g., cm², $²)         | Unitless (percentage)                      |
+| **Formula**           | $\frac{\sum(x_i - \bar{x})^2}{n}$     | $\frac{\sigma}{\mu} \times 100\%$          |
+| **Use case**          | How spread out one dataset is         | Comparing spread across different datasets |
+| **Example**           | Heights variance = 25 cm²             | Heights CV = 2.9%, Weights CV = 14%        |
+| **Depends on scale?** | Yes — larger values → larger variance | No — normalized by the mean                |
+
+**Key insight:** Two datasets can have the **same variance** but very different CVs — and vice versa.
+
+> Example: Dataset A (mean = 1000, SD = 10) and Dataset B (mean = 10, SD = 10) have the **same** SD/variance, but CV_A = 1% vs CV_B = 100%. Dataset B is far more relatively variable.
+
+In short: variance tells you "how much spread" in absolute terms; CV tells you "how much spread _relative to the size of the values_."
 
 ---
 
@@ -930,9 +981,9 @@ The standard deviation is the square root of the variance, expressed in the same
 
 **Empirical Rule (68-95-99.7)** for normal distributions:
 ```
-                     ┌─── 99.7% ───┐
-                  ┌──┤── 95% ──├──┐
-               ┌──┤  ├── 68% ──┤  ├──┐
+               ┌──────── 99.7% ──────┐
+               │  ┌───── 95% ─────┐  │
+               │  │  ┌── 68% ──┐  │  │
                │  │  │    ██   │  │  │
                │  │  │   ████  │  │  │
                │  │  │  ██████ │  │  │
@@ -1038,12 +1089,549 @@ Where:
 >
 > $$\boxed{s = 5}$$
 
+---
+
+## Relative Measures
+
+### 9. Coefficient of Variation (CV)
+
+The **Coefficient of Variation (CV)** expresses the standard deviation as a percentage of the mean. It is a _unitless_ measure, which makes it ideal for comparing the variability of datasets that have different units or vastly different means.
+
+```
+  Dataset A (heights in cm):        Dataset B (weights in kg):
+  Mean = 170,  SD = 10              Mean = 70,  SD = 10
+
+      SD           SD
+  ├────────┤   ├────────┤
+  ──────┼──────   ──────┼──────
+       170             70
+
+  CV = 10/170 = 5.9%   CV = 10/70 = 14.3%
+
+  Same SD, but Dataset B has MORE relative variability.
+```
+
+#### Real-World Use Cases
+- **Finance**: Comparing the risk (volatility) of two investments — a stock with mean return \$100 and SD \$15 (CV = 15%) is less relatively volatile than one with mean \$20 and SD \$5 (CV = 25%).
+- **Manufacturing**: Comparing consistency of two production lines that produce items of different sizes.
+- **Science**: Comparing measurement precision across experiments with different scales (e.g., measuring insect lengths in mm vs whale lengths in m).
+- **Advantage over SD**: Standard deviation alone can be misleading when comparing datasets with very different means — CV normalizes the spread.
+- **Limitation**: Undefined or misleading when the mean is zero or near zero.
+
+#### Steps
+1. Calculate the mean ($\bar{x}$ or $\mu$) of the dataset.
+2. Calculate the standard deviation ($s$ or $\sigma$) of the dataset.
+3. Divide the standard deviation by the mean.
+4. Multiply by 100 to express as a percentage.
+
+#### Formula
+
+$$
+CV = \frac{\sigma}{\mu} \times 100\%
+$$
+
+(For a sample, replace $\sigma$ with $s$ and $\mu$ with $\bar{x}$.)
+
+Where:
+|  Symbol   | Pronunciation       | Meaning                                                 |
+| :-------: | :------------------ | :------------------------------------------------------ |
+|   $CV$    | "C-V"               | The coefficient of variation, expressed as a percentage |
+| $\sigma$  | "sigma"             | The population standard deviation                       |
+|   $\mu$   | "mu"                | The population mean                                     |
+|    $s$    | "s"                 | The sample standard deviation                           |
+| $\bar{x}$ | "x bar"             | The sample mean                                         |
+|  $100\%$  | "times 100 percent" | Converts the ratio to a percentage                      |
+
+#### Examples
+
+**Example 1:** The test scores of a class have a mean of $80$ and a standard deviation of $12$. Find the CV.
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $\bar{x} = 80$ | The mean test score |
+> | $s = 12$ | The standard deviation of test scores |
+> | Find: $CV$ | The coefficient of variation (as a percentage) |
+>
+> **Step 1:** Write down the formula.
+>
+> $$CV = \frac{s}{\bar{x}} \times 100\%$$
+>
+> **Step 2:** Identify the values.
+>
+> $$s = 12, \quad \bar{x} = 80$$
+>
+> **Step 3:** Substitute into the formula.
+>
+> $$CV = \frac{12}{80} \times 100\%$$
+>
+> **Step 4:** Simplify.
+>
+> $$CV = 0.15 \times 100\%$$
+>
+> $$\boxed{CV = 15\%}$$
+
+**Example 2:** Compare two datasets — Dataset A has mean $50$ and SD $5$; Dataset B has mean $200$ and SD $10$. Which has more relative variability?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | Dataset A: $\bar{x}_A = 50$, $s_A = 5$ | Mean and SD of Dataset A |
+> | Dataset B: $\bar{x}_B = 200$, $s_B = 10$ | Mean and SD of Dataset B |
+> | Find: $CV_A$ and $CV_B$ | Which dataset is more relatively variable? |
+>
+> **Step 1:** Write down the formula.
+>
+> $$CV = \frac{s}{\bar{x}} \times 100\%$$
+>
+> **Step 2:** Calculate $CV_A$.
+>
+> $$CV_A = \frac{5}{50} \times 100\% = 0.10 \times 100\% = 10\%$$
+>
+> **Step 3:** Calculate $CV_B$.
+>
+> $$CV_B = \frac{10}{200} \times 100\% = 0.05 \times 100\% = 5\%$$
+>
+> **Step 4:** Compare.
+>
+> $$CV_A = 10\% > CV_B = 5\%$$
+>
+> $$\boxed{\text{Dataset A has more relative variability (CV = 10\% vs 5\%)}}$$
+>
+> **Note:** Even though Dataset B has a larger SD ($10 > 5$), Dataset A is more relatively spread out when compared to its own mean.
 
 ---
+
+## Distribution Rules
+
+### 10. Empirical Rule (68-95-99.7 Rule)
+
+The **Empirical Rule** (also called the _68-95-99.7 rule_ or the _three-sigma rule_) applies **only to normal (bell-shaped) distributions**. It states what percentage of data falls within 1, 2, and 3 standard deviations of the mean.
+
+```
+               ┌────────── 99.7% ────────┐
+               │  ┌─────── 95% ───────┐  │
+               │  │  ┌──── 68% ────┐  │  │
+               │  │  │      ██     │  │  │
+               │  │  │     ████    │  │  │
+               │  │  │    ██████   │  │  │
+               │  │  │   ████████  │  │  │
+  ◄────────────┼──┼──┼──────┼──────┼──┼──┼────────────►
+             -3σ -2σ -1σ    x̄    +1σ +2σ +3σ
+
+  Within ±1σ :  ~68%   of the data
+  Within ±2σ :  ~95%   of the data
+  Within ±3σ :  ~99.7% of the data
+```
+
+#### Real-World Use Cases
+- **Quality Control (Six Sigma)**: Manufacturing uses the 3σ rule — if a product measurement falls beyond 3σ from the mean, it is treated as a defect.
+- **Healthcare**: Lab test results are often reported with reference ranges based on ±2σ — values outside this range are flagged as abnormal.
+- **Finance**: Stock returns are often assumed to be normally distributed; the rule helps estimate the probability of extreme price movements.
+- **Education**: Grading on a curve — assigning letter grades based on how many standard deviations a score is from the class mean.
+- **Limitation**: Only valid for **normal distributions** — applying it to skewed or multimodal data will give incorrect estimates.
+
+#### Steps
+1. Verify the dataset follows a **normal (bell-shaped) distribution**.
+2. Calculate the mean ($\bar{x}$ or $\mu$) and standard deviation ($s$ or $\sigma$).
+3. Compute the intervals: $\mu \pm 1\sigma$, $\mu \pm 2\sigma$, $\mu \pm 3\sigma$.
+4. State the percentages: ~68%, ~95%, ~99.7% of data falls within those intervals.
+
+#### Formula
+
+$$
+\begin{aligned}
+\mu \pm 1\sigma &\Rightarrow \text{~68\% of data} \\
+\mu \pm 2\sigma &\Rightarrow \text{~95\% of data} \\
+\mu \pm 3\sigma &\Rightarrow \text{~99.7\% of data}
+\end{aligned}
+$$
+
+Where:
+|           Symbol            | Pronunciation         | Meaning                                              |
+| :-------------------------: | :-------------------- | :--------------------------------------------------- |
+|            $\mu$            | "mu"                  | The population mean (center of the distribution)     |
+|          $\sigma$           | "sigma"               | The population standard deviation                    |
+|            $\pm$            | "plus or minus"       | Both directions from the mean (left and right)       |
+| $1\sigma, 2\sigma, 3\sigma$ | "one/two/three sigma" | One, two, or three standard deviations from the mean |
+
+#### Examples
+
+**Example 1:** The heights of students are normally distributed with mean $\mu = 170$ cm and standard deviation $\sigma = 5$ cm. What range contains approximately 95% of the students?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $\mu = 170$ cm | The mean height |
+> | $\sigma = 5$ cm | The standard deviation of heights |
+> | Distribution: Normal | Empirical Rule applies |
+> | Find: Range for ~95% | The interval within 2 standard deviations |
+>
+> **Step 1:** Write down the rule.
+>
+> $$\mu \pm 2\sigma \Rightarrow \text{~95\% of data}$$
+>
+> **Step 2:** Identify the values.
+>
+> $$\mu = 170, \quad \sigma = 5$$
+>
+> **Step 3:** Calculate the lower bound.
+>
+> $$\mu - 2\sigma = 170 - 2(5) = 170 - 10 = 160$$
+>
+> **Step 4:** Calculate the upper bound.
+>
+> $$\mu + 2\sigma = 170 + 2(5) = 170 + 10 = 180$$
+>
+> **Step 5:** State the result.
+>
+> $$\boxed{\text{~95\% of students are between 160 cm and 180 cm}}$$
+
+**Example 2:** Exam scores are normally distributed with $\mu = 75$ and $\sigma = 8$. What percentage of students scored between $67$ and $83$?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $\mu = 75$ | The mean exam score |
+> | $\sigma = 8$ | The standard deviation of exam scores |
+> | Lower bound $= 67$ | The lower end of the range |
+> | Upper bound $= 83$ | The upper end of the range |
+> | Find: Percentage | What % of students fall in this range? |
+>
+> **Step 1:** Check how many standard deviations each bound is from the mean.
+>
+> $$\frac{67 - 75}{8} = \frac{-8}{8} = -1\sigma$$
+>
+> $$\frac{83 - 75}{8} = \frac{8}{8} = +1\sigma$$
+>
+> **Step 2:** The range $[67, 83]$ corresponds to $\mu \pm 1\sigma$.
+>
+> **Step 3:** Apply the Empirical Rule.
+>
+> $$\mu \pm 1\sigma \Rightarrow \text{~68\% of data}$$
+>
+> $$\boxed{\text{~68\% of students scored between 67 and 83}}$$
+
+---
+
+### 11. Chebyshev's Theorem
+
+**Chebyshev's Theorem** (also called _Chebyshev's Inequality_) applies to **any distribution**, regardless of shape. It provides a **minimum guarantee** for the proportion of data that falls within $k$ standard deviations of the mean.
+
+```
+  For ANY distribution shape:
+
+  ┌──────────────────────────────────────────┐
+  │                                          │
+  │   Skewed? ✓   Bimodal? ✓   Normal? ✓     │
+  │                                          │
+  │   At least (1 - 1/k²) of data is         │
+  │   within k standard deviations           │
+  │                                          │
+  ├─────────────────┬────────────────────────┤
+  │   k = 2         │   At least 75%         │
+  │   k = 3         │   At least 88.9%       │
+  │   k = 4         │   At least 93.75%      │
+  └─────────────────┴────────────────────────┘
+
+  Compare to Empirical Rule (normal only):
+  k = 2 → 95%  vs  Chebyshev → ≥75%
+  k = 3 → 99.7% vs Chebyshev → ≥88.9%
+
+  Chebyshev is more conservative but always valid.
+```
+
+#### Real-World Use Cases
+- **Non-Normal Data**: When data is skewed (e.g., income distributions, insurance claims), the Empirical Rule doesn't apply — Chebyshev's Theorem provides a guaranteed lower bound.
+- **Risk Management**: In finance, returns are often _not_ normally distributed; Chebyshev's gives a worst-case estimate for how much data lies near the mean.
+- **Quality Assurance**: Even without knowing the exact distribution, a factory can guarantee that at least 75% of products fall within 2 SDs of the target measurement.
+- **Advantage over Empirical Rule**: Works for **any** shape of distribution — not limited to bell curves.
+- **Limitation**: Provides only a **minimum bound** — actual percentages are often higher, making it less precise than the Empirical Rule for normal data.
+
+#### Steps
+1. Identify the mean ($\mu$ or $\bar{x}$) and standard deviation ($\sigma$ or $s$).
+2. Determine $k$ — the number of standard deviations from the mean.
+3. Substitute $k$ into Chebyshev's formula: $1 - \frac{1}{k^2}$.
+4. Multiply by 100% to express the result as a minimum percentage.
+
+#### Formula
+
+$$
+\text{At least } \left(1 - \frac{1}{k^2}\right) \text{ of data falls within } k \text{ standard deviations of the mean}
+$$
+
+Equivalently, the interval is $\mu \pm k\sigma$.
+
+Where:
+|       Symbol        | Pronunciation                  | Meaning                                                              |
+| :-----------------: | :----------------------------- | :------------------------------------------------------------------- |
+|         $k$         | "k"                            | The number of standard deviations from the mean ($k > 1$)            |
+|        $k^2$        | "k squared"                    | $k$ multiplied by itself                                             |
+|   $\frac{1}{k^2}$   | "one over k squared"           | The maximum proportion of data that can lie **outside** the interval |
+| $1 - \frac{1}{k^2}$ | "one minus one over k squared" | The minimum proportion of data **within** the interval               |
+|        $\mu$        | "mu"                           | The mean of the dataset                                              |
+|      $\sigma$       | "sigma"                        | The standard deviation                                               |
+
+#### Examples
+
+**Example 1:** A dataset has $\mu = 50$ and $\sigma = 10$. At least what percentage of data falls within 2 standard deviations of the mean?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $\mu = 50$ | The mean of the dataset |
+> | $\sigma = 10$ | The standard deviation |
+> | $k = 2$ | Number of standard deviations |
+> | Find: Minimum % within $\mu \pm 2\sigma$ | The guaranteed proportion of data in this interval |
+>
+> **Step 1:** Write down Chebyshev's formula.
+>
+> $$1 - \frac{1}{k^2}$$
+>
+> **Step 2:** Substitute $k = 2$.
+>
+> $$1 - \frac{1}{2^2} = 1 - \frac{1}{4}$$
+>
+> **Step 3:** Simplify.
+>
+> $$1 - 0.25 = 0.75$$
+>
+> **Step 4:** Convert to percentage.
+>
+> $$0.75 \times 100\% = 75\%$$
+>
+> **Step 5:** State the interval.
+>
+> $$\mu \pm 2\sigma = 50 \pm 2(10) = 50 \pm 20 = [30, 70]$$
+>
+> $$\boxed{\text{At least 75\% of data falls between 30 and 70}}$$
+
+**Example 2:** A dataset has $\mu = 100$ and $\sigma = 15$. At least what percentage of data falls within 3 standard deviations of the mean?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $\mu = 100$ | The mean of the dataset |
+> | $\sigma = 15$ | The standard deviation |
+> | $k = 3$ | Number of standard deviations |
+> | Find: Minimum % within $\mu \pm 3\sigma$ | The guaranteed proportion of data in this interval |
+>
+> **Step 1:** Write down Chebyshev's formula.
+>
+> $$1 - \frac{1}{k^2}$$
+>
+> **Step 2:** Substitute $k = 3$.
+>
+> $$1 - \frac{1}{3^2} = 1 - \frac{1}{9}$$
+>
+> **Step 3:** Simplify.
+>
+> $$1 - 0.\overline{1} = 0.\overline{8}$$
+>
+> $$\approx 0.8889$$
+>
+> **Step 4:** Convert to percentage.
+>
+> $$0.8889 \times 100\% \approx 88.9\%$$
+>
+> **Step 5:** State the interval.
+>
+> $$\mu \pm 3\sigma = 100 \pm 3(15) = 100 \pm 45 = [55, 145]$$
+>
+> $$\boxed{\text{At least 88.9\% of data falls between 55 and 145}}$$
+
+---
+
+## Measures of Relationship
+
+### 12. Correlation
+
+**Correlation** measures the **strength and direction** of the linear relationship between two variables ($x$ and $y$). The most common measure is the _Pearson correlation coefficient_ ($r$), which ranges from $-1$ to $+1$.
+
+```
+  r = +1 (Perfect Positive)    r = 0 (No Correlation)     r = -1 (Perfect Negative)
+
+        ●                          ●   ●                              ●
+       ●                        ●         ●                            ●
+      ●                           ●  ●                                  ●
+     ●                         ●      ●                                  ●
+    ●                             ●  ●                                    ●
+
+  As x ↑, y ↑                 No pattern                   As x ↑, y ↓
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  -1         -0.5          0          +0.5          +1          │
+  │   ├──────────┼────────────┼────────────┼──────────┤            │
+  │   Strong     Moderate     None        Moderate    Strong       │
+  │   Negative   Negative                 Positive    Positive     │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+#### Real-World Use Cases
+- **Finance**: Measuring the correlation between two stock prices to build a diversified portfolio — low or negative correlation reduces risk.
+- **Healthcare**: Studying the correlation between exercise duration and blood pressure to understand treatment effectiveness.
+- **Education**: Analyzing the correlation between study hours and exam scores to identify effective learning patterns.
+- **Marketing**: Measuring the correlation between advertising spend and sales revenue.
+- **Limitation**: Correlation does **not** imply causation — two variables can be highly correlated without one causing the other (e.g., ice cream sales and drowning rates both rise in summer).
+- **Limitation**: Only captures **linear** relationships — two variables can have a strong non-linear relationship with $r \approx 0$.
+
+#### Steps
+1. Collect paired data $(x_i, y_i)$ for $n$ observations.
+2. Calculate the mean of $x$ ($\bar{x}$) and the mean of $y$ ($\bar{y}$).
+3. Compute each deviation: $(x_i - \bar{x})$ and $(y_i - \bar{y})$.
+4. Calculate the numerator: $\sum (x_i - \bar{x})(y_i - \bar{y})$.
+5. Calculate the denominator: $\sqrt{\sum(x_i - \bar{x})^2 \cdot \sum(y_i - \bar{y})^2}$.
+6. Divide the numerator by the denominator to get $r$.
+
+#### Formula
+
+$$
+r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \sum_{i=1}^{n}(y_i - \bar{y})^2}}
+$$
+
+Where:
+|              Symbol              | Pronunciation                   | Meaning                                                            |
+| :------------------------------: | :------------------------------ | :----------------------------------------------------------------- |
+|               $r$                | "r" / "Pearson's r"             | The Pearson correlation coefficient ($-1 \leq r \leq +1$)          |
+|              $x_i$               | "x sub i"                       | The $i$-th value of variable $x$                                   |
+|              $y_i$               | "y sub i"                       | The $i$-th value of variable $y$                                   |
+|            $\bar{x}$             | "x bar"                         | The mean of all $x$ values                                         |
+|            $\bar{y}$             | "y bar"                         | The mean of all $y$ values                                         |
+| $(x_i - \bar{x})(y_i - \bar{y})$ | "x deviation times y deviation" | The product of deviations — measures how $x$ and $y$ move together |
+|               $n$                | "n"                             | The number of paired observations                                  |
+|       $\sqrt{\phantom{x}}$       | "square root of"                | The principal (positive) square root                               |
+
+#### Examples
+
+**Example 1:** Calculate the correlation coefficient for the dataset:
+
+|  $x$  |  $y$  |
+| :---: | :---: |
+|   1   |   2   |
+|   2   |   4   |
+|   3   |   5   |
+|   4   |   4   |
+|   5   |   5   |
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | Paired data: $(1,2), (2,4), (3,5), (4,4), (5,5)$ | Five paired observations |
+> | $n = 5$ | Total number of pairs |
+> | Find: $r$ | The Pearson correlation coefficient |
+>
+> **Step 1:** Write down the formula.
+>
+> $$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2 \cdot \sum(y_i - \bar{y})^2}}$$
+>
+> **Step 2:** Calculate the means.
+>
+> $$\bar{x} = \frac{1+2+3+4+5}{5} = \frac{15}{5} = 3$$
+>
+> $$\bar{y} = \frac{2+4+5+4+5}{5} = \frac{20}{5} = 4$$
+>
+> **Step 3:** Compute deviations and their products.
+>
+> | $x_i$ | $y_i$ | $x_i - \bar{x}$ | $y_i - \bar{y}$ | $(x_i-\bar{x})(y_i-\bar{y})$ | $(x_i-\bar{x})^2$ | $(y_i-\bar{y})^2$ |
+> |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+> | 1 | 2 | $-2$ | $-2$ | $4$ | $4$ | $4$ |
+> | 2 | 4 | $-1$ | $0$ | $0$ | $1$ | $0$ |
+> | 3 | 5 | $0$ | $1$ | $0$ | $0$ | $1$ |
+> | 4 | 4 | $1$ | $0$ | $0$ | $1$ | $0$ |
+> | 5 | 5 | $2$ | $1$ | $2$ | $4$ | $1$ |
+>
+> **Step 4:** Sum the columns.
+>
+> $$\sum(x_i-\bar{x})(y_i-\bar{y}) = 4+0+0+0+2 = 6$$
+>
+> $$\sum(x_i-\bar{x})^2 = 4+1+0+1+4 = 10$$
+>
+> $$\sum(y_i-\bar{y})^2 = 4+0+1+0+1 = 6$$
+>
+> **Step 5:** Substitute into the formula.
+>
+> $$r = \frac{6}{\sqrt{10 \times 6}} = \frac{6}{\sqrt{60}}$$
+>
+> **Step 6:** Simplify.
+>
+> $$\sqrt{60} = \sqrt{4 \times 15} = 2\sqrt{15} \approx 7.746$$
+>
+> $$r = \frac{6}{7.746} \approx 0.7746$$
+>
+> $$\boxed{r \approx 0.77 \text{ (strong positive correlation)}}$$
+
+**Example 2:** Calculate the correlation coefficient for the dataset:
+
+|  $x$  |  $y$  |
+| :---: | :---: |
+|   1   |  10   |
+|   2   |   8   |
+|   3   |   6   |
+|   4   |   4   |
+|   5   |   2   |
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | Paired data: $(1,10), (2,8), (3,6), (4,4), (5,2)$ | Five paired observations |
+> | $n = 5$ | Total number of pairs |
+> | Find: $r$ | The Pearson correlation coefficient |
+>
+> **Step 1:** Write down the formula.
+>
+> $$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2 \cdot \sum(y_i - \bar{y})^2}}$$
+>
+> **Step 2:** Calculate the means.
+>
+> $$\bar{x} = \frac{1+2+3+4+5}{5} = \frac{15}{5} = 3$$
+>
+> $$\bar{y} = \frac{10+8+6+4+2}{5} = \frac{30}{5} = 6$$
+>
+> **Step 3:** Compute deviations and their products.
+>
+> | $x_i$ | $y_i$ | $x_i - \bar{x}$ | $y_i - \bar{y}$ | $(x_i-\bar{x})(y_i-\bar{y})$ | $(x_i-\bar{x})^2$ | $(y_i-\bar{y})^2$ |
+> |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+> | 1 | 10 | $-2$ | $4$ | $-8$ | $4$ | $16$ |
+> | 2 | 8 | $-1$ | $2$ | $-2$ | $1$ | $4$ |
+> | 3 | 6 | $0$ | $0$ | $0$ | $0$ | $0$ |
+> | 4 | 4 | $1$ | $-2$ | $-2$ | $1$ | $4$ |
+> | 5 | 2 | $2$ | $-4$ | $-8$ | $4$ | $16$ |
+>
+> **Step 4:** Sum the columns.
+>
+> $$\sum(x_i-\bar{x})(y_i-\bar{y}) = -8+(-2)+0+(-2)+(-8) = -20$$
+>
+> $$\sum(x_i-\bar{x})^2 = 4+1+0+1+4 = 10$$
+>
+> $$\sum(y_i-\bar{y})^2 = 16+4+0+4+16 = 40$$
+>
+> **Step 5:** Substitute into the formula.
+>
+> $$r = \frac{-20}{\sqrt{10 \times 40}} = \frac{-20}{\sqrt{400}}$$
+>
+> **Step 6:** Simplify.
+>
+> $$\sqrt{400} = 20$$
+>
+> $$r = \frac{-20}{20}$$
+>
+> $$\boxed{r = -1 \text{ (perfect negative correlation)}}$$
+
+
+---
+
 
 <p align="left">
   <a href="./data.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./x.md"><b>Next →</b></a>
+    <a href="./visualization.md"><b>Next →</b></a>
   </span>
 </p>
