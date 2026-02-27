@@ -84,7 +84,6 @@ Where:
 - _Complementary Event_ ($A'$): The probability that an event does **not** occur: $P(A') = 1 - P(A)$.
 - _Independent Events_: The outcome of one event does not affect the other (e.g., tossing two separate coins).
 - _Dependent Events_: The outcome of one event affects the likelihood of the next (e.g., drawing cards without replacement).
-
 #### Examples
 
 **Example 1** — Drawing a marble from a bag

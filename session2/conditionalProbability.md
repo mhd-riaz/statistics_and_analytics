@@ -1,17 +1,22 @@
 <p align="left">
-  <a href="./events.md"><b>← Previous</b></a>
+  <a href="./theorems.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./theorems.md"><b>Next →</b></a>
+    <a href="./randomVariables.md"><b>Next →</b></a>
   </span>
 </p>
 
-# Conditional Probability & Bayes' Theorem
+# Conditional Probability, Law of Total Probability & Bayes' Theorem
 
 ```
-Conditional Probability & Bayes' Theorem
+Conditional Probability, Law of Total Probability & Bayes' Theorem
 ├── Conditional Probability
 │   ├── Definition & Intuition
 │   ├── Formula: P(A|B)
+│   └── Worked Examples
+│
+├── Law of Total Probability
+│   ├── Definition & Intuition
+│   ├── Formula: P(B) = Σ P(B|Aᵢ)·P(Aᵢ)
 │   └── Worked Examples
 │
 └── Bayes' Theorem
@@ -169,7 +174,149 @@ You draw one card from a standard 52-card deck. You are told the card is a **fac
 
 ---
 
-## 2. Bayes' Theorem
+## 2. Law of Total Probability
+
+The **Law of Total Probability** answers the question: **"What is the overall chance of something happening?"** when that something can happen through **multiple different paths**.
+
+**Analogy:** Imagine you want to know: "What's the chance I eat pizza today?" But your day can go two ways — you either **go to the office** or **work from home**. Each path has a different chance of pizza:
+- If you go to the office (60% of days), there's a 30% chance you eat pizza (cafeteria has it).
+- If you work from home (40% of days), there's a 10% chance you eat pizza (you'd have to order it).
+
+The Law of Total Probability says: **add up the pizza chances from each path**:
+- Office path: $0.60 \times 0.30 = 0.18$
+- Home path: $0.40 \times 0.10 = 0.04$
+- **Total**: $0.18 + 0.04 = 0.22$ → **22% chance of pizza today**
+
+That's it — **split into paths, calculate each, add them up**.
+
+```
+  The sample space S is split into non-overlapping slices:
+
+  ┌──────────┬──────────┬──────────┬──────────┐
+  │    A₁    │    A₂    │    A₃    │   ...Aₙ  │   ← Partition of S
+  │          │          │          │          │     (mutually exclusive
+  │  B ∩ A₁  │  B ∩ A₂  │  B ∩ A₃  │  B ∩ Aₙ  │      & exhaustive)
+  └──────────┴──────────┴──────────┴──────────┘
+
+  P(B) = P(B ∩ A₁) + P(B ∩ A₂) + P(B ∩ A₃) + ... + P(B ∩ Aₙ)
+       = P(B|A₁)·P(A₁) + P(B|A₂)·P(A₂) + ... + P(B|Aₙ)·P(Aₙ)
+
+  Each slice contributes its share of B to the total.
+```
+
+#### Real-World Use Cases
+
+- **Medical Testing**: Calculating the overall probability of testing positive by splitting patients into "has disease" and "no disease" groups.
+- **Manufacturing**: Finding the total defect rate when products come from multiple machines, each with its own defect rate.
+- **Marketing**: Estimating total customer conversion rate across different age groups, each with a different likelihood of purchasing.
+- **Insurance**: Determining overall claim probability by partitioning policyholders into risk categories (low, medium, high).
+- **Advantage**: Essential stepping stone for **Bayes' Theorem** — you almost always need the Law of Total Probability to calculate the denominator $P(B)$.
+
+#### Steps
+
+1. Identify the event $B$ whose total probability you want to find.
+2. Partition the sample space into **mutually exclusive and exhaustive** events $A_1, A_2, \dots, A_n$.
+3. For each partition $A_i$, determine $P(A_i)$ and $P(B|A_i)$.
+4. Multiply: $P(B|A_i) \cdot P(A_i)$ for each $i$.
+5. Sum all the products: $P(B) = \sum_{i=1}^{n} P(B|A_i) \cdot P(A_i)$.
+
+#### Formula
+
+$$
+P(B) = \sum_{i=1}^{n} P(B|A_i) \cdot P(A_i)
+$$
+
+Or equivalently:
+
+$$
+P(B) = P(B|A_1) \cdot P(A_1) + P(B|A_2) \cdot P(A_2) + \dots + P(B|A_n) \cdot P(A_n)
+$$
+
+Where:
+
+|         Symbol         | Pronunciation             | Meaning                                                       |
+| :--------------------: | :------------------------ | :------------------------------------------------------------ |
+|         $P(B)$         | "P of B"                  | The total probability of event B across all scenarios         |
+| $A_1, A_2, \dots, A_n$ | "A sub 1 through A sub n" | A partition — mutually exclusive events that cover all of $S$ |
+|        $P(A_i)$        | "P of A sub i"            | The probability of the i-th partition (scenario)              |
+|    $P(B \mid A_i)$     | "P of B given A sub i"    | The probability of B occurring within the i-th scenario       |
+|          $n$           | "n"                       | The number of partitions (scenarios)                          |
+
+> **Key requirement:** The events $A_1, A_2, \dots, A_n$ must be:
+> - **Mutually exclusive**: $A_i \cap A_j = \emptyset$ for all $i \neq j$ (no overlap).
+> - **Exhaustive**: $A_1 \cup A_2 \cup \dots \cup A_n = S$ (they cover every possibility).
+
+#### Examples
+
+**Example 1** — Factory machines
+
+A factory has **two machines**. Machine A produces **60%** of all items and Machine B produces **40%**. Machine A has a **3% defect rate** and Machine B has a **5% defect rate**. What is the overall probability that a randomly selected item is defective?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $P(A) = 0.60$ | Probability item came from Machine A |
+> | $P(B_{\text{machine}}) = 0.40$ | Probability item came from Machine B |
+> | $P(\text{Defect} \mid A) = 0.03$ | Defect rate for Machine A |
+> | $P(\text{Defect} \mid B_{\text{machine}}) = 0.05$ | Defect rate for Machine B |
+> | Find: $P(\text{Defect})$ | Overall probability of a defective item |
+
+> **Step 1:** Write down the Law of Total Probability.
+>
+> $$P(\text{Defect}) = P(\text{Defect}|A) \cdot P(A) + P(\text{Defect}|B_{\text{machine}}) \cdot P(B_{\text{machine}})$$
+>
+> **Step 2:** Substitute the values.
+>
+> $$P(\text{Defect}) = (0.03 \times 0.60) + (0.05 \times 0.40)$$
+>
+> **Step 3:** Multiply each pair.
+>
+> $$P(\text{Defect}) = 0.018 + 0.020$$
+>
+> **Step 4:** Add.
+>
+> $$\boxed{P(\text{Defect}) = 0.038 \text{ or } 3.8\%}$$
+>
+> Even though Machine B has a higher defect rate (5% vs. 3%), Machine A produces more items, so it still contributes meaningfully to the overall defect count.
+
+**Example 2** — Transportation to work
+
+An employee gets to work by **car (50%)**, **bus (30%)**, or **bicycle (20%)**. The probability of being late is **5% by car**, **15% by bus**, and **2% by bicycle**. What is the overall probability the employee is late on any given day?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $P(\text{Car}) = 0.50$ | Probability of taking a car |
+> | $P(\text{Bus}) = 0.30$ | Probability of taking the bus |
+> | $P(\text{Bike}) = 0.20$ | Probability of cycling |
+> | $P(\text{Late} \mid \text{Car}) = 0.05$ | Probability of being late by car |
+> | $P(\text{Late} \mid \text{Bus}) = 0.15$ | Probability of being late by bus |
+> | $P(\text{Late} \mid \text{Bike}) = 0.02$ | Probability of being late by bicycle |
+> | Find: $P(\text{Late})$ | Overall probability of being late |
+
+> **Step 1:** Write down the Law of Total Probability.
+>
+> $$P(\text{Late}) = P(\text{Late}|\text{Car}) \cdot P(\text{Car}) + P(\text{Late}|\text{Bus}) \cdot P(\text{Bus}) + P(\text{Late}|\text{Bike}) \cdot P(\text{Bike})$$
+>
+> **Step 2:** Substitute the values.
+>
+> $$P(\text{Late}) = (0.05 \times 0.50) + (0.15 \times 0.30) + (0.02 \times 0.20)$$
+>
+> **Step 3:** Multiply each pair.
+>
+> $$P(\text{Late}) = 0.025 + 0.045 + 0.004$$
+>
+> **Step 4:** Add.
+>
+> $$\boxed{P(\text{Late}) = 0.074 \text{ or } 7.4\%}$$
+>
+> The bus contributes the most to the lateness probability (0.045 out of 0.074) despite only being used 30% of the time — because its lateness rate is much higher than the other options.
+
+---
+
+## 3. Bayes' Theorem
 
 **Bayes' Theorem** is a formula that **reverses** a conditional probability. It lets you go from knowing $P(B|A)$ (how likely is the evidence given the hypothesis) to finding $P(A|B)$ (how likely is the hypothesis given the evidence). It is the foundation of _Bayesian statistics_, allowing us to **update** our beliefs as new data arrives.
 
@@ -315,8 +462,8 @@ A disease affects **1 in 1,000 people** ($0.1\%$). A test for the disease is **9
 ---
 
 <p align="left">
-  <a href="./events.md"><b>← Previous</b></a>
+  <a href="./theorems.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./theorems.md"><b>Next →</b></a>
+    <a href="./randomVariables.md"><b>Next →</b></a>
   </span>
 </p>

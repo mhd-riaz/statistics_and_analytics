@@ -1,7 +1,7 @@
 <p align="left">
   <a href="./Probability.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./conditionalProbability.md"><b>Next →</b></a>
+    <a href="./theorems.md"><b>Next →</b></a>
   </span>
 </p>
 
@@ -312,6 +312,6 @@ You draw **one card** from a standard 52-card deck. Let $A$ = drawing a King and
 <p align="left">
   <a href="./Probability.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./conditionalProbability.md"><b>Next →</b></a>
+    <a href="./theorems.md"><b>Next →</b></a>
   </span>
 </p>

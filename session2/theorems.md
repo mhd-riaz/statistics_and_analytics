@@ -1,217 +1,336 @@
-# Bayes' Theorem
+<p align="left">
+  <a href="./events.md"><b>← Previous</b></a>
+  <span style="float:right">
+    <a href="./conditionalProbability.md"><b>Next →</b></a>
+  </span>
+</p>
 
-## Definition
-**Bayes' Theorem** is a mathematical formula used to determine the **conditional probability** of an event based on prior knowledge of conditions that might be related to the event. In simpler terms, it provides a way to update the probability of a hypothesis as more evidence or information becomes available. It is the foundation of Bayesian statistics, allowing us to move from "What is the probability of the evidence given a hypothesis?" to "What is the probability of the hypothesis given the evidence?"
+# Probability Theorems
 
-## Formula
-$$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
-
-**Explanation of formula**:
-- **$P(A|B)$ (Posterior)**: The probability of event $A$ occurring given that $B$ has already occurred. This is what we want to find.
-- **$P(B|A)$ (Likelihood)**: The probability of event $B$ occurring given that $A$ is true.
-- **$P(A)$ (Prior)**: The initial probability of event $A$ before considering the new evidence $B$.
-- **$P(B)$ (Evidence)**: The total probability of event $B$ occurring under all possible scenarios.
-
-**Key concepts**:
-- **Conditional Probability**: The likelihood of an event happening based on the occurrence of a previous event.
-- **Prior Probability**: What you believed before seeing the new data.
-- **Posterior Probability**: Your updated belief after seeing the new data.
-- **Evidence**: The data or observation that triggers the update of your belief.
+```
+Probability Theorems
+├── Addition Theorem (OR Rule)
+│   ├── Definition & Intuition
+│   ├── Formula: P(A ∪ B)
+│   ├── Special Case: Disjoint Events
+│   └── Worked Examples
+│
+└── Multiplication Theorem (AND Rule)
+    ├── Definition & Intuition
+    ├── Formula: P(A ∩ B)
+    ├── Special Case: Independent Events
+    └── Worked Examples
+```
 
 ---
 
-## Example
-Imagine you are at a school where **40% of the students are boys** and **60% are girls**. 
-- All the **boys wear pants**.
-- Half of the **girls wear pants** (50%) and the other half wear skirts.
-
-If you see a student from a distance wearing **pants**, what is the probability that the student is a **girl**?
-
-
-
-### Step-by-Step Solution:
-
-**1. Identify the known values:**
-* $P(Girl)$ (Prior): $0.60$
-* $P(Boy)$: $0.40$
-* $P(Pants|Girl)$ (Likelihood): $0.50$ (Since half the girls wear pants)
-* $P(Pants|Boy)$: $1.00$ (Since all boys wear pants)
-
-**2. Calculate $P(Pants)$ (Total Evidence):**
-To find the total probability of someone wearing pants, we add the probability of a boy wearing pants and a girl wearing pants:
-* $P(Pants) = (P(Pants|Girl) \cdot P(Girl)) + (P(Pants|Boy) \cdot P(Boy))$
-* $P(Pants) = (0.50 \cdot 0.60) + (1.00 \cdot 0.40)$
-* $P(Pants) = 0.30 + 0.40 = 0.70$
-
-**3. Apply Bayes' Theorem to find $P(Girl|Pants)$:**
-We want to find the probability that the student is a girl, given we know they are wearing pants.
-* $P(Girl|Pants) = \frac{P(Pants|Girl) \cdot P(Girl)}{P(Pants)}$
-* $P(Girl|Pants) = \frac{0.50 \cdot 0.60}{0.70}$
-* $P(Girl|Pants) = \frac{0.30}{0.70}$
-* $P(Girl|Pants) = \frac{3}{7} \approx 0.428$
-
-**Result:**
-There is approximately a **42.8%** chance that the student wearing pants is a girl. Even though there are more girls in the school, the fact that all boys wear pants makes it slightly more likely that a random person in pants is a boy.
-
-
-
-
-
-# Total Probability Theorem
-
-## Definition
-The **Total Probability Theorem** is a fundamental rule that allows us to find the overall probability of an event by breaking it down into several distinct scenarios or "partitions." If we know the likelihood of an event happening under different conditions, we can sum those parts to find the total likelihood of that event occurring.
-
-
-
-## Formula
-$$P(B) = \sum_{i=1}^{n} P(B|A_i)P(A_i)$$
-
-**Explanation of formula**:
-- **$P(B)$**: The total probability of the event we are interested in.
-- **$P(A_i)$**: The probability of each specific scenario or partition $i$.
-- **$P(B|A_i)$**: The probability of event **B** occurring, given that scenario $A_i$ happened.
-- **$\sum$**: The summation symbol, meaning we add up the results for every possible scenario from $1$ to $n$.
-
-**Key concepts**:
-- **Partitioning**: The sample space must be divided into scenarios ($A_1, A_2, ... A_n$) that are **disjoint** (cannot happen at the same time) and **exhaustive** (cover all possibilities).
-- **Weighted Average**: You can think of this theorem as a weighted average of the conditional probabilities, where the weights are the probabilities of each scenario.
-- **Foundation for Bayes**: This theorem is the "denominator" used in Bayes' Theorem to normalize probabilities.
-
-## Example
-A tech company has three servers: **Server 1**, **Server 2**, and **Server 3**. 
-- **Server 1** handles **50%** of the traffic and has a **1%** error rate.
-- **Server 2** handles **30%** of the traffic and has a **2%** error rate.
-- **Server 3** handles **20%** of the traffic and has a **5%** error rate.
-
-If a random request is made, what is the **total probability** that it results in an error?
-
-**Step-by-Step Solution**:
-
-1.  **Identify the scenarios (Partitions)**:
-    * $P(A_1)$ (Server 1): 0.50
-    * $P(A_2)$ (Server 2): 0.30
-    * $P(A_3)$ (Server 3): 0.20
-
-2.  **Identify the conditional probabilities (Error rates)**:
-    * $P(Error|A_1)$: 0.01
-    * $P(Error|A_2)$: 0.02
-    * $P(Error|A_3)$: 0.05
-
-3.  **Apply the Total Probability Theorem**:
-    * $P(Error) = [P(Error|A_1) \times P(A_1)] + [P(Error|A_2) \times P(A_2)] + [P(Error|A_3) \times P(A_3)]$
-    * $P(Error) = [0.01 \times 0.50] + [0.02 \times 0.30] + [0.05 \times 0.20]$
-
-4.  **Calculate the values**:
-    * $P(Error) = 0.005 + 0.006 + 0.010$
-    * $P(Error) = 0.021$
-
-**Conclusion**: The total probability of a request resulting in an error across all servers is **2.1%**.
-
-
-
-# Addition Theorem
-
-## Definition
-The **Addition Theorem** (also known as the **Probability Addition Rule**) provides a way to calculate the probability that at least one of two events occurs. It accounts for the fact that if two events are not disjoint, they might happen simultaneously, and we must avoid double-counting that overlapping probability.
-
-
-
-## Formula
-$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
-
-**Explanation of formula**:
-- **$P(A \cup B)$**: The probability that event **A** OR event **B** (or both) occurs.
-- **$P(A)$**: The individual probability of event **A**.
-- **$P(B)$**: The individual probability of event **B**.
-- **$P(A \cap B)$**: The probability that both **A** and **B** occur at the same time (the intersection). This is subtracted to ensure the overlap is only counted once.
-
-**Key concepts**:
-- **The "OR" Rule**: Whenever you see "Probability of A or B," you should think of the Addition Theorem.
-- **Inclusion-Exclusion**: This is a simple form of the Principle of Inclusion-Exclusion. We include the probabilities of A and B, then exclude the part where they overlap.
-- **Special Case (Disjoint)**: If the events cannot happen together, $P(A \cap B) = 0$, and the formula simplifies to $P(A) + P(B)$.
-
-## Example
-In a class of **30 students**:
-- **15 students** play **Football**.
-- **10 students** play **Basketball**.
-- **5 students** play **both** Football and Basketball.
-
-If you pick one student at random, what is the probability that they play **either** Football or Basketball?
-
-**Step-by-Step Solution**:
-
-1.  **Identify the individual probabilities**:
-    * Total students = 30.
-    * $P(Football) = \frac{15}{30} = 0.5$
-    * $P(Basketball) = \frac{10}{30} \approx 0.333$
-
-2.  **Identify the intersection (the overlap)**:
-    * Students playing both = 5.
-    * $P(Football \cap Basketball) = \frac{5}{30} \approx 0.167$
-
-3.  **Apply the Addition Theorem**:
-    * $P(Football \cup Basketball) = P(Football) + P(Basketball) - P(Football \cap Basketball)$
-    * $P(Football \cup Basketball) = \frac{15}{30} + \frac{10}{30} - \frac{5}{30}$
-
-4.  **Calculate the final result**:
-    * $P(Football \cup Basketball) = \frac{20}{30}$
-    * $P(Football \cup Basketball) = \frac{2}{3} \approx 0.667$ (or **66.7%**)
-
-**Conclusion**: There is a **66.7%** chance that a randomly selected student plays at least one of the two sports.s
-
-
-# Multiplication Theorem
-
-## Definition
-The **Multiplication Theorem** (also known as the **Probability Multiplication Rule**) is used to find the probability that two events, Event **A** and Event **B**, both occur. It is derived from the definition of conditional probability and describes the likelihood of the intersection of two events.
-
-
-
-
-
-
-## Formula
-For any two events:
-$$P(A \cap B) = P(A) \cdot P(B|A)$$
-
-If the events are **independent**:
-$$P(A \cap B) = P(A) \cdot P(B)$$
-
-**Explanation of formula**:
-- **$P(A \cap B)$**: The probability that both event **A** and event **B** happen.
-- **$P(A)$**: The probability of the first event occurring.
-- **$P(B|A)$**: The probability of event **B** occurring *given* that **A** has already happened.
-- **$\cdot$**: Represents multiplication.
-
-**Key concepts**:
-- **The "AND" Rule**: When you want to find the probability of one event AND another event happening in sequence or together, you multiply.
-- **Dependence**: If the outcome of the first event changes the chances of the second event (like picking a card and not putting it back), you must use the conditional probability $P(B|A)$.
-- **Independence**: If the first event doesn't affect the second (like flipping a coin twice), you simply multiply the two individual probabilities.
-
-## Example
-Imagine you have a deck of **52 playing cards**. You draw **two cards** one after the other **without replacement** (meaning you don't put the first card back). 
-
-What is the probability that **both cards are Aces**?
-
-**Step-by-Step Solution**:
-
-1.  **Identify the first event ($A$)**:
-    * Event A: The first card is an Ace.
-    * There are 4 Aces in a deck of 52.
-    * $P(A) = \frac{4}{52} = \frac{1}{13}$
-
-2.  **Identify the second event ($B|A$)**:
-    * Event B|A: The second card is an Ace, given the first was an Ace.
-    * Since we didn't put the first Ace back, there are now **3 Aces** left in a deck of **51 cards**.
-    * $P(B|A) = \frac{3}{51} = \frac{1}{17}$
-
-3.  **Apply the Multiplication Theorem**:
-    * $P(A \cap B) = P(A) \cdot P(B|A)$
-    * $P(A \cap B) = \frac{4}{52} \cdot \frac{3}{51}$
-
-4.  **Calculate the result**:
-    * $P(A \cap B) = \frac{1}{13} \cdot \frac{1}{17}$
-    * $P(A \cap B) = \frac{1}{221} \approx 0.0045$ (or **0.45%**)
-
-**Conclusion**: The chance of drawing two Aces in a row without replacing the first card is very low—about **0.45%**.
+## 1. Addition Theorem (The OR Rule)
+
+The **Addition Theorem** (also called the **Probability Addition Rule**) calculates the probability that **at least one** of two events occurs — i.e., the probability of $A$ **or** $B$ (or both). The key idea: if two events overlap, you'll double-count the overlap when you add their individual probabilities, so you **subtract it once** to correct.
+
+**Analogy:** Imagine a pizza menu. 15 pizzas have **cheese** and 10 have **mushrooms**. But 5 pizzas have **both**. If you ask "how many have cheese OR mushrooms?", you can't just say $15 + 10 = 25$ — you'd count those 5 overlap pizzas twice. So: $15 + 10 - 5 = 20$.
+
+```
+  Venn Diagram — why we subtract the overlap:
+
+       P(A)                P(B)
+  ┌─────────────┐    ┌─────────────┐
+  │             │    │             │
+  │    A only   │████│   B only    │
+  │             │████│             │
+  │             │    │             │
+  └─────────────┘    └─────────────┘
+                 ████
+              P(A ∩ B)
+           (counted TWICE
+          if we just add —
+          so subtract once)
+
+  P(A ∪ B) = P(A) + P(B) − P(A ∩ B)
+
+  Special case — if A and B are DISJOINT (no overlap):
+
+  ┌─────────────┐    ┌─────────────┐
+  │             │    │             │
+  │      A      │    │      B      │
+  │             │    │             │
+  └─────────────┘    └─────────────┘
+       No overlap → P(A ∩ B) = 0
+
+  P(A ∪ B) = P(A) + P(B)
+```
+
+#### Real-World Use Cases
+
+- **Insurance**: Probability of a client filing a home insurance claim OR a car insurance claim.
+- **Hiring**: Probability a candidate has a degree in CS OR experience in Python (some have both).
+- **Healthcare**: Probability a patient has diabetes OR hypertension (comorbidity = overlap).
+- **Quality Control**: Probability a product has a cosmetic defect OR a functional defect.
+- **Limitation**: Only works for two events at a time in this form. For 3+ events, the inclusion-exclusion formula grows more complex.
+
+#### Steps
+
+1. Identify the two events $A$ and $B$.
+2. Calculate $P(A)$ and $P(B)$ individually.
+3. Determine $P(A \cap B)$ — the probability **both** events occur together.
+4. If $A$ and $B$ are **disjoint** (mutually exclusive), then $P(A \cap B) = 0$.
+5. Apply: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+
+#### Formula
+
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+Where:
+
+|    Symbol     | Pronunciation        | Meaning                                                          |
+| :-----------: | :------------------- | :--------------------------------------------------------------- |
+| $P(A \cup B)$ | "P of A union B"     | Probability of A **or** B (or both) occurring                    |
+|    $P(A)$     | "P of A"             | Probability of event A occurring                                 |
+|    $P(B)$     | "P of B"             | Probability of event B occurring                                 |
+| $P(A \cap B)$ | "P of A intersect B" | Probability of both A **and** B occurring together (the overlap) |
+
+> **Special case:** If $A$ and $B$ are **disjoint** (mutually exclusive), then $P(A \cap B) = 0$, and the formula simplifies to:
+> $$P(A \cup B) = P(A) + P(B)$$
+
+#### Examples
+
+**Example 1** — Students playing sports (overlapping events)
+
+In a class of **30 students**, **15** play Football, **10** play Basketball, and **5** play **both**. If you pick a student at random, what is the probability they play Football **or** Basketball?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | Total students $= 30$ | Sample space |
+> | $n(\text{Football}) = 15$ | Students who play Football |
+> | $n(\text{Basketball}) = 10$ | Students who play Basketball |
+> | $n(\text{Football} \cap \text{Basketball}) = 5$ | Students who play both |
+> | Find: $P(\text{Football} \cup \text{Basketball})$ | Probability of playing at least one sport |
+
+> **Step 1:** Write down the formula.
+>
+> $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+>
+> **Step 2:** Calculate each probability.
+>
+> $P(\text{Football}) = \frac{15}{30} = \frac{1}{2}$
+>
+> $P(\text{Basketball}) = \frac{10}{30} = \frac{1}{3}$
+>
+> $P(\text{Football} \cap \text{Basketball}) = \frac{5}{30} = \frac{1}{6}$
+>
+> **Step 3:** Substitute into the formula.
+>
+> $$P(F \cup B) = \frac{1}{2} + \frac{1}{3} - \frac{1}{6}$$
+>
+> **Step 4:** Find a common denominator (6) and simplify.
+>
+> $$P(F \cup B) = \frac{3}{6} + \frac{2}{6} - \frac{1}{6} = \frac{4}{6}$$
+>
+> **Step 5:** Simplify.
+>
+> $$\boxed{P(F \cup B) = \frac{2}{3} \approx 0.667 \text{ or } 66.7\%}$$
+>
+> Note: If we had just added $\frac{15 + 10}{30} = \frac{25}{30}$, we'd overcount by 5 students — the ones playing both sports.
+
+**Example 2** — Rolling a die (disjoint events)
+
+You roll a standard 6-sided die. What is the probability of rolling a **1** or a **6**?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $S = \{1, 2, 3, 4, 5, 6\}$ | Sample space |
+> | $A = \{1\}$ | Event: rolling a 1 |
+> | $B = \{6\}$ | Event: rolling a 6 |
+> | $A \cap B = \emptyset$ | Cannot roll both 1 and 6 simultaneously (disjoint) |
+> | Find: $P(A \cup B)$ | Probability of rolling 1 or 6 |
+
+> **Step 1:** Write down the formula (disjoint case).
+>
+> Since $A$ and $B$ are disjoint: $P(A \cup B) = P(A) + P(B)$
+>
+> **Step 2:** Calculate each probability.
+>
+> $P(A) = \frac{1}{6}$, $\quad P(B) = \frac{1}{6}$
+>
+> **Step 3:** Substitute into the formula.
+>
+> $$P(A \cup B) = \frac{1}{6} + \frac{1}{6}$$
+>
+> **Step 4:** Simplify.
+>
+> $$\boxed{P(A \cup B) = \frac{2}{6} = \frac{1}{3} \approx 0.333 \text{ or } 33.3\%}$$
+>
+> Because rolling a 1 and rolling a 6 can never happen at the same time on one die, there's no overlap to subtract.
+
+---
+
+## 2. Multiplication Theorem (The AND Rule)
+
+The **Multiplication Theorem** calculates the probability that **both** events $A$ and $B$ occur together. It is derived from conditional probability — the chance of both happening equals the chance of the first one happening, **times** the chance of the second one happening *given the first already did*.
+
+**Analogy:** Imagine picking 2 socks from a drawer in the dark. The first pick has some probability. But for the second pick, **one sock is already gone** — the chances have changed. The Multiplication Theorem accounts for this chain of events.
+
+```
+  Two cases:
+
+  DEPENDENT events (one affects the other):
+
+  Step 1                Step 2
+  ┌──────────┐         ┌──────────┐
+  │  Pick 1  │───────► │  Pick 2  │
+  │  P(A)    │         │  P(B|A)  │   ← chances changed!
+  └──────────┘         └──────────┘
+  P(A ∩ B) = P(A) × P(B|A)
+
+  Example: Drawing cards WITHOUT replacement
+  1st draw: 4/52 chance of Ace
+  2nd draw: 3/51 chance of Ace (one Ace gone, one card gone)
+
+
+  INDEPENDENT events (one does NOT affect the other):
+
+  Step 1                Step 2
+  ┌──────────┐         ┌──────────┐
+  │  Flip 1  │         │  Flip 2  │
+  │  P(A)    │         │  P(B)    │   ← chances unchanged
+  └──────────┘         └──────────┘
+  P(A ∩ B) = P(A) × P(B)
+
+  Example: Flipping a coin twice
+  1st flip: 1/2 chance of Heads
+  2nd flip: 1/2 chance of Heads (unaffected by 1st)
+```
+
+#### Real-World Use Cases
+
+- **Security**: Probability of guessing both a username AND a password correctly.
+- **Genetics**: Probability of a child inheriting gene A from the mother AND gene B from the father.
+- **Manufacturing**: Probability that part 1 passes inspection AND part 2 passes inspection.
+- **Reliability Engineering**: Probability that component A works AND component B works in a system where both are needed.
+- **Limitation**: For dependent events, you must know or calculate the conditional probability $P(B|A)$, which isn't always straightforward.
+
+#### Steps
+
+1. Identify the two events $A$ and $B$.
+2. Determine if the events are **independent** or **dependent**.
+3. If **dependent**: find $P(A)$ and $P(B|A)$ — the probability of B given A already occurred.
+4. If **independent**: find $P(A)$ and $P(B)$ — they don't affect each other.
+5. Multiply the appropriate probabilities.
+
+#### Formula
+
+**General case (any two events):**
+
+$$
+P(A \cap B) = P(A) \cdot P(B|A)
+$$
+
+**Special case (independent events):**
+
+$$
+P(A \cap B) = P(A) \cdot P(B)
+$$
+
+Where:
+
+|    Symbol     | Pronunciation        | Meaning                                                                |
+| :-----------: | :------------------- | :--------------------------------------------------------------------- |
+| $P(A \cap B)$ | "P of A intersect B" | Probability of both A **and** B occurring                              |
+|    $P(A)$     | "P of A"             | Probability of the first event occurring                               |
+| $P(B \mid A)$ | "P of B given A"     | Probability of B occurring, **knowing A already happened** (dependent) |
+|    $P(B)$     | "P of B"             | Probability of B occurring on its own (independent case)               |
+
+> **How to tell if events are independent?** If knowing that $A$ happened does **not** change the probability of $B$, they are independent: $P(B|A) = P(B)$.
+
+#### Examples
+
+**Example 1** — Drawing two Aces without replacement (dependent events)
+
+You draw **two cards** one after another from a standard 52-card deck **without replacement**. What is the probability that **both cards are Aces**?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $n(S) = 52$ | Total cards in the deck |
+> | 4 Aces in the deck | Favorable cards for each draw |
+> | Without replacement | Cards are NOT put back (dependent) |
+> | $A$ = first card is an Ace | First event |
+> | $B$ = second card is an Ace | Second event |
+> | Find: $P(A \cap B)$ | Probability both cards are Aces |
+
+> **Step 1:** Write down the formula (dependent case).
+>
+> $$P(A \cap B) = P(A) \cdot P(B|A)$$
+>
+> **Step 2:** Calculate $P(A)$ — probability the first card is an Ace.
+>
+> $P(A) = \frac{4}{52} = \frac{1}{13}$
+>
+> **Step 3:** Calculate $P(B|A)$ — probability the second card is an Ace, given the first was an Ace.
+>
+> After removing one Ace: 3 Aces remain out of 51 cards.
+>
+> $P(B|A) = \frac{3}{51} = \frac{1}{17}$
+>
+> **Step 4:** Substitute into the formula.
+>
+> $$P(A \cap B) = \frac{1}{13} \times \frac{1}{17}$$
+>
+> **Step 5:** Multiply.
+>
+> $$\boxed{P(A \cap B) = \frac{1}{221} \approx 0.0045 \text{ or } 0.45\%}$$
+>
+> Very unlikely — less than half a percent. The first draw reduces the Aces available, making the second draw even harder.
+
+**Example 2** — Flipping a coin and rolling a die (independent events)
+
+You flip a fair coin and roll a standard 6-sided die. What is the probability of getting **Heads** on the coin **and** a **5** on the die?
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | Coin: $S_1 = \{H, T\}$ | Coin sample space |
+> | Die: $S_2 = \{1, 2, 3, 4, 5, 6\}$ | Die sample space |
+> | $A$ = Heads | Coin event |
+> | $B$ = rolling a 5 | Die event |
+> | Events are **independent** | Coin does not affect the die |
+> | Find: $P(A \cap B)$ | Probability of Heads AND 5 |
+
+> **Step 1:** Write down the formula (independent case).
+>
+> $$P(A \cap B) = P(A) \cdot P(B)$$
+>
+> **Step 2:** Calculate $P(A)$.
+>
+> $P(A) = P(\text{Heads}) = \frac{1}{2}$
+>
+> **Step 3:** Calculate $P(B)$.
+>
+> $P(B) = P(\text{rolling a 5}) = \frac{1}{6}$
+>
+> **Step 4:** Substitute into the formula.
+>
+> $$P(A \cap B) = \frac{1}{2} \times \frac{1}{6}$$
+>
+> **Step 5:** Multiply.
+>
+> $$\boxed{P(A \cap B) = \frac{1}{12} \approx 0.083 \text{ or } 8.3\%}$$
+>
+> The coin and die don't affect each other, so we simply multiply their individual probabilities.
+
+---
+
+<p align="left">
+  <a href="./events.md"><b>← Previous</b></a>
+  <span style="float:right">
+    <a href="./conditionalProbability.md"><b>Next →</b></a>
+  </span>
+</p>
