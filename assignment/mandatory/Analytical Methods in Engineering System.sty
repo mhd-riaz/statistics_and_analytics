@@ -1,0 +1,44 @@
+Analytical Methods in Engineering Systems (2-2-2-2-4)
+Assignment 1
+
+Statistical Analysis of an ML Fraud Detection System
+You are working as a Machine Learning Engineer at a fintech company. Your team has built a fraud detection model that classifies transactions as fraud or legitimate. During development and deployment, you collect the following data: training time across runs, validation accuracy across folds, inference latency from production, loss values from training, prediction errors, and fraud labels and predictions. You must analyze this system statistically to understand performance, reliability, and risk.
+Answer the following questions:
+Q1. Training time (in minutes) from 10 independent model runs:
+[42, 44, 45, 46, 44, 45, 47, 43, 100, 45]
+Find three different measures that describe the “typical” training time. Determine whether the extreme value affects any of these measures. Describe the shape of the data distribution. State which Python library and module you would import to compute these measures.
+
+Q2. Validation accuracy (%) across 8 cross-validation folds:
+[85, 86, 84, 87, 85, 86, 88, 84]
+Compute two numerical values that describe how spread out the accuracies are. Explain what small values of these measures imply about the model. Mention which numerical Python library you would use.
+
+Q3. Inference time (ms) observed in production:
+[120, 130, 125, 140, 150, 110, 115, 145, 135, 200]
+Divide the data into positions that represent the lower, middle, and upper performance boundaries. Explain what the upper boundary means for user experience. Mention which library supports percentile calculations.
+
+Q4. Training loss values from multiple epochs:
+[0.45, 0.48, 0.46, 0.44, 0.47, 0.49, 0.46, 1.20]
+Find values that split the data into four equal parts. Use these values to measure how wide the middle region of data is. Decide whether the extreme value should be considered abnormal. Mention which numerical library can compute these.
+
+
+
+Q5. Prediction errors from a noisy validation batch:
+[2, 3, 2, 3, 100, 2, 3, 2]
+i)	Compute the average error using all values.
+ii)	Recompute the average after removing the highest and lowest 20% of values.
+iii)	Explain why the second average better reflects model behavior.
+State which scientific Python library provides trimmed statistics.
+ Q6. The model correctly predicts 90 out of 120 transactions.
+Find the likelihood that the model makes a correct prediction. State whether this result summarizes past data or predicts unseen behavior. Mention which standard Python module supports such numeric calculations.
+Q7. Out of 300 transactions, 50 were actually fraudulent and 40 of those were detected by the model. Find the likelihood that a transaction is flagged when it is truly fraudulent. Interpret this in terms of model reliability. Mention which library can be used for numerical probability.
+Q8. Historical data shows that only 2% of all transactions are fraudulent, the model flags 95% of true frauds, and the model incorrectly flags 10% of legitimate transactions. A new transaction is flagged as fraud.
+Compute the chance that the transaction is truly fraudulent. Explain why the result is much lower than expected. Mention which math or scientific library can perform this calculation.
+Q9. Classify each output: Predicted class, Transaction amount, Number of epochs.
+For each, state whether it is uncertain or fixed and whether it is numerical or categorical. Explain your reasoning. Mention which Python data type would store each.
+Q10. The classifier predicts fraud with probability 0.4 for each transaction.
+Write the function that assigns probabilities to both possible outcomes. Find the long-run average outcome and how much it varies. Mention which statistics library contains this distribution.
+Q11. The model is tested on 10 transactions, each independently predicted correctly with probability 0.8. Find the likelihood that the model is correct exactly 7 times. Find the expected number of correct predictions and how much this varies. Mention which Python module handles this type of calculation.
+Q12. The system logs show that errors occur on average 3 times per day.
+Find the probability that exactly 2 errors occur tomorrow. Compute the average and variability. Mention which Python library models event counts.
+Q13. The prediction error of the model is centered around 0 with spread 4.
+Find the probability that the error is greater than 3. Explain what this means for model reliability. Mention which Python library supports continuous distributions.
