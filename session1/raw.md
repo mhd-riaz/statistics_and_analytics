@@ -202,3 +202,12 @@ These are 5 member who can summarize the data
 ---
 
 [problem 1](../notebooks/day1_b.ipynb)
+
+
+---
+
+TODO
+- fencing
+- types of sampling
+- python lib and methods
+- 
