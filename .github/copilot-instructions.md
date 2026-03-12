@@ -361,8 +361,8 @@ Track enrichment progress per unit. When resuming work, check the status below a
 | `index.md`                              | ✅ Complete                        |
 | `statistics-basics.md`                  | ✅ Fully enriched (all 3 sections) |
 | `descriptive-statistics.md`             | ✅ Fully enriched (all 4 sections) |
-| `probability-fundamentals.md`           | ⬜ Not yet enriched                |
-| `random-variables-and-distributions.md` | ⬜ Not yet enriched                |
+| `probability-fundamentals.md`           | ✅ Fully enriched (all 4 sections) |
+| `random-variables-and-distributions.md` | ✅ Fully enriched (all 4 sections) |
 
 #### Units 2–4
 

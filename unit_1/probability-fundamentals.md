@@ -58,7 +58,7 @@ Probability Fundamentals
 ```
   Probability Scale
   Impossible         Unlikely       Even Chance       Likely          Certain
-      0 ──────────── 0.25 ──────────── 0.5 ──────────── 0.75 ──────────── 1
+      0 ──────────── 0.25 ──────────── 0.5 ──────────── 0.75 ────────────  1
       │                                 │                                  │
    P(A)=0                            P(A)=0.5                          P(A)=1
    Event can                        Equally likely                    Event will
