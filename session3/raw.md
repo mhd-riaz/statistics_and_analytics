@@ -49,7 +49,7 @@ interval of values:
 - instead of calculating this, you can convert this into Z score (standard deviation score), such that mu is zero (centered) and then we have
   
 
-Central limit theorm
+Central limit theorem
 
 
 ---
@@ -59,3 +59,5 @@ Point estimate - is a single value that estimates the
 
 Interval estimate - a range of values that does the estimate,
 - presents a value with a margin of error
+
+

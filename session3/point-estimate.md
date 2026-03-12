@@ -1,5 +1,5 @@
 <p align="left">
-  <a href="./sampling-distribution.md"><b>← Previous</b></a>
+  <a href="./central-limit-theorem.md"><b>← Previous</b></a>
   <span style="float:right">
     <a href="./interval-estimate.md"><b>Next →</b></a>
   </span>
@@ -165,7 +165,7 @@ You ask 40 kids in your school what their favorite color is. 18 of them say **bl
 ---
 
 <p align="left">
-  <a href="./sampling-distribution.md"><b>← Previous</b></a>
+  <a href="./central-limit-theorem.md"><b>← Previous</b></a>
   <span style="float:right">
     <a href="./interval-estimate.md"><b>Next →</b></a>
   </span>

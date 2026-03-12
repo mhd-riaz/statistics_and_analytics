@@ -11,7 +11,8 @@ Inferential Statistics
 │
 ├── Sampling
 │   ├── Sampling Mean
-│   └── Sampling Distribution & Central Limit Theorem
+│   ├── Sampling Distribution
+│   └── Central Limit Theorem
 │
 └── Estimation & Confidence
     ├── Point Estimate
@@ -27,18 +28,19 @@ Inferential Statistics
 2. [Standard Deviation vs Standard Error](./standard-deviation-vs-standard-error.md)
 3. [Cumulative Distribution Function (CDF)](./cdf.md)
 4. [Sampling Mean](./sampling-mean.md)
-5. [Sampling Distribution & Central Limit Theorem](./sampling-distribution.md)
-6. [Point Estimate](./point-estimate.md)
-7. [Interval Estimate (Confidence Interval)](./interval-estimate.md)
-8. [Confidence Level vs Significance Level](./confidence-and-significance.md)
+5. [Sampling Distribution](./sampling-distribution.md)
+6. [Central Limit Theorem](./central-limit-theorem.md)
+7. [Point Estimate](./point-estimate.md)
+8. [Interval Estimate (Confidence Interval)](./interval-estimate.md)
+9. [Confidence Level vs Significance Level](./confidence-and-significance.md)
 
 ## Class Notes
 
-9. [Raw Notes](./raw.md)
+10. [Raw Notes](./raw.md)
 
 ## Notebooks
 
-10. [session_2.ipynb](../notebooks/session2/session_2.ipynb)
+11. [session_2.ipynb](../notebooks/session2/session_2.ipynb)
 
 ---
 

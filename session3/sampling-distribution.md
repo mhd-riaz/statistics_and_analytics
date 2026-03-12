@@ -1,13 +1,13 @@
 <p align="left">
   <a href="./sampling-mean.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./point-estimate.md"><b>Next →</b></a>
+    <a href="./central-limit-theorem.md"><b>Next →</b></a>
   </span>
 </p>
 
 ---
 
-## Sampling Distribution & Central Limit Theorem
+## Sampling Distribution
 
 ### What is a Sampling Distribution?
 
@@ -197,6 +197,6 @@ A battery company claims their batteries last $\mu = 500$ hours on average with 
 <p align="left">
   <a href="./sampling-mean.md"><b>← Previous</b></a>
   <span style="float:right">
-    <a href="./point-estimate.md"><b>Next →</b></a>
+    <a href="./central-limit-theorem.md"><b>Next →</b></a>
   </span>
 </p>
