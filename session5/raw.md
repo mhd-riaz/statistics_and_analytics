@@ -6,3 +6,5 @@
 6. ztest proportions
 7. t-test of mean
 8. test of variance
+chi squared test
+observed vs followed
