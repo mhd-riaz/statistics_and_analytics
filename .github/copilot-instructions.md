@@ -278,3 +278,96 @@ Show the 68-95-99.7 rule on a bell curve:
              -3σ -2σ -1σ  x̄  +1σ +2σ +3σ
 ```
 ````
+
+---
+
+## 10. Unit File Enrichment Workflow
+
+This workspace contains **study material** organized in `unit_N/` folders, derived from raw lecture notes in `classNotes/sessionN/`. Enrichment means deepening shallow unit files to match classNotes depth.
+
+### 10.1 Source Material Mapping
+
+| Unit Folder | Primary ClassNotes Source                         | Fallback        |
+| :---------- | :------------------------------------------------ | :-------------- |
+| `unit_1/`   | `classNotes/session1/` and `classNotes/session2/` | Agent knowledge |
+| `unit_2/`   | `classNotes/session3/`                            | Agent knowledge |
+| `unit_3/`   | `classNotes/session4/`                            | Agent knowledge |
+| `unit_4/`   | `classNotes/session5/`                            | Agent knowledge |
+
+**If classNotes are missing or sparse for a topic** (the student missed class), use agent knowledge to produce the same depth and format. Do NOT produce shallow content just because classNotes are absent.
+
+### 10.2 Enrichment Process
+
+1. **Read ALL classNotes** for the relevant session(s) BEFORE writing anything. Build a gap list comparing classNotes content against the current unit file.
+2. **Work file-by-file**, not all at once. Complete one `unit_N/*.md` file fully before moving to the next.
+3. **Replace section-by-section** within each file:
+   - Use `grep_search` for `^### [0-9]` to find section heading boundaries and line numbers.
+   - Use `read_file` to capture the exact old content of ONE section (including its `---` separator).
+   - Use `replace_string_in_file` to swap in the enriched version.
+   - Move to the next section only after the previous replacement succeeds.
+4. **Never replace the entire file at once** — token limits and match failures make whole-file replacement unreliable.
+
+### 10.3 Depth Checklist
+
+A section is NOT deep enough unless it includes **all applicable** items:
+
+- [ ] Sub-concepts broken out as `####` subsections (e.g., Variance → Population vs Sample subsections)
+- [ ] ASCII visual diagram BEFORE any formula (see Section 9)
+- [ ] Comparison table when two related concepts exist (e.g., Variance vs CV, Population vs Sample notation)
+- [ ] Interpretation scale with threshold values where applicable (e.g., correlation strength: weak < 0.5, moderate 0.5–0.8, strong > 0.8)
+- [ ] Key identity relationships stated explicitly (e.g., $\operatorname{var}(X) = \operatorname{cov}(X,X)$)
+- [ ] Deviation/computation tables inside worked examples (show the row-by-row work)
+- [ ] Matrix notation where classNotes use it (covariance matrix, correlation matrix)
+- [ ] Population ($\sigma^2$, $\mu$, $N$) vs Sample ($s^2$, $\bar{x}$, $n$) distinction wherever variance, standard deviation, or mean appears
+- [ ] Bessel's correction explained when sample variance is introduced
+
+### 10.4 Common First-Pass Gaps
+
+These are consistently missing from first-draft content and trigger rework. Always include them proactively:
+
+| Gap                                                             | Where It Applies                          |
+| :-------------------------------------------------------------- | :---------------------------------------- |
+| Population vs Sample notation table                             | Variance, Standard Deviation, Mean        |
+| Strength/interpretation thresholds                              | Correlation, Coefficient of Determination |
+| Analysis type taxonomy (univariate/bivariate/multivariate)      | Correlation, Regression                   |
+| Bessel's correction ($n-1$ denominator)                         | Sample Variance, Sample Std Dev           |
+| 5-number summary + box plot + 1.5×IQR outlier rule              | Dispersion / Quartiles                    |
+| Skewness direction rules (mean vs median position)              | Central Tendency                          |
+| Independent vs dependent variable convention (x-axis vs y-axis) | Correlation, Regression                   |
+
+### 10.5 Example Differentiation Rules
+
+The two required examples per concept must cover **meaningfully different cases**, not just different numbers:
+
+| Concept Type       | Example 1 Case         | Example 2 Case                           |
+| :----------------- | :--------------------- | :--------------------------------------- |
+| Median             | Odd count dataset      | Even count dataset                       |
+| Variance / Std Dev | Population ($N$)       | Sample ($n-1$)                           |
+| Mode               | Unimodal               | Bimodal or no mode                       |
+| Correlation        | Positive relationship  | Negative + build correlation matrix      |
+| Probability        | Simple event           | Complement or conditional                |
+| Distributions      | Specific parameter set | Different parameter set showing contrast |
+
+The second example should always **demonstrate something extra** the first doesn't (e.g., outlier detection, matrix construction, edge case).
+
+### 10.6 Project Progress Tracking
+
+Track enrichment progress per unit. When resuming work, check the status below and continue from where the previous session left off.
+
+#### Unit 1 (`unit_1/`)
+
+| File                                    | Status                             |
+| :-------------------------------------- | :--------------------------------- |
+| `index.md`                              | ✅ Complete                        |
+| `statistics-basics.md`                  | ✅ Fully enriched (all 3 sections) |
+| `descriptive-statistics.md`             | ✅ Fully enriched (all 4 sections) |
+| `probability-fundamentals.md`           | ⬜ Not yet enriched                |
+| `random-variables-and-distributions.md` | ⬜ Not yet enriched                |
+
+#### Units 2–4
+
+| Unit      | Status         |
+| :-------- | :------------- |
+| `unit_2/` | ⬜ Not started |
+| `unit_3/` | ⬜ Not started |
+| `unit_4/` | ⬜ Not started |
