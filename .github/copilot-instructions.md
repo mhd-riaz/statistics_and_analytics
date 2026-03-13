@@ -364,10 +364,20 @@ Track enrichment progress per unit. When resuming work, check the status below a
 | `probability-fundamentals.md`           | ✅ Fully enriched (all 4 sections) |
 | `random-variables-and-distributions.md` | ✅ Fully enriched (all 4 sections) |
 
-#### Units 2–4
+#### Unit 2 (`unit_2/`)
+
+| File                           | Status                             |
+| :----------------------------- | :--------------------------------- |
+| `index.md`                     | ✅ Complete                        |
+| `standardization.md`           | ✅ Fully enriched (sections 1–3)   |
+| `sampling-and-clt.md`          | ✅ Fully enriched (sections 4–6)   |
+| `estimation-and-confidence.md` | ✅ Fully enriched (sections 7–9)   |
+| `hypothesis-testing.md`        | ✅ Fully enriched (sections 10–12) |
+| `anova.md`                     | ✅ Fully enriched (sections 13–15) |
+
+#### Units 3–4
 
 | Unit      | Status         |
 | :-------- | :------------- |
-| `unit_2/` | ⬜ Not started |
 | `unit_3/` | ⬜ Not started |
 | `unit_4/` | ⬜ Not started |
