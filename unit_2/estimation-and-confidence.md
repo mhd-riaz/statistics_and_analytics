@@ -40,28 +40,28 @@ A **point estimate** is a single number (a "best guess") calculated from sample 
 Think of it like throwing a **single dart** at a dartboard. Your dart lands at one specific point — that's your point estimate. It might hit the bullseye (the true population value), or it might be close but slightly off.
 
 ```
-  Population (unknown true value)
-  ┌───────────────────────────────────┐
-  │                                   │
-  │          μ = ???                   │
-  │          p = ???                   │
-  │                                   │
-  └──────────────┬────────────────────┘
-                 │
-                 │  Take a sample
-                 ▼
-  ┌───────────────────────────────────┐
-  │         Sample Data               │
-  │    {x₁, x₂, x₃, ..., xₙ}       │
-  └──────────────┬────────────────────┘
-                 │
-                 │  Calculate
-                 ▼
-  ┌───────────────────────────────────┐
-  │       Point Estimate              │
-  │    x̄  (estimates μ)              │
-  │    p̂  (estimates p)              │
-  └───────────────────────────────────┘
+Population (unknown true value)
+┌───────────────────────────────────┐
+│                                   │
+│          μ = ???                   │
+│          p = ???                   │
+│                                   │
+└──────────────┬────────────────────┘
+               │
+               │  Take a sample
+               ▼
+┌───────────────────────────────────┐
+│         Sample Data               │
+│    {x₁, x₂, x₃, ..., xₙ}       │
+└──────────────┬────────────────────┘
+               │
+               │  Calculate
+               ▼
+┌───────────────────────────────────┐
+│       Point Estimate              │
+│    x̄  (estimates μ)              │
+│    p̂  (estimates p)              │
+└───────────────────────────────────┘
 ```
 
 There are **two main types** of point estimates:
@@ -200,32 +200,32 @@ A **confidence interval (CI)** is a _range of values_ (not just a single number)
 If a point estimate is like throwing a single dart, a confidence interval is like drawing a **circle around the bullseye** — you're saying, _"I believe the true value is somewhere inside this circle."_
 
 ```
-  Point Estimate (single dart):
+Point Estimate (single dart):
 
-  ◄──────────────────●──────────────────►
-                     x̄
-       "My best guess is exactly here."
+◄──────────────────●──────────────────►
+                   x̄
+     "My best guess is exactly here."
 
 
-  Interval Estimate (circle around the bullseye):
+Interval Estimate (circle around the bullseye):
 
-  ◄─────────[────────●────────]─────────►
-          Lower      x̄      Upper
-          Bound             Bound
-    "I'm 95% sure the true value is in this range."
+◄─────────[────────●────────]─────────►
+        Lower      x̄      Upper
+        Bound             Bound
+  "I'm 95% sure the true value is in this range."
 ```
 
 The **width** of the interval depends on the confidence level you choose:
 
 ```
-  90% CI:       [─────────●─────────]           Narrower (less sure)
-  95% CI:    [────────────●────────────]        Medium
-  99% CI: [───────────────●───────────────]     Wider (more sure)
-  ◄───────────────────────●───────────────────────►
-                          x̄
+90% CI:       [─────────●─────────]           Narrower (less sure)
+95% CI:    [────────────●────────────]        Medium
+99% CI: [───────────────●───────────────]     Wider (more sure)
+◄───────────────────────●───────────────────────►
+                        x̄
 
-  Higher confidence = Wider interval = Less precise
-  Lower confidence  = Narrower interval = More precise
+Higher confidence = Wider interval = Less precise
+Lower confidence  = Narrower interval = More precise
 ```
 
 #### Real-World Use Cases
@@ -394,21 +394,21 @@ Think of it as stepping stones across a river:
 - If 95% of stones are safe, then 5% are wobbly. Together: $95\% + 5\% = 100\%$.
 
 ```
-  The Confidence Level and Significance Level together = 100%
+The Confidence Level and Significance Level together = 100%
 
-  ┌──────────────────────────────────────────────────────┐
-  │                                                      │
-  │     α/2          Confidence Level (C)        α/2     │
-  │   ┌─────┐  ┌─────────────────────────┐  ┌─────┐     │
-  │   │/////│  │                         │  │/////│     │
-  │   │/////│  │       95% safe zone     │  │/////│     │
-  │   │/////│  │                         │  │/////│     │
-  │   └─────┘  └─────────────────────────┘  └─────┘     │
-  │    2.5%              95%                  2.5%       │
-  │                                                      │
-  │                  α = 5% total                        │
-  │           (split into two tails)                     │
-  └──────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────┐
+│                                                      │
+│     α/2          Confidence Level (C)        α/2     │
+│   ┌─────┐  ┌─────────────────────────┐  ┌─────┐     │
+│   │/////│  │                         │  │/////│     │
+│   │/////│  │       95% safe zone     │  │/////│     │
+│   │/////│  │                         │  │/////│     │
+│   └─────┘  └─────────────────────────┘  └─────┘     │
+│    2.5%              95%                  2.5%       │
+│                                                      │
+│                  α = 5% total                        │
+│           (split into two tails)                     │
+└──────────────────────────────────────────────────────┘
 ```
 
 ```

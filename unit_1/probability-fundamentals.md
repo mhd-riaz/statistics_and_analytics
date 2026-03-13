@@ -56,13 +56,13 @@ Probability Fundamentals
 **Probability** measures the likelihood of an event occurring. Every probability problem begins with an **experiment**, a **sample space** of all possible outcomes, and an **event** containing the favorable outcomes. Probability values always fall between 0 (impossible) and 1 (certain).
 
 ```
-  Probability Scale
-  Impossible         Unlikely       Even Chance       Likely          Certain
-      0 ──────────── 0.25 ──────────── 0.5 ──────────── 0.75 ────────────  1
-      │                                 │                                  │
-   P(A)=0                            P(A)=0.5                          P(A)=1
-   Event can                        Equally likely                    Event will
-   never happen                     to happen or not                  always happen
+Probability Scale
+Impossible         Unlikely       Even Chance       Likely          Certain
+    0 ──────────── 0.25 ──────────── 0.5 ──────────── 0.75 ────────────  1
+    │                                 │                                  │
+ P(A)=0                            P(A)=0.5                          P(A)=1
+ Event can                        Equally likely                    Event will
+ never happen                     to happen or not                  always happen
 ```
 
 #### Real-World Use Cases
@@ -163,13 +163,13 @@ Where:
 An **experiment** is the entire procedure of observing outcomes, while a **trial** is each individual repetition within that experiment. An experiment is the sum of all its trials.
 
 ```
-  Experiment: Test whether a coin is fair
-  ┌──────────────────────────────────────────────────┐
-  │  Trial 1 → H    Trial 2 → T    Trial 3 → H       │
-  │  Trial 4 → H    Trial 5 → T    ...               │
-  │                                                  │
-  │  Experiment = Trial₁ + Trial₂ + ... + Trialₙ     │
-  └──────────────────────────────────────────────────┘
+Experiment: Test whether a coin is fair
+┌──────────────────────────────────────────────────┐
+│  Trial 1 → H    Trial 2 → T    Trial 3 → H       │
+│  Trial 4 → H    Trial 5 → T    ...               │
+│                                                  │
+│  Experiment = Trial₁ + Trial₂ + ... + Trialₙ     │
+└──────────────────────────────────────────────────┘
 ```
 
 $$
@@ -283,29 +283,29 @@ Where:
 An **event** is a subset of the sample space. Events can be classified into several types based on their structure (how many outcomes they contain) and their relationship to other events (whether they overlap, influence each other, or exhaust the space).
 
 ```
-  Event Type Taxonomy
-  ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                  │
-  │  By structure:    Simple Event ─── single outcome                │
-  │                   Compound Event ─ multiple outcomes              │
-  │                                                                  │
-  │  By relationship: Complementary ── A and A' cover all of S       │
-  │                   Mutually Exclusive (Disjoint) ── A ∩ B = ∅     │
-  │                   Independent ──── P(A ∩ B) = P(A)·P(B)          │
-  │                   Dependent ────── P(A ∩ B) = P(A)·P(B|A)        │
-  │                                                                  │
-  └──────────────────────────────────────────────────────────────────┘
+Event Type Taxonomy
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│  By structure:    Simple Event ─── single outcome                │
+│                   Compound Event ─ multiple outcomes              │
+│                                                                  │
+│  By relationship: Complementary ── A and A' cover all of S       │
+│                   Mutually Exclusive (Disjoint) ── A ∩ B = ∅     │
+│                   Independent ──── P(A ∩ B) = P(A)·P(B)          │
+│                   Dependent ────── P(A ∩ B) = P(A)·P(B|A)        │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
 
-  Venn Diagrams:
+Venn Diagrams:
 
-  Disjoint (Mutually Exclusive)          Non-Disjoint (Overlapping)
-  ┌─────────────────────────┐            ┌─────────────────────────┐
-  │  ┌─────┐    ┌─────┐    │            │  ┌─────────────┐        │
-  │  │  A  │    │  B  │    │            │  │  A  ┌──┐ B  │        │
-  │  │     │    │     │    │            │  │     │AB│    │        │
-  │  └─────┘    └─────┘    │            │  │     └──┘    │        │
-  │        A ∩ B = ∅        │            │  └─────────────┘        │
-  └─────────────────────────┘            └─────────────────────────┘
+Disjoint (Mutually Exclusive)          Non-Disjoint (Overlapping)
+┌─────────────────────────┐            ┌─────────────────────────┐
+│  ┌─────┐    ┌─────┐    │            │  ┌─────────────┐        │
+│  │  A  │    │  B  │    │            │  │  A  ┌──┐ B  │        │
+│  │     │    │     │    │            │  │     │AB│    │        │
+│  └─────┘    └─────┘    │            │  │     └──┘    │        │
+│        A ∩ B = ∅        │            │  └─────────────┘        │
+└─────────────────────────┘            └─────────────────────────┘
 ```
 
 #### Event Type Definitions
@@ -324,19 +324,19 @@ An **event** is a subset of the sample space. Events can be classified into seve
 Many probability examples use a standard deck. Keep this reference handy:
 
 ```
-  ┌────────────────────────────────────────────────────────────────┐
-  │                    Standard 52-Card Deck                       │
-  ├────────────┬───────────────────────────────────────────────────┤
-  │  4 Suits   │  ♠ Spades  ♥ Hearts  ♦ Diamonds  ♣ Clubs        │
-  ├────────────┼───────────────────────────────────────────────────┤
-  │  13 Ranks  │  A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K        │
-  ├────────────┼───────────────────────────────────────────────────┤
-  │  Total     │  4 × 13 = 52 cards                               │
-  ├────────────┼───────────────────────────────────────────────────┤
-  │  Face cards│  J, Q, K × 4 suits = 12 cards                    │
-  │  Red cards │  ♥ + ♦ = 26 cards                                │
-  │  Black     │  ♠ + ♣ = 26 cards                                │
-  └────────────┴───────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│                    Standard 52-Card Deck                       │
+├────────────┬───────────────────────────────────────────────────┤
+│  4 Suits   │  ♠ Spades  ♥ Hearts  ♦ Diamonds  ♣ Clubs        │
+├────────────┼───────────────────────────────────────────────────┤
+│  13 Ranks  │  A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K        │
+├────────────┼───────────────────────────────────────────────────┤
+│  Total     │  4 × 13 = 52 cards                               │
+├────────────┼───────────────────────────────────────────────────┤
+│  Face cards│  J, Q, K × 4 suits = 12 cards                    │
+│  Red cards │  ♥ + ♦ = 26 cards                                │
+│  Black     │  ♠ + ♣ = 26 cards                                │
+└────────────┴───────────────────────────────────────────────────┘
 ```
 
 #### Real-World Use Cases
@@ -475,59 +475,59 @@ Where:
 The **Addition Theorem** (OR Rule) calculates the probability that **at least one** of two events occurs. The **Multiplication Theorem** (AND Rule) calculates the probability that **both** events occur together. The main challenge is deciding whether events overlap (addition) or depend on each other (multiplication).
 
 ```
-  Addition Theorem (OR Rule)
-  ──────────────────────────
+Addition Theorem (OR Rule)
+──────────────────────────
 
-  Venn Diagram — why we subtract the overlap:
+Venn Diagram — why we subtract the overlap:
 
-       P(A)                P(B)
-  ┌─────────────┐    ┌─────────────┐
-  │             │    │             │
-  │    A only   │████│   B only    │
-  │             │████│             │
-  └─────────────┘    └─────────────┘
-                 ████
-              P(A ∩ B)
-           (counted TWICE
-          if we just add —
-          so subtract once)
+     P(A)                P(B)
+┌─────────────┐    ┌─────────────┐
+│             │    │             │
+│    A only   │████│   B only    │
+│             │████│             │
+└─────────────┘    └─────────────┘
+               ████
+            P(A ∩ B)
+         (counted TWICE
+        if we just add —
+        so subtract once)
 
-  P(A ∪ B) = P(A) + P(B) − P(A ∩ B)
-
-
-  Disjoint special case — no overlap, so nothing to subtract:
-
-  ┌─────────────┐    ┌─────────────┐
-  │             │    │             │
-  │      A      │    │      B      │
-  │             │    │             │
-  └─────────────┘    └─────────────┘
-       No overlap → P(A ∩ B) = 0
-
-  P(A ∪ B) = P(A) + P(B)
+P(A ∪ B) = P(A) + P(B) − P(A ∩ B)
 
 
-  Multiplication Theorem (AND Rule)
-  ─────────────────────────────────
+Disjoint special case — no overlap, so nothing to subtract:
 
-  DEPENDENT events (one affects the other):
+┌─────────────┐    ┌─────────────┐
+│             │    │             │
+│      A      │    │      B      │
+│             │    │             │
+└─────────────┘    └─────────────┘
+     No overlap → P(A ∩ B) = 0
 
-  Step 1                Step 2
-  ┌──────────┐         ┌──────────┐
-  │  Pick 1  │───────► │  Pick 2  │
-  │  P(A)    │         │  P(B|A)  │   ← chances changed!
-  └──────────┘         └──────────┘
-  P(A ∩ B) = P(A) × P(B|A)
+P(A ∪ B) = P(A) + P(B)
 
 
-  INDEPENDENT events (one does NOT affect the other):
+Multiplication Theorem (AND Rule)
+─────────────────────────────────
 
-  Step 1                Step 2
-  ┌──────────┐         ┌──────────┐
-  │  Flip 1  │         │  Flip 2  │
-  │  P(A)    │         │  P(B)    │   ← chances unchanged
-  └──────────┘         └──────────┘
-  P(A ∩ B) = P(A) × P(B)
+DEPENDENT events (one affects the other):
+
+Step 1                Step 2
+┌──────────┐         ┌──────────┐
+│  Pick 1  │───────► │  Pick 2  │
+│  P(A)    │         │  P(B|A)  │   ← chances changed!
+└──────────┘         └──────────┘
+P(A ∩ B) = P(A) × P(B|A)
+
+
+INDEPENDENT events (one does NOT affect the other):
+
+Step 1                Step 2
+┌──────────┐         ┌──────────┐
+│  Flip 1  │         │  Flip 2  │
+│  P(A)    │         │  P(B)    │   ← chances unchanged
+└──────────┘         └──────────┘
+P(A ∩ B) = P(A) × P(B)
 ```
 
 #### Real-World Use Cases
@@ -751,19 +751,19 @@ Conditional Probability, Total Probability & Bayes' Theorem
 **Analogy — Classroom:** Imagine a classroom with 30 students. 10 wear glasses, 18 are girls, and 6 are girls who wear glasses. If you already know the student picked **wears glasses** (your world shrinks from 30 to 10), what's the chance the student is a girl?
 
 ```
-  BEFORE condition (full sample space S = 30):
+BEFORE condition (full sample space S = 30):
 
-  👦 👦 👦 👦 👦 👦 👧 👧 👧 👧
-  👧 👧 👧 👧 👧 👧 👧 👧 👧 👧
-  🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓   ← 10 wear glasses
+👦 👦 👦 👦 👦 👦 👧 👧 👧 👧
+👧 👧 👧 👧 👧 👧 👧 👧 👧 👧
+🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓   ← 10 wear glasses
 
-  AFTER condition — "given wears glasses" (world shrinks to 10):
+AFTER condition — "given wears glasses" (world shrinks to 10):
 
-  ┌──────────────────────────────────┐
-  │  🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓  │  only these 10 matter now
-  │  ↑  ↑  ↑  ↑  ↑  ↑               │
-  │  girls with glasses = 6          │  P(Girl | Glasses) = 6/10 = 0.60
-  └──────────────────────────────────┘
+┌──────────────────────────────────┐
+│  🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓 🤓  │  only these 10 matter now
+│  ↑  ↑  ↑  ↑  ↑  ↑               │
+│  girls with glasses = 6          │  P(Girl | Glasses) = 6/10 = 0.60
+└──────────────────────────────────┘
 ```
 
 The **Law of Total Probability** splits the sample space into non-overlapping paths (a _partition_) and adds up the contributions of each path to compute an overall probability $P(B)$. It is the essential stepping stone for the denominator of Bayes' Theorem.
@@ -771,21 +771,21 @@ The **Law of Total Probability** splits the sample space into non-overlapping pa
 **Bayes' Theorem** _reverses_ a conditional probability. It converts $P(B|A)$ (how likely is the evidence if the hypothesis is true) into $P(A|B)$ (how likely is the hypothesis given the evidence). This is the foundation of _Bayesian statistics_ — updating beliefs as new data arrives.
 
 ```
-  The Bayesian Update Process:
+The Bayesian Update Process:
 
-  ┌──────────┐      New Evidence      ┌───────────┐
-  │  PRIOR   │  ──────────────────►   │ POSTERIOR  │
-  │  P(A)    │      (observed B)      │  P(A|B)   │
-  │          │                        │           │
-  │ "Initial │    Bayes' Theorem      │ "Updated  │
-  │  belief" │    does the update     │  belief"  │
-  └──────────┘                        └───────────┘
+┌──────────┐      New Evidence      ┌───────────┐
+│  PRIOR   │  ──────────────────►   │ POSTERIOR  │
+│  P(A)    │      (observed B)      │  P(A|B)   │
+│          │                        │           │
+│ "Initial │    Bayes' Theorem      │ "Updated  │
+│  belief" │    does the update     │  belief"  │
+└──────────┘                        └───────────┘
 
-              P(B|A)  ×  P(A)
-  P(A|B)  = ─────────────────
-                  P(B)
+            P(B|A)  ×  P(A)
+P(A|B)  = ─────────────────
+                P(B)
 
-  Posterior = (Likelihood × Prior) / Evidence
+Posterior = (Likelihood × Prior) / Evidence
 ```
 
 #### Real-World Use Cases
@@ -885,16 +885,16 @@ Where:
 > **Partition requirement:** $A_1, A_2, \dots, A_n$ must be **mutually exclusive** ($A_i \cap A_j = \emptyset$) and **exhaustive** ($A_1 \cup \dots \cup A_n = S$).
 
 ```
-  Sample space split into partitions:
+Sample space split into partitions:
 
-  ┌──────────┬──────────┬──────────┬──────────┐
-  │    A₁    │    A₂    │    A₃    │   ...Aₙ  │   ← Partition of S
-  │          │          │          │          │
-  │  B ∩ A₁  │  B ∩ A₂  │  B ∩ A₃  │  B ∩ Aₙ  │
-  └──────────┴──────────┴──────────┴──────────┘
+┌──────────┬──────────┬──────────┬──────────┐
+│    A₁    │    A₂    │    A₃    │   ...Aₙ  │   ← Partition of S
+│          │          │          │          │
+│  B ∩ A₁  │  B ∩ A₂  │  B ∩ A₃  │  B ∩ Aₙ  │
+└──────────┴──────────┴──────────┴──────────┘
 
-  P(B) = P(B ∩ A₁) + P(B ∩ A₂) + ... + P(B ∩ Aₙ)
-       = P(B|A₁)·P(A₁) + P(B|A₂)·P(A₂) + ... + P(B|Aₙ)·P(Aₙ)
+P(B) = P(B ∩ A₁) + P(B ∩ A₂) + ... + P(B ∩ Aₙ)
+     = P(B|A₁)·P(A₁) + P(B|A₂)·P(A₂) + ... + P(B|Aₙ)·P(Aₙ)
 ```
 
 **Bayes' Theorem:**

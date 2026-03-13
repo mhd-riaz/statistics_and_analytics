@@ -48,27 +48,27 @@ Think of it like a **courtroom trial**:
 - The jury decides: is the evidence strong enough to declare guilty (reject $H_0$), or is there reasonable doubt (fail to reject $H_0$)?
 
 ```
-  Hypothesis Testing as a Courtroom Trial
+Hypothesis Testing as a Courtroom Trial
 
-  ┌──────────────────────────────────────────────────┐
-  │              H₀: Innocent (default)              │
-  │              H₁: Guilty (alternative)            │
-  ├──────────────────────────────────────────────────┤
-  │                                                  │
-  │   Collect Evidence (sample data)                 │
-  │            │                                     │
-  │            ▼                                     │
-  │   Calculate Test Statistic                       │
-  │            │                                     │
-  │            ▼                                     │
-  │   Compare to Critical Value or compute p-value   │
-  │            │                                     │
-  │       ┌────┴────┐                                │
-  │       ▼         ▼                                │
-  │   p ≤ α       p > α                             │
-  │  Reject H₀   Fail to Reject H₀                  │
-  │  ("Guilty")  ("Not enough evidence")             │
-  └──────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────┐
+│              H₀: Innocent (default)              │
+│              H₁: Guilty (alternative)            │
+├──────────────────────────────────────────────────┤
+│                                                  │
+│   Collect Evidence (sample data)                 │
+│            │                                     │
+│            ▼                                     │
+│   Calculate Test Statistic                       │
+│            │                                     │
+│            ▼                                     │
+│   Compare to Critical Value or compute p-value   │
+│            │                                     │
+│       ┌────┴────┐                                │
+│       ▼         ▼                                │
+│   p ≤ α       p > α                             │
+│  Reject H₀   Fail to Reject H₀                  │
+│  ("Guilty")  ("Not enough evidence")             │
+└──────────────────────────────────────────────────┘
 ```
 
 **Key components:**
@@ -85,13 +85,13 @@ Think of it like a **courtroom trial**:
 **One-Tailed vs Two-Tailed Tests:**
 
 ```
-  Two-Tailed Test (H₁: μ ≠ μ₀)         One-Tailed Test (H₁: μ > μ₀)
+Two-Tailed Test (H₁: μ ≠ μ₀)         One-Tailed Test (H₁: μ > μ₀)
 
-      Reject │           │ Reject            │                   │Reject
-      ┌───┐  │           │  ┌───┐            │                   │ ┌───┐
-      │///│  │           │  │///│            │                   │ │///│
-  ────┴───┴──┴───────────┴──┴───┴──      ───┴───────────────────┴─┴───┴──
-      α/2        1 − α       α/2                  1 − α              α
+    Reject │           │ Reject            │                   │Reject
+    ┌───┐  │           │  ┌───┐            │                   │ ┌───┐
+    │///│  │           │  │///│            │                   │ │///│
+────┴───┴──┴───────────┴──┴───┴──      ───┴───────────────────┴─┴───┴──
+    α/2        1 − α       α/2                  1 − α              α
 ```
 
 | Test Type    | $H_1$            | Rejection Region | When to Use                                     |
@@ -240,19 +240,19 @@ A school principal claims the average math score is at least $\mu_0 = 75$. A par
 The two most common parametric tests for means are the **Z-test** and the **t-test**.
 
 ```
-  Choosing Between Z-Test and t-Test
+Choosing Between Z-Test and t-Test
 
-  Is σ (population std dev) known?
-  ├── YES ─── Use Z-Test
-  │            Z = (x̄ − μ₀) / (σ / √n)
-  │
-  └── NO ──── Is n ≥ 30?
-              ├── YES ─── Z-Test is acceptable
-              │            (s approximates σ for large n)
-              │
-              └── NO ──── Use t-Test
-                           t = (x̄ − μ₀) / (s / √n)
-                           df = n − 1
+Is σ (population std dev) known?
+├── YES ─── Use Z-Test
+│            Z = (x̄ − μ₀) / (σ / √n)
+│
+└── NO ──── Is n ≥ 30?
+            ├── YES ─── Z-Test is acceptable
+            │            (s approximates σ for large n)
+            │
+            └── NO ──── Use t-Test
+                         t = (x̄ − μ₀) / (s / √n)
+                         df = n − 1
 ```
 
 **Comparison Table:**
@@ -561,15 +561,15 @@ A political strategist claims that exactly $p_0 = 0.50$ (50%) of voters favour a
 - Data contains **outliers** that would distort parametric tests
 
 ```
-  When to Use Non-Parametric Tests
+When to Use Non-Parametric Tests
 
-  Is the data normally distributed?
-  ├── YES ─── Use parametric test (Z, t, etc.)
-  │
-  └── NO or UNSURE
-      ├── Comparing frequencies/categories? ─── Chi-Square Test
-      ├── Comparing 2 independent groups (ordinal/non-normal)? ─── Mann-Whitney U
-      └── Comparing paired/related samples? ─── Wilcoxon Signed-Rank
+Is the data normally distributed?
+├── YES ─── Use parametric test (Z, t, etc.)
+│
+└── NO or UNSURE
+    ├── Comparing frequencies/categories? ─── Chi-Square Test
+    ├── Comparing 2 independent groups (ordinal/non-normal)? ─── Mann-Whitney U
+    └── Comparing paired/related samples? ─── Wilcoxon Signed-Rank
 ```
 
 **Parametric vs Non-Parametric Comparison:**

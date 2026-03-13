@@ -38,27 +38,27 @@ Analysis of Variance (ANOVA)
 **One-Way ANOVA** tests whether the means of $k$ independent groups (levels of one factor) are all equal, or if at least one differs. It works by partitioning the total variability in the data into two components: variation _between_ groups and variation _within_ groups.
 
 ```
-  The Logic of ANOVA — Partitioning Variation
+The Logic of ANOVA — Partitioning Variation
 
-  Total Variation (SST)
-  ┌──────────────────────────────────────────┐
-  │                                          │
-  │  ┌─────────────────┐  ┌───────────────┐  │
-  │  │ Between Groups  │  │ Within Groups │  │
-  │  │     (SSB)       │  │    (SSW)      │  │
-  │  │                 │  │               │  │
-  │  │ Due to factor   │  │ Due to random │  │
-  │  │ (real effect?)  │  │ variation     │  │
-  │  └─────────────────┘  └───────────────┘  │
-  │                                          │
-  └──────────────────────────────────────────┘
+Total Variation (SST)
+┌──────────────────────────────────────────┐
+│                                          │
+│  ┌─────────────────┐  ┌───────────────┐  │
+│  │ Between Groups  │  │ Within Groups │  │
+│  │     (SSB)       │  │    (SSW)      │  │
+│  │                 │  │               │  │
+│  │ Due to factor   │  │ Due to random │  │
+│  │ (real effect?)  │  │ variation     │  │
+│  └─────────────────┘  └───────────────┘  │
+│                                          │
+└──────────────────────────────────────────┘
 
-  F = SSB / (k−1)   =  MSB
-      ─────────────     ───
-      SSW / (N−k)       MSW
+F = SSB / (k−1)   =  MSB
+    ─────────────     ───
+    SSW / (N−k)       MSW
 
-  If F is large → group means differ significantly
-  If F ≈ 1      → variation between groups ≈ random noise
+If F is large → group means differ significantly
+If F ≈ 1      → variation between groups ≈ random noise
 ```
 
 **Key Concepts:**
@@ -301,22 +301,22 @@ Test at $\alpha = 0.05$.
 **Two-Way ANOVA** extends one-way ANOVA by examining the effect of **two factors** simultaneously on a response variable. It can also detect whether the two factors **interact** — that is, whether the effect of one factor depends on the level of the other.
 
 ```
-  Two-Way ANOVA — Sources of Variation
+Two-Way ANOVA — Sources of Variation
 
-  Total Variation (SST)
-  ┌─────────────────────────────────────────────────────┐
-  │                                                     │
-  │  ┌──────────┐  ┌──────────┐  ┌────────────┐  ┌───┐ │
-  │  │ Factor A │  │ Factor B │  │ Interaction│  │ E │ │
-  │  │  (SSA)   │  │  (SSB)   │  │  (SSAB)    │  │   │ │
-  │  │          │  │          │  │            │  │SSE│ │
-  │  │ Row      │  │ Column   │  │ A × B      │  │   │ │
-  │  │ effect   │  │ effect   │  │ combined   │  │   │ │
-  │  └──────────┘  └──────────┘  └────────────┘  └───┘ │
-  │                                                     │
-  └─────────────────────────────────────────────────────┘
+Total Variation (SST)
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│  ┌──────────┐  ┌──────────┐  ┌────────────┐  ┌───┐ │
+│  │ Factor A │  │ Factor B │  │ Interaction│  │ E │ │
+│  │  (SSA)   │  │  (SSB)   │  │  (SSAB)    │  │   │ │
+│  │          │  │          │  │            │  │SSE│ │
+│  │ Row      │  │ Column   │  │ A × B      │  │   │ │
+│  │ effect   │  │ effect   │  │ combined   │  │   │ │
+│  └──────────┘  └──────────┘  └────────────┘  └───┘ │
+│                                                     │
+└─────────────────────────────────────────────────────┘
 
-  SST = SSA + SSB + SSAB + SSE
+SST = SSA + SSB + SSAB + SSE
 ```
 
 **One-Way vs Two-Way ANOVA:**
@@ -579,24 +579,24 @@ This section ties together all the statistical methods covered in this unit into
 #### Choosing the Right Test — Decision Flowchart
 
 ```
-  What Are You Trying to Do?
-  │
-  ├── Estimate a parameter? ─── → Estimation & Confidence Intervals (Sections 7–9)
-  │
-  └── Test a claim about a population?
-      │
-      ├── How many groups?
-      │   ├── 1 group ─── → Z-test or t-test (Section 11)
-      │   ├── 2 groups ─── → Two-sample t-test or Mann-Whitney U (Sections 11–12)
-      │   └── 3+ groups ─── → ANOVA (Sections 13–14)
-      │
-      ├── How many factors?
-      │   ├── 1 factor ─── → One-Way ANOVA (Section 13)
-      │   └── 2 factors ─── → Two-Way ANOVA (Section 14)
-      │
-      └── Is data normal?
-          ├── YES ─── → Parametric tests
-          └── NO ──── → Non-parametric tests (Section 12)
+What Are You Trying to Do?
+│
+├── Estimate a parameter? ─── → Estimation & Confidence Intervals (Sections 7–9)
+│
+└── Test a claim about a population?
+    │
+    ├── How many groups?
+    │   ├── 1 group ─── → Z-test or t-test (Section 11)
+    │   ├── 2 groups ─── → Two-sample t-test or Mann-Whitney U (Sections 11–12)
+    │   └── 3+ groups ─── → ANOVA (Sections 13–14)
+    │
+    ├── How many factors?
+    │   ├── 1 factor ─── → One-Way ANOVA (Section 13)
+    │   └── 2 factors ─── → Two-Way ANOVA (Section 14)
+    │
+    └── Is data normal?
+        ├── YES ─── → Parametric tests
+        └── NO ──── → Non-parametric tests (Section 12)
 ```
 
 #### Quick Reference — Choosing the Right Test
@@ -613,44 +613,44 @@ This section ties together all the statistical methods covered in this unit into
 #### End-to-End Workflow for Engineering Research
 
 ```
-  Engineering Research Statistical Workflow
+Engineering Research Statistical Workflow
 
-  Step 1: Define the Research Question
-  ┌──────────────────────────────────┐
-  │ "Does temperature affect the     │
-  │  tensile strength of alloy X?"   │
-  └─────────────┬────────────────────┘
-                │
-  Step 2: Design the Experiment
-  ┌─────────────▼────────────────────┐
-  │ Choose factors, levels, sample   │
-  │ sizes, and randomization method  │
-  └─────────────┬────────────────────┘
-                │
-  Step 3: Collect Data
-  ┌─────────────▼────────────────────┐
-  │ Run experiments, record results  │
-  └─────────────┬────────────────────┘
-                │
-  Step 4: Check Assumptions
-  ┌─────────────▼────────────────────┐
-  │ Normality? Equal variances?      │
-  │ → Choose parametric or           │
-  │   non-parametric test            │
-  └─────────────┬────────────────────┘
-                │
-  Step 5: Perform the Test
-  ┌─────────────▼────────────────────┐
-  │ Compute test statistic, p-value  │
-  │ Compare to α                     │
-  └─────────────┬────────────────────┘
-                │
-  Step 6: Interpret & Report
-  ┌─────────────▼────────────────────┐
-  │ State conclusion in context      │
-  │ Include confidence intervals     │
-  │ Discuss practical significance   │
-  └──────────────────────────────────┘
+Step 1: Define the Research Question
+┌──────────────────────────────────┐
+│ "Does temperature affect the     │
+│  tensile strength of alloy X?"   │
+└─────────────┬────────────────────┘
+              │
+Step 2: Design the Experiment
+┌─────────────▼────────────────────┐
+│ Choose factors, levels, sample   │
+│ sizes, and randomization method  │
+└─────────────┬────────────────────┘
+              │
+Step 3: Collect Data
+┌─────────────▼────────────────────┐
+│ Run experiments, record results  │
+└─────────────┬────────────────────┘
+              │
+Step 4: Check Assumptions
+┌─────────────▼────────────────────┐
+│ Normality? Equal variances?      │
+│ → Choose parametric or           │
+│   non-parametric test            │
+└─────────────┬────────────────────┘
+              │
+Step 5: Perform the Test
+┌─────────────▼────────────────────┐
+│ Compute test statistic, p-value  │
+│ Compare to α                     │
+└─────────────┬────────────────────┘
+              │
+Step 6: Interpret & Report
+┌─────────────▼────────────────────┐
+│ State conclusion in context      │
+│ Include confidence intervals     │
+│ Discuss practical significance   │
+└──────────────────────────────────┘
 ```
 
 #### Key Reminders for Engineering Applications

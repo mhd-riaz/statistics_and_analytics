@@ -41,21 +41,21 @@ For a multivariable function, the **gradient** collects all partial derivatives 
 This makes the gradient the central object in machine learning optimization. Instead of checking every possible direction, we use the gradient to determine how the objective changes locally with respect to each variable.
 
 ```
-  Contour (level-curve) view with gradient direction
+Contour (level-curve) view with gradient direction
 
-        ┌──────────────────┐
-        │    ╭──────────╮   │  f = 20
-        │    │  ╭────╮  │   │
-        │    │  │ •──►│  │   │  f = 10
-        │    │  │  ∇f │  │   │
-        │    │  ╰────╯  │   │  f = 5
-        │    ╰──────────╯   │
-        └──────────────────┘   f = 1
+      ┌──────────────────┐
+      │    ╭──────────╮   │  f = 20
+      │    │  ╭────╮  │   │
+      │    │  │ •──►│  │   │  f = 10
+      │    │  │  ∇f │  │   │
+      │    │  ╰────╯  │   │  f = 5
+      │    ╰──────────╯   │
+      └──────────────────┘   f = 1
 
-  • = current point
-  ► = gradient direction (toward higher f)
-  Descent = move opposite to ► (toward lower f)
-  Contour lines = sets of equal function value
+• = current point
+► = gradient direction (toward higher f)
+Descent = move opposite to ► (toward lower f)
+Contour lines = sets of equal function value
 ```
 
 #### Gradient Interpretation
@@ -182,37 +182,37 @@ The **Hessian matrix** collects second-order partial derivatives of a multivaria
 In optimization, the Hessian is useful for understanding local geometry. It is central to second-order methods and to classifying critical points more reliably than the gradient alone.
 
 ```
-  Local shapes near a stationary point
+Local shapes near a stationary point
 
-  Bowl (minimum)        Hill (maximum)        Saddle point
-         __                  /\                  ╲ ╱
-       /    \              /    \                 ╳
-      /      \            /      \              ╱ ╲
-     /   __   \          ╱________╲           ╱     ╲
-    /   /  \   \
-   /___/    \___\
+Bowl (minimum)        Hill (maximum)        Saddle point
+       __                  /\                  ╲ ╱
+     /    \              /    \                 ╳
+    /      \            /      \              ╱ ╲
+   /   __   \          ╱________╲           ╱     ╲
+  /   /  \   \
+ /___/    \___\
 
-   f'' > 0 (all)        f'' < 0 (all)        f'' mixed signs
-   Positive definite     Negative definite    Indefinite
+ f'' > 0 (all)        f'' < 0 (all)        f'' mixed signs
+ Positive definite     Negative definite    Indefinite
 ```
 
 ```
-  Hessian determinant test decision flowchart (2 variables)
+Hessian determinant test decision flowchart (2 variables)
 
-              f'(x,y) = (0,0)
-                    │
-           Compute D = fxx·fyy − (fxy)²
-                    │
-           ┌────────┼────────┐
-           │        │        │
-         D > 0    D < 0    D = 0
-           │        │        │
-      ┌────┴────┐   │    Inconclusive
-      │         │   │
-   fxx > 0   fxx < 0
-      │         │
-  Local min  Local max
-                    Saddle point
+            f'(x,y) = (0,0)
+                  │
+         Compute D = fxx·fyy − (fxy)²
+                  │
+         ┌────────┼────────┐
+         │        │        │
+       D > 0    D < 0    D = 0
+         │        │        │
+    ┌────┴────┐   │    Inconclusive
+    │         │   │
+ fxx > 0   fxx < 0
+    │         │
+Local min  Local max
+                  Saddle point
 ```
 
 #### Hessian Interpretation
@@ -347,35 +347,35 @@ Where:
 The method is simple and widely used, but its behavior depends heavily on the learning rate. If the learning rate is too large, updates can overshoot. If it is too small, convergence becomes slow.
 
 ```
-  Full-gradient descent toward a minimum
+Full-gradient descent toward a minimum
 
-  Loss
-  ▲
-  │         •
-  │       •
-  │     •
-  │   •
-  │ •
-  └────────────────► iteration
+Loss
+▲
+│         •
+│       •
+│     •
+│   •
+│ •
+└────────────────► iteration
 
-  Objective value decreases over iterations
+Objective value decreases over iterations
 ```
 
 ```
-  Learning rate comparison
+Learning rate comparison
 
-  η too small              η just right             η too large
+η too small              η just right             η too large
 
-  Loss                     Loss                     Loss
-  ▲                        ▲                        ▲
-  │•••••                   │•                       │•     •
-  │     ••••               │  •                     │ •   • •
-  │         •••            │    •                   │  • •   •
-  │            •••         │      •                 │   •     •
-  │               •        │        •               │          •
-  └──────────────► k       └──────────► k           └──────────► k
+Loss                     Loss                     Loss
+▲                        ▲                        ▲
+│•••••                   │•                       │•     •
+│     ••••               │  •                     │ •   • •
+│         •••            │    •                   │  • •   •
+│            •••         │      •                 │   •     •
+│               •        │        •               │          •
+└──────────────► k       └──────────► k           └──────────► k
 
-  Slow convergence         Efficient descent        Oscillation/divergence
+Slow convergence         Efficient descent        Oscillation/divergence
 ```
 
 #### Learning Rate Effects
@@ -503,18 +503,18 @@ Where:
 Because each update uses only part of the data, the gradient estimate is noisy. That noise can slow precise convergence, but it can also help the algorithm move through complex landscapes and escape shallow local structures.
 
 ```
-  Noisy descent path
+Noisy descent path
 
-  Loss
-  ▲
-  │      •
-  │    •  •
-  │   •
-  │  •   •
-  │ •
-  └────────────────► iteration
+Loss
+▲
+│      •
+│    •  •
+│   •
+│  •   •
+│ •
+└────────────────► iteration
 
-  Downward trend with noisy steps
+Downward trend with noisy steps
 ```
 
 #### Gradient Descent vs SGD

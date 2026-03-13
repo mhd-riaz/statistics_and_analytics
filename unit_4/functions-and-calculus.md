@@ -37,18 +37,18 @@ A **function** maps each allowed input to exactly one output. In engineering and
 A **linear function** has a constant rate of change, so its graph is a straight line. A **nonlinear function** has a changing rate of change, so its graph bends, curves, oscillates, or grows unevenly.
 
 ```
-  Linear function                    Nonlinear function
+Linear function                    Nonlinear function
 
-  y                                  y
-  ▲                                  ▲
-  │       /                          │         *
-  │     /                            │      *
-  │   /                              │    *
-  │ /                                │  *
-  └──────────► x                     └──────────► x
+y                                  y
+▲                                  ▲
+│       /                          │         *
+│     /                            │      *
+│   /                              │    *
+│ /                                │  *
+└──────────► x                     └──────────► x
 
-  Straight line                      Curved graph
-  Constant slope                     Changing slope
+Straight line                      Curved graph
+Constant slope                     Changing slope
 ```
 
 #### Linear vs Nonlinear Comparison
@@ -184,24 +184,24 @@ A **derivative** measures the instantaneous rate of change of a function. Geomet
 Differentiation converts a function into another function describing local behavior. This is central to optimization because gradient-based methods rely on derivatives to decide update direction and step tendency.
 
 ```
-  From secant line to tangent line (the limit idea)
+From secant line to tangent line (the limit idea)
 
-  y
-  ▲
-  │             curve
-  │          *
-  │       *
-  │    *   • P ─────── secant through P and Q
-  │  *    /    •Q
-  │     /   (Q slides toward P)
-  │   /
-  └──────────────────► x
+y
+▲
+│             curve
+│          *
+│       *
+│    *   • P ─────── secant through P and Q
+│  *    /    •Q
+│     /   (Q slides toward P)
+│   /
+└──────────────────► x
 
-  As Q → P, the secant line → tangent line
-  Derivative at P = slope of tangent line = lim of secant slope
+As Q → P, the secant line → tangent line
+Derivative at P = slope of tangent line = lim of secant slope
 
-  Secant slope:   Δy/Δx  =  [f(x+h) − f(x)] / h
-  Tangent slope:  lim h→0  [f(x+h) − f(x)] / h  =  f'(x)
+Secant slope:   Δy/Δx  =  [f(x+h) − f(x)] / h
+Tangent slope:  lim h→0  [f(x+h) − f(x)] / h  =  f'(x)
 ```
 
 #### Common Derivative Rules
@@ -338,19 +338,19 @@ An **integral** reverses differentiation and measures accumulation. An **indefin
 In engineering and machine learning, integration is used for total quantity calculations, area under curves, probability accumulation, and linking rate functions back to original state functions.
 
 ```
-  Area under a curve from a to b
+Area under a curve from a to b
 
-  y
-  ▲
-  │           curve
-  │         *
-  │       *   *
-  │     *██████*
-  │   *██████████*
-  │ *██████████████*
-  └──a────────────b──► x
+y
+▲
+│           curve
+│         *
+│       *   *
+│     *██████*
+│   *██████████*
+│ *██████████████*
+└──a────────────b──► x
 
-  Definite integral = accumulated area/change
+Definite integral = accumulated area/change
 ```
 
 #### Key Identity — Fundamental Theorem of Calculus

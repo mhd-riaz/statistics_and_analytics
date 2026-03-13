@@ -39,27 +39,27 @@ Imagine your class took a spelling test. The average score was 80 and most kids 
 When you calculate a Z-Score, you "**standardize**" the value — you convert it into a _Standard Normal Distribution_ which always has a mean of 0 and a standard deviation of 1. This lets you compare things that are normally measured on totally different scales (like test scores vs heights).
 
 ```
-  Where does your value sit?
+Where does your value sit?
 
-  Below average       Average       Above average
-       ◄───────────────────┼──────────────────►
-  Z = -3   -2   -1         0       +1    +2   +3
-            │              │              │
-       Very unusual     Normal      Very unusual
+Below average       Average       Above average
+     ◄───────────────────┼──────────────────►
+Z = -3   -2   -1         0       +1    +2   +3
+          │              │              │
+     Very unusual     Normal      Very unusual
 ```
 
 ```
-           ┌────────────── 99.7% ──────────────┐
-           │     ┌──────── 95% ────────┐       │
-           │     │    ┌─── 68% ───┐    │       │
-           │     │    │           │    │       │
-  ◄────────┼─────┼────┼─────┼─────┼────┼───────┼────────►
-         -3σ   -2σ  -1σ    x̄   +1σ  +2σ    +3σ
+         ┌────────────── 99.7% ──────────────┐
+         │     ┌──────── 95% ────────┐       │
+         │     │    ┌─── 68% ───┐    │       │
+         │     │    │           │    │       │
+◄────────┼─────┼────┼─────┼─────┼────┼───────┼────────►
+       -3σ   -2σ  -1σ    x̄   +1σ  +2σ    +3σ
 
-  The Empirical Rule (68-95-99.7):
-  • 68% of values fall between Z = -1 and Z = +1
-  • 95% of values fall between Z = -2 and Z = +2
-  • 99.7% of values fall between Z = -3 and Z = +3
+The Empirical Rule (68-95-99.7):
+• 68% of values fall between Z = -1 and Z = +1
+• 95% of values fall between Z = -2 and Z = +2
+• 99.7% of values fall between Z = -3 and Z = +3
 ```
 
 ---
@@ -212,31 +212,31 @@ Here's a simple way to remember:
 - **SE** → How reliable is the _average_?
 
 ```
-  Standard Deviation — spread of individual data points:
+Standard Deviation — spread of individual data points:
 
-  High SD:    ●       ●           ●       ●
-  ◄──────────────────────┼──────────────────────►
-                         x̄
-  (Scores are all over the place)
+High SD:    ●       ●           ●       ●
+◄──────────────────────┼──────────────────────►
+                       x̄
+(Scores are all over the place)
 
-  Low SD:            ● ● ● ●
-  ◄──────────────────────┼──────────────────────►
-                         x̄
-  (Scores are close together)
+Low SD:            ● ● ● ●
+◄──────────────────────┼──────────────────────►
+                       x̄
+(Scores are close together)
 ```
 
 ```
-  Standard Error — spread of sample averages:
+Standard Error — spread of sample averages:
 
-  Imagine taking 5 different random groups from the school:
-  Group 1 average: 78
-  Group 2 average: 81
-  Group 3 average: 79
-  Group 4 average: 80
-  Group 5 average: 77
+Imagine taking 5 different random groups from the school:
+Group 1 average: 78
+Group 2 average: 81
+Group 3 average: 79
+Group 4 average: 80
+Group 5 average: 77
 
-  These averages are close together → Small Standard Error
-  Your sample average is a GOOD guess for the whole school!
+These averages are close together → Small Standard Error
+Your sample average is a GOOD guess for the whole school!
 ```
 
 ---
@@ -426,33 +426,33 @@ Imagine you have a bag of candies of different weights. The CDF at 10 grams tell
 The key idea: The CDF **adds up** (accumulates) probabilities. It always starts at **0** (impossible to be less than the smallest possible value) and climbs up to **1** (or 100%) on the right side. It can _never_ go down — it only stays flat or goes up.
 
 ```
-  CDF: Probability piling up as you move right
+CDF: Probability piling up as you move right
 
-  Probability
-  1.0 |                          ●●●●●●●●●●●●
-      |                     ●●●●
-      |                 ●●●●
-  0.5 |            ●●●●
-      |        ●●●●
-      |    ●●●●
-  0.0 |●●●●
-      └──────────────────────────────────────► Values
-         small                           large
+Probability
+1.0 |                          ●●●●●●●●●●●●
+    |                     ●●●●
+    |                 ●●●●
+0.5 |            ●●●●
+    |        ●●●●
+    |    ●●●●
+0.0 |●●●●
+    └──────────────────────────────────────► Values
+       small                           large
 
-  • At any point, CDF tells you: "What % of values are ≤ this?"
-  • It ALWAYS goes from 0 up to 1 — never goes back down!
+• At any point, CDF tells you: "What % of values are ≤ this?"
+• It ALWAYS goes from 0 up to 1 — never goes back down!
 ```
 
 ```
-  Finding probability in a RANGE using CDF:
+Finding probability in a RANGE using CDF:
 
-  P(a < X ≤ b) = F(b) - F(a)
+P(a < X ≤ b) = F(b) - F(a)
 
-         F(a)          F(b)
-          │              │
-  ◄───────┼──────████████┼──────────────►
-          a    this area  b
-               = F(b) - F(a)
+       F(a)          F(b)
+        │              │
+◄───────┼──────████████┼──────────────►
+        a    this area  b
+             = F(b) - F(a)
 ```
 
 ---

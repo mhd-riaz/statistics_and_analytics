@@ -36,19 +36,19 @@ Optimization Foundations
 Every optimization problem has three core ingredients: decision variables, an objective function, and optionally a set of constraints. The solution must lie inside the feasible region and achieve the best attainable objective value there.
 
 ```
-  Feasible region and best point
+Feasible region and best point
 
-  y
-  ▲
-  │        feasible region
-  │      /-----------\
-  │     /      *      \
-  │    /   optimal      \
-  │   /      point       \
-  │  /---------------------\
-  └──────────────────────────► x
+y
+▲
+│        feasible region
+│      /-----------\
+│     /      *      \
+│    /   optimal      \
+│   /      point       \
+│  /---------------------\
+└──────────────────────────► x
 
-  Best value is chosen inside the allowed region
+Best value is chosen inside the allowed region
 ```
 
 #### Core Components of an Optimization Problem
@@ -191,23 +191,23 @@ Critical points occur where the first derivative is zero or undefined. The first
 ```
 
 ```
-  Local vs Global optima on a single function
+Local vs Global optima on a single function
 
-  f(x)
-  ▲
-  │  *             local max
-  │ * *
-  │*   *          *
-  │     *       * * ← local min (not the best)
-  │      *    *    *
-  │       *  *      *
-  │        **        *
-  │     global min    *
-  └──────────────────────► x
+f(x)
+▲
+│  *             local max
+│ * *
+│*   *          *
+│     *       * * ← local min (not the best)
+│      *    *    *
+│       *  *      *
+│        **        *
+│     global min    *
+└──────────────────────► x
 
-  A local minimum has the lowest nearby value.
-  The global minimum has the lowest value everywhere.
-  Optimization algorithms can get stuck at a local minimum.
+A local minimum has the lowest nearby value.
+The global minimum has the lowest value everywhere.
+Optimization algorithms can get stuck at a local minimum.
 ```
 
 #### Classification Guide
@@ -341,20 +341,20 @@ Where:
 These methods follow the slope: for minimization, move against the gradient; for maximization, move with the gradient. The step size, often called the learning rate, controls how aggressively the algorithm moves.
 
 ```
-  Iterative descent on a loss curve
+Iterative descent on a loss curve
 
-  Loss
-  ▲
-  │         • x0
-  │       /
-  │     • x1
-  │    /
-  │  • x2
-  │ /
-  │• x3
-  └────────────────► parameter
+Loss
+▲
+│         • x0
+│       /
+│     • x1
+│    /
+│  • x2
+│ /
+│• x3
+└────────────────► parameter
 
-  Each step moves toward lower objective value
+Each step moves toward lower objective value
 ```
 
 #### Key Ideas

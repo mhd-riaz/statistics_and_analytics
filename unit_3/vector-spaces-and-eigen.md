@@ -38,21 +38,21 @@ Vector Spaces & Eigenanalysis
 A **vector space** $V$ over $\mathbb{R}$ is a set of objects (vectors) equipped with two operations — **addition** and **scalar multiplication** — that satisfy a specific list of axioms. Vector spaces provide the abstract framework for all of linear algebra.
 
 ```
-  ℝ² as a Vector Space:
+ℝ² as a Vector Space:
 
-        ▲ y
-        │
-   v₂ = │─── (1,2) ●
-  (1,2)  │         ╱
-        │       ╱     v₁ + v₂ = (4, 3)
-        │     ╱              ●
-   v₁ = │───╱──── (3,1) ●
-  (3,1)  │ ╱
-        │╱
-        ┼───────────────► x
+      ▲ y
+      │
+ v₂ = │─── (1,2) ●
+(1,2)  │         ╱
+      │       ╱     v₁ + v₂ = (4, 3)
+      │     ╱              ●
+ v₁ = │───╱──── (3,1) ●
+(3,1)  │ ╱
+      │╱
+      ┼───────────────► x
 
-  Closure: v₁ + v₂ stays in ℝ²
-  Scalar:  2·v₁ = (6, 2) stays in ℝ²
+Closure: v₁ + v₂ stays in ℝ²
+Scalar:  2·v₁ = (6, 2) stays in ℝ²
 ```
 
 #### Vector Space Axioms
@@ -249,27 +249,27 @@ Where:
 A set of vectors is **linearly independent** if no vector in the set can be written as a linear combination of the others. **Linear independence** is the key property that distinguishes a _minimal_ spanning set (a **basis**) from a redundant one.
 
 ```
-  Linearly Independent (2 vectors in ℝ²):
+Linearly Independent (2 vectors in ℝ²):
 
-        ▲ y            v₂ = (1, 2)
-        │            ╱
-        │          ╱      These two vectors
-        │        ●         span ALL of ℝ²
-        │      ╱           (neither is a scalar
-        │    ╱              multiple of the other)
-        │  ╱
-        ┼───────●────────► x
-              v₁ = (3, 1)
+      ▲ y            v₂ = (1, 2)
+      │            ╱
+      │          ╱      These two vectors
+      │        ●         span ALL of ℝ²
+      │      ╱           (neither is a scalar
+      │    ╱              multiple of the other)
+      │  ╱
+      ┼───────●────────► x
+            v₁ = (3, 1)
 
-  Linearly Dependent (3 vectors in ℝ²):
+Linearly Dependent (3 vectors in ℝ²):
 
-        ▲ y
-        │   v₃ = v₁ + v₂
-        │       ●
-        │     ╱   ╲
-        │   ●       ●     3 vectors in ℝ²
-        │  v₂      v₁     are ALWAYS dependent
-        ┼──────────────► x
+      ▲ y
+      │   v₃ = v₁ + v₂
+      │       ●
+      │     ╱   ╲
+      │   ●       ●     3 vectors in ℝ²
+      │  v₂      v₁     are ALWAYS dependent
+      ┼──────────────► x
 ```
 
 #### Steps
@@ -432,23 +432,23 @@ Where:
 An **eigenvector** of a square matrix $A$ is a nonzero vector $\mathbf{v}$ that, when multiplied by $A$, only gets _scaled_ (not rotated). The scaling factor is the **eigenvalue** $\lambda$.
 
 ```
-  Geometric Interpretation:
+Geometric Interpretation:
 
-  Regular vector:                 Eigenvector:
-  A changes direction AND length  A only changes length
+Regular vector:                 Eigenvector:
+A changes direction AND length  A only changes length
 
-      ╱ Av                            Av = λv
-    ╱                                   ↑
-  ●───► v                         ●────────► v
-                                  │
-                                  │ Same direction,
-                                  │ scaled by λ
+    ╱ Av                            Av = λv
+  ╱                                   ↑
+●───► v                         ●────────► v
+                                │
+                                │ Same direction,
+                                │ scaled by λ
 
-  λ > 1  → stretches the eigenvector
-  0 < λ < 1 → shrinks the eigenvector
-  λ < 0  → reverses direction
-  λ = 0  → collapses to zero (singular)
-  λ = 1  → eigenvector is unchanged
+λ > 1  → stretches the eigenvector
+0 < λ < 1 → shrinks the eigenvector
+λ < 0  → reverses direction
+λ = 0  → collapses to zero (singular)
+λ = 1  → eigenvector is unchanged
 ```
 
 #### Real-World Use Cases

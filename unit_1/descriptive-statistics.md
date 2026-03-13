@@ -56,11 +56,11 @@ Each measure uses a different symbol depending on whether the data represents a 
 | Standard Deviation |     $\sigma$      |         $s$         |
 
 ```
-  Sorted data:   2   4   [4]   6   9
-                  │   │    │    │   │
-  Mean   → (2+4+4+6+9) / 5 = 5.0
-  Median → middle value      = [4]
-  Mode   → most frequent     = 4 (appears twice)
+Sorted data:   2   4   [4]   6   9
+                │   │    │    │   │
+Mean   → (2+4+4+6+9) / 5 = 5.0
+Median → middle value      = [4]
+Mode   → most frequent     = 4 (appears twice)
 ```
 
 #### Mean (Average)
@@ -68,15 +68,15 @@ Each measure uses a different symbol depending on whether the data represents a 
 The **mean** is the sum of all values divided by the total number of values. It is the most commonly used measure of center and incorporates every data point in the calculation.
 
 ```
-  Values:   3    7    5    9    6
-            │    │    │    │    │
-            └──┬─┴──┬─┴──┬─┘
-               ▼    ▼    ▼
-          Sum = 3 + 7 + 5 + 9 + 6 = 30
-          n   = 5
-               ┌─────────┐
-          x̄  = │ 30 / 5  │ = 6
-               └─────────┘
+Values:   3    7    5    9    6
+          │    │    │    │    │
+          └──┬─┴──┬─┴──┬─┘
+             ▼    ▼    ▼
+        Sum = 3 + 7 + 5 + 9 + 6 = 30
+        n   = 5
+             ┌─────────┐
+        x̄  = │ 30 / 5  │ = 6
+             └─────────┘
 ```
 
 - For a **population**: $\mu = \frac{\sum_{i=1}^{N} x_i}{N}$
@@ -89,13 +89,13 @@ The **mean** is the sum of all values divided by the total number of values. It 
 The **median** is the middle value when data is sorted in ascending (or descending) order. It divides the dataset into two equal halves. Because the median only depends on position, it is **robust to outliers** and preferred for skewed distributions.
 
 ```
-  Odd count (n=5):   Sorted:   2   4   [5]   7   9
-                                        ↑
-                               Median = 5 (position 3)
+Odd count (n=5):   Sorted:   2   4   [5]   7   9
+                                      ↑
+                             Median = 5 (position 3)
 
-  Even count (n=6):  Sorted:   2   4   [5   6]   8   10
-                                        ↑   ↑
-                           Median = (5+6)/2 = 5.5
+Even count (n=6):  Sorted:   2   4   [5   6]   8   10
+                                      ↑   ↑
+                         Median = (5+6)/2 = 5.5
 ```
 
 - If $n$ is **odd**, the median is the value at position $\frac{n+1}{2}$
@@ -106,11 +106,11 @@ The **median** is the middle value when data is sorted in ascending (or descendi
 The **mode** is the value that appears most frequently in a dataset. Unlike mean and median, the mode can be used with **categorical (qualitative)** data as well.
 
 ```
-  Unimodal:     1  2  [3  3  3]  4  5       → Mode = 3
+Unimodal:     1  2  [3  3  3]  4  5       → Mode = 3
 
-  Bimodal:      1  [2  2]  3  [5  5]  6     → Mode = 2 and 5
+Bimodal:      1  [2  2]  3  [5  5]  6     → Mode = 2 and 5
 
-  No Mode:      1  2  3  4  5               → No mode (all unique)
+No Mode:      1  2  3  4  5               → No mode (all unique)
 ```
 
 - **Unimodal**: One mode (single most frequent value)
@@ -123,15 +123,15 @@ The **mode** is the value that appears most frequently in a dataset. Unlike mean
 The relationship between mean, median, and mode reveals the **shape** of the distribution:
 
 ```
-  Left (Negative) Skew         Symmetric            Right (Positive) Skew
+Left (Negative) Skew         Symmetric            Right (Positive) Skew
 
-          ▄▄                     ▄▄▄▄                            ▄▄
-        ▄▄██▄▄                 ▄▄████▄▄                       ▄▄██▄▄
-      ▄▄██████▄▄            ▄▄████████▄▄                   ▄▄██████▄▄
-  ◄────┼────┼──────►   ◄──────┼──────────►   ◄──────┼────┼──────────►
-     Mean  Median         Mean=Med=Mode           Median  Mean
+        ▄▄                     ▄▄▄▄                            ▄▄
+      ▄▄██▄▄                 ▄▄████▄▄                       ▄▄██▄▄
+    ▄▄██████▄▄            ▄▄████████▄▄                   ▄▄██████▄▄
+◄────┼────┼──────►   ◄──────┼──────────►   ◄──────┼────┼──────────►
+   Mean  Median         Mean=Med=Mode           Median  Mean
 
-  Mean < Median           Mean ≈ Med ≈ Mode        Mean > Median
+Mean < Median           Mean ≈ Med ≈ Mode        Mean > Median
 ```
 
 | Condition                                               | Shape              | Skew Direction            |
@@ -262,17 +262,17 @@ Where:
 Measures of dispersion show **how spread out** the data is. Two datasets can have the same mean but very different variability. Important measures include the **range**, **quantiles**, **interquartile range (IQR)**, **5-number summary**, **variance**, and **standard deviation**.
 
 ```
-  Low spread:        ● ● ● ●
-  ◄────────────────────┼────────────────────►
-                       x̄
+Low spread:        ● ● ● ●
+◄────────────────────┼────────────────────►
+                     x̄
 
-  High spread:   ●       ●           ●   ●
-  ◄────────────────────┼────────────────────►
-                       x̄
+High spread:   ●       ●           ●   ●
+◄────────────────────┼────────────────────►
+                     x̄
 
-  Zero variance:       ● ● ● ● (all identical)
-  ◄────────────────────┼────────────────────►
-                       x̄
+Zero variance:       ● ● ● ● (all identical)
+◄────────────────────┼────────────────────►
+                     x̄
 ```
 
 #### Range
@@ -290,11 +290,11 @@ $$
 - **Quartiles** split data into **4 equal parts** ($Q_1, Q_2, Q_3$):
 
 ```
-  ┌─────────┬─────────┬─────────┬─────────┐
-  │   25%   │   25%   │   25%   │   25%   │
-  └─────────┴─────────┴─────────┴─────────┘
-  Min      Q1        Q2        Q3        Max
-                  (Median)
+┌─────────┬─────────┬─────────┬─────────┐
+│   25%   │   25%   │   25%   │   25%   │
+└─────────┴─────────┴─────────┴─────────┘
+Min      Q1        Q2        Q3        Max
+                (Median)
 ```
 
 - **Percentiles** split data into **100 equal parts** (e.g., the 90th percentile means 90% of data is at or below that value)
@@ -326,11 +326,11 @@ The **5-number summary** provides a complete picture of the data spread using fi
 The **box plot** (or _box-and-whisker plot_) is a visual representation of the 5-number summary that also identifies **outliers** using the 1.5×IQR rule:
 
 ```
-  Outliers   Lower    Q1    Q2    Q3    Upper   Outliers
-     ●       Bound     │     │     │    Bound      ●
-  ◄──┼─────────┼───────┼─────┼─────┼───────┼──────┼──►
-               │       ├─── IQR ───┤       │
-          Q1-1.5×IQR                  Q3+1.5×IQR
+Outliers   Lower    Q1    Q2    Q3    Upper   Outliers
+   ●       Bound     │     │     │    Bound      ●
+◄──┼─────────┼───────┼─────┼─────┼───────┼──────┼──►
+             │       ├─── IQR ───┤       │
+        Q1-1.5×IQR                  Q3+1.5×IQR
 ```
 
 - **Lower Bound** = $Q_1 - 1.5 \times \text{IQR}$
@@ -531,15 +531,15 @@ $$
 For data that follows a **normal distribution** (_bell curve_), the Empirical Rule states:
 
 ```
-               ┌──────── 99.7% ──────┐
-               │  ┌───── 95% ─────┐  │
-               │  │  ┌── 68% ──┐  │  │
-               │  │  │    ██    │  │  │
-               │  │  │   ████   │  │  │
-               │  │  │  ██████  │  │  │
-               │  │  │ ████████ │  │  │
-  ◄────────────┼──┼──┼────┼────┼──┼──┼────────────►
-             -3σ -2σ -1σ  μ  +1σ +2σ +3σ
+             ┌──────── 99.7% ──────┐
+             │  ┌───── 95% ─────┐  │
+             │  │  ┌── 68% ──┐  │  │
+             │  │  │    ██    │  │  │
+             │  │  │   ████   │  │  │
+             │  │  │  ██████  │  │  │
+             │  │  │ ████████ │  │  │
+◄────────────┼──┼──┼────┼────┼──┼──┼────────────►
+           -3σ -2σ -1σ  μ  +1σ +2σ +3σ
 ```
 
 - **68%** of data falls within $\mu \pm 1\sigma$
@@ -678,14 +678,14 @@ When two variables move together, descriptive statistics uses **covariance** and
 **Covariance** measures how two variables change together. A positive covariance indicates they move in the same direction; negative means they move in opposite directions.
 
 ```
-  Positive covariance:     Negative covariance:     Zero covariance:
-  Y                        Y                         Y
-  │        ●               │  ●                      │  ●     ●
-  │      ●                 │    ●                    │    ●
-  │    ●                   │      ●                  │  ●   ●
-  │  ●                     │        ●                │    ●
-  └──────── X              └──────── X               └──────── X
-  As X ↑, Y ↑             As X ↑, Y ↓              No linear pattern
+Positive covariance:     Negative covariance:     Zero covariance:
+Y                        Y                         Y
+│        ●               │  ●                      │  ●     ●
+│      ●                 │    ●                    │    ●
+│    ●                   │      ●                  │  ●   ●
+│  ●                     │        ●                │    ●
+└──────── X              └──────── X               └──────── X
+As X ↑, Y ↑             As X ↑, Y ↓              No linear pattern
 ```
 
 $$
@@ -726,10 +726,10 @@ $$
 **Interpreting $r$:**
 
 ```
-  ◄───────┬──────────┬───────────┬──────────┬───────►
-  -1     -0.8       -0.5         0        +0.5      +0.8     +1
-  │ Strong │ Moderate │   Weak    │   Weak   │ Moderate │ Strong │
-  │  Neg   │   Neg    │  Neg/Pos  │  Pos/Neg │   Pos    │  Pos   │
+◄───────┬──────────┬───────────┬──────────┬───────►
+-1     -0.8       -0.5         0        +0.5      +0.8     +1
+│ Strong │ Moderate │   Weak    │   Weak   │ Moderate │ Strong │
+│  Neg   │   Neg    │  Neg/Pos  │  Pos/Neg │   Pos    │  Pos   │
 ```
 
 | $r$ value         | Interpretation                       |

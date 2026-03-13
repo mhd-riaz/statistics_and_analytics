@@ -37,20 +37,20 @@ Covariance Analysis & PCA
 The **covariance matrix** (also called the _variance-covariance matrix_) generalises the concept of variance and covariance to multiple variables simultaneously. For a dataset with $p$ variables, the covariance matrix is a $p \times p$ symmetric matrix that captures all pairwise relationships.
 
 ```
-  Covariance Matrix Structure (3 variables):
+Covariance Matrix Structure (3 variables):
 
-           X₁        X₂        X₃
-       ┌─────────┬─────────┬─────────┐
-  X₁   │ Var(X₁) │Cov(X₁,X₂)│Cov(X₁,X₃)│
-       ├─────────┼─────────┼─────────┤
-  X₂   │Cov(X₂,X₁)│ Var(X₂) │Cov(X₂,X₃)│
-       ├─────────┼─────────┼─────────┤
-  X₃   │Cov(X₃,X₁)│Cov(X₃,X₂)│ Var(X₃) │
-       └─────────┴─────────┴─────────┘
+         X₁        X₂        X₃
+     ┌─────────┬─────────┬─────────┐
+X₁   │ Var(X₁) │Cov(X₁,X₂)│Cov(X₁,X₃)│
+     ├─────────┼─────────┼─────────┤
+X₂   │Cov(X₂,X₁)│ Var(X₂) │Cov(X₂,X₃)│
+     ├─────────┼─────────┼─────────┤
+X₃   │Cov(X₃,X₁)│Cov(X₃,X₂)│ Var(X₃) │
+     └─────────┴─────────┴─────────┘
 
-  Main diagonal  = variances (always ≥ 0)
-  Off-diagonal   = covariances (can be negative)
-  Symmetric:  Cov(Xᵢ,Xⱼ) = Cov(Xⱼ,Xᵢ)
+Main diagonal  = variances (always ≥ 0)
+Off-diagonal   = covariances (can be negative)
+Symmetric:  Cov(Xᵢ,Xⱼ) = Cov(Xⱼ,Xᵢ)
 ```
 
 #### Review: Covariance Between Two Variables
@@ -252,22 +252,22 @@ Where:
 **Principal Component Analysis (PCA)** is a dimensionality reduction technique that transforms a set of possibly correlated variables into a set of linearly uncorrelated variables called **principal components**. It works by finding the directions (eigenvectors of the covariance matrix) along which the data varies the most.
 
 ```
-  PCA Intuition — Rotating to the Direction of Maximum Variance:
+PCA Intuition — Rotating to the Direction of Maximum Variance:
 
-  Original axes (X₁, X₂):          Principal components (PC₁, PC₂):
-         ▲ X₂                              ▲ PC₂
-         │    ·  ·                          │
-         │  ·  ·  ·  ·                     │  ·
-         │·  ·  ·  ·  ·                 ·  ·  ·  ·
-         │  ·  ·  ·                     ·  ·  ·  ·  ·
-         │ ·  ·                         ·  ·  ·  ·
-         ┼──────────► X₁                ·  ·  ·
-                                        ┼──────────────► PC₁
-  Correlated data                    Uncorrelated — variance
-  (elliptical cloud)                 is maximised along PC₁
+Original axes (X₁, X₂):          Principal components (PC₁, PC₂):
+       ▲ X₂                              ▲ PC₂
+       │    ·  ·                          │
+       │  ·  ·  ·  ·                     │  ·
+       │·  ·  ·  ·  ·                 ·  ·  ·  ·
+       │  ·  ·  ·                     ·  ·  ·  ·  ·
+       │ ·  ·                         ·  ·  ·  ·
+       ┼──────────► X₁                ·  ·  ·
+                                      ┼──────────────► PC₁
+Correlated data                    Uncorrelated — variance
+(elliptical cloud)                 is maximised along PC₁
 
-  PC₁ = direction of maximum variance (largest eigenvalue)
-  PC₂ = orthogonal to PC₁ (second largest eigenvalue)
+PC₁ = direction of maximum variance (largest eigenvalue)
+PC₂ = orthogonal to PC₁ (second largest eigenvalue)
 ```
 
 #### Motivation
@@ -338,20 +338,20 @@ Where:
 | **Scree plot**          | Plot eigenvalues in order; look for an "elbow" and keep PCs before the drop |
 
 ```
-  Scree Plot:
+Scree Plot:
 
-  Eigenvalue
-  λ  │
-  5 ─┤  ●
-     │    ╲
-  4 ─┤     ╲
-     │       ╲
-  3 ─┤        ●                 ← "Elbow" here
-     │           ╲                 Keep PC₁ and PC₂
-  1 ─┤             ●──●──●──●
-     │
-  0 ─┼──┬──┬──┬──┬──┬──┬──►
-        PC₁ PC₂ PC₃ PC₄ PC₅ PC₆
+Eigenvalue
+λ  │
+5 ─┤  ●
+   │    ╲
+4 ─┤     ╲
+   │       ╲
+3 ─┤        ●                 ← "Elbow" here
+   │           ╲                 Keep PC₁ and PC₂
+1 ─┤             ●──●──●──●
+   │
+0 ─┼──┬──┬──┬──┬──┬──┬──►
+      PC₁ PC₂ PC₃ PC₄ PC₅ PC₆
 ```
 
 #### Examples
@@ -458,31 +458,31 @@ Where:
 Linear algebra is not an isolated mathematical discipline — it is the **computational engine** behind virtually every modern engineering and scientific application. This section surveys the key domains where the concepts from Sections 1–9 appear in practice.
 
 ```
-  Linear Algebra in the Engineering Pipeline:
+Linear Algebra in the Engineering Pipeline:
 
-  Real-World Problem
-       │
-       ▼
-  ┌──────────────────┐
-  │ Model as          │    Systems of equations (Sec 1)
-  │ Matrix Equation   │    Matrix operations (Sec 2)
-  │ Ax = b            │
-  └────────┬─────────┘
-           ▼
-  ┌──────────────────┐
-  │ Solve / Analyse   │    RREF & Gaussian elim (Sec 4)
-  │ the System        │    Determinants (Sec 3)
-  └────────┬─────────┘
-           ▼
-  ┌──────────────────┐
-  │ Understand         │    Eigenvalues (Sec 7)
-  │ System Behaviour   │    Vector spaces (Sec 5-6)
-  └────────┬─────────┘
-           ▼
-  ┌──────────────────┐
-  │ Reduce & Optimise │    Covariance matrices (Sec 8)
-  │ High-Dim Data     │    PCA (Sec 9)
-  └──────────────────┘
+Real-World Problem
+     │
+     ▼
+┌──────────────────┐
+│ Model as          │    Systems of equations (Sec 1)
+│ Matrix Equation   │    Matrix operations (Sec 2)
+│ Ax = b            │
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ Solve / Analyse   │    RREF & Gaussian elim (Sec 4)
+│ the System        │    Determinants (Sec 3)
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ Understand         │    Eigenvalues (Sec 7)
+│ System Behaviour   │    Vector spaces (Sec 5-6)
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ Reduce & Optimise │    Covariance matrices (Sec 8)
+│ High-Dim Data     │    PCA (Sec 9)
+└──────────────────┘
 ```
 
 #### Structural and Mechanical Engineering

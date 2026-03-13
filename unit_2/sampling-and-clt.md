@@ -41,20 +41,20 @@ The **Sampling Mean** (also called the **Sample Mean**) is the **average** of a 
 The sample mean is an **unbiased estimator**: if you could repeat the sampling process infinitely, the long-run average of all those sample means would equal $\mu$ exactly — it neither systematically overshoots nor undershoots.
 
 ```
-  Population (all N items):
-  ┌─────────────────────────────────────┐
-  │  3  7  5  2  9  4  6  8  1  5  ...  │  True average (μ) = ???
-  │  6  4  7  3  8  5  2  9  4  7  ...  │
-  │ ...                             ... │
-  └─────────────────────────────────────┘
-                    │
-            Pick n items randomly
-                    ▼
-  Sample:  [3, 7, 5, 2, 9, 4, 6, 8, 1, 5]
+Population (all N items):
+┌─────────────────────────────────────┐
+│  3  7  5  2  9  4  6  8  1  5  ...  │  True average (μ) = ???
+│  6  4  7  3  8  5  2  9  4  7  ...  │
+│ ...                             ... │
+└─────────────────────────────────────┘
+                  │
+          Pick n items randomly
+                  ▼
+Sample:  [3, 7, 5, 2, 9, 4, 6, 8, 1, 5]
 
-  Sample Mean (x̄) = (3+7+5+2+9+4+6+8+1+5) / 10 = 5.0
+Sample Mean (x̄) = (3+7+5+2+9+4+6+8+1+5) / 10 = 5.0
 
-  x̄ = 5.0 is our BEST GUESS for the true average μ
+x̄ = 5.0 is our BEST GUESS for the true average μ
 ```
 
 | Notation        |  Symbol   | Pronunciation | Refers To                               |
@@ -177,20 +177,20 @@ Key properties:
 3. **Shape** — As $n$ increases, the sampling distribution becomes more normal (a preview of the CLT in Section 6).
 
 ```
-  Take many samples of size n from the population,
-  compute x̄ each time, and plot all the x̄ values:
+Take many samples of size n from the population,
+compute x̄ each time, and plot all the x̄ values:
 
-  Small samples (n = 5):    Wide, short bell
-           ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-  ◄────────────────┼────────────────────►
-                   μ
+Small samples (n = 5):    Wide, short bell
+         ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+◄────────────────┼────────────────────►
+                 μ
 
-  Large samples (n = 100):   Narrow, tall bell
-                  ▄████▄
-  ◄────────────────┼────────────────────►
-                   μ
+Large samples (n = 100):   Narrow, tall bell
+                ▄████▄
+◄────────────────┼────────────────────►
+                 μ
 
-  Bigger n → Smaller SE → Narrower curve → More precise estimates!
+Bigger n → Smaller SE → Narrower curve → More precise estimates!
 ```
 
 | Property                      |                   Formula                    | Effect of Increasing $n$ |
@@ -320,28 +320,28 @@ This is powerful because it means we can use **Z-score methods** and **normal pr
 **Rule of thumb:** $n \ge 30$ is generally sufficient. If the population is already normal, smaller samples work fine.
 
 ```
-  Original population (can be ANY shape):
+Original population (can be ANY shape):
 
-  Skewed:       ████
-                ██████
-                ████████
-                ██████████
-                ██████████████
-  ◄──────────────────────────────────────►
+Skewed:       ████
+              ██████
+              ████████
+              ██████████
+              ██████████████
+◄──────────────────────────────────────►
 
-                │  Take many samples of size n ≥ 30
-                │  and compute each sample's mean
-                ▼
+              │  Take many samples of size n ≥ 30
+              │  and compute each sample's mean
+              ▼
 
-  Sampling Distribution of Means (always approximately normal!):
+Sampling Distribution of Means (always approximately normal!):
 
-                      ▄▄▄▄
-                   ▄▄██████▄▄
-                ▄▄██████████████▄▄
-             ▄▄██████████████████████▄▄
-  ◄──────────────────┼──────────────────►
-                     μ
-               (population mean)
+                    ▄▄▄▄
+                 ▄▄██████▄▄
+              ▄▄██████████████▄▄
+           ▄▄██████████████████████▄▄
+◄──────────────────┼──────────────────►
+                   μ
+             (population mean)
 ```
 
 **CLT Summary Table:**

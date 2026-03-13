@@ -42,23 +42,23 @@ Linear Equations & Matrices
 A **system of linear equations** is a collection of two or more linear equations involving the same set of variables. The goal is to find the values of the variables that satisfy _all_ equations simultaneously.
 
 ```
-  System with 2 equations, 2 unknowns:
+System with 2 equations, 2 unknowns:
 
-        y ▲
-          │      L₁: x + y = 3
-     3 ── │╲                          ● Intersection = Solution
-          │  ╲         ╱                (1, 2)
-     2 ── │───●──────╱──
-          │    ╲   ╱
-     1 ── │     ╲╱
-          │    ╱ ╲    L₂: 2x − y = 0
-          │  ╱    ╲
-     0 ──┬┴──┬──┬──┬──► x
-          0   1  2  3
+      y ▲
+        │      L₁: x + y = 3
+   3 ── │╲                          ● Intersection = Solution
+        │  ╲         ╱                (1, 2)
+   2 ── │───●──────╱──
+        │    ╲   ╱
+   1 ── │     ╲╱
+        │    ╱ ╲    L₂: 2x − y = 0
+        │  ╱    ╲
+   0 ──┬┴──┬──┬──┬──► x
+        0   1  2  3
 
-  One intersection → Unique solution
-  Parallel lines → No solution (inconsistent)
-  Same line → Infinitely many solutions
+One intersection → Unique solution
+Parallel lines → No solution (inconsistent)
+Same line → Infinitely many solutions
 ```
 
 A system can be written in **matrix form** as:
@@ -184,19 +184,19 @@ Where:
 A **matrix** is a rectangular array of numbers arranged in rows and columns. Matrices provide a compact way to represent and manipulate systems of linear equations, transformations, and data.
 
 ```
-  Matrix A (2×3):                Matrix B (3×2):
-  ┌─────────────────┐            ┌───────────┐
-  │  a₁₁  a₁₂  a₁₃  │            │  b₁₁  b₁₂ │
-  │  a₂₁  a₂₂  a₂₃  │            │  b₂₁  b₂₂ │
-  └─────────────────┘            │  b₃₁  b₃₂ │
-   2 rows × 3 columns            └───────────┘
-                                  3 rows × 2 columns
+Matrix A (2×3):                Matrix B (3×2):
+┌─────────────────┐            ┌───────────┐
+│  a₁₁  a₁₂  a₁₃  │            │  b₁₁  b₁₂ │
+│  a₂₁  a₂₂  a₂₃  │            │  b₂₁  b₂₂ │
+└─────────────────┘            │  b₃₁  b₃₂ │
+ 2 rows × 3 columns            └───────────┘
+                                3 rows × 2 columns
 
-  Product A × B → Result is 2×2
-  ┌─────────┐
-  │ c₁₁ c₁₂│   where c₁₁ = a₁₁b₁₁ + a₁₂b₂₁ + a₁₃b₃₁
-  │ c₂₁ c₂₂│         (row of A) · (column of B)
-  └─────────┘
+Product A × B → Result is 2×2
+┌─────────┐
+│ c₁₁ c₁₂│   where c₁₁ = a₁₁b₁₁ + a₁₂b₂₁ + a₁₃b₃₁
+│ c₂₁ c₂₂│         (row of A) · (column of B)
+└─────────┘
 ```
 
 #### Types of Matrices
@@ -372,26 +372,26 @@ Where:
 The **determinant** is a scalar value that can be computed from the entries of a square matrix. It encodes important information about the matrix: whether it is invertible, how it scales volumes, and the nature of solutions to the associated system of equations.
 
 ```
-  2×2 Determinant — Geometric Meaning:
+2×2 Determinant — Geometric Meaning:
 
-  The determinant of a 2×2 matrix equals the
-  signed area of the parallelogram formed by
-  its column vectors.
+The determinant of a 2×2 matrix equals the
+signed area of the parallelogram formed by
+its column vectors.
 
-        ▲ y
-        │        ╱(a+c, b+d)
-        │      ╱  ╱
-        │    ╱  ╱
-   (c,d)│  ╱  ╱
-        │╱  ╱
-        ┼─╱──────────► x
-       ╱(a,b)
+      ▲ y
+      │        ╱(a+c, b+d)
+      │      ╱  ╱
+      │    ╱  ╱
+ (c,d)│  ╱  ╱
+      │╱  ╱
+      ┼─╱──────────► x
+     ╱(a,b)
 
-  Area = |ad − bc| = |det(A)|
+Area = |ad − bc| = |det(A)|
 
-  det > 0 → preserves orientation
-  det < 0 → reverses orientation
-  det = 0 → collapses to a line (singular)
+det > 0 → preserves orientation
+det < 0 → reverses orientation
+det = 0 → collapses to a line (singular)
 ```
 
 #### Real-World Use Cases
@@ -520,19 +520,19 @@ Where $A_i$ is the matrix formed by replacing the $i$-th column of $A$ with $\ma
 **Row Reduced Echelon Form (RREF)** is the fully simplified form of an augmented matrix, achieved by applying elementary row operations. It is the systematic way to solve any system of linear equations — known as **Gaussian elimination** (or Gauss-Jordan elimination for RREF).
 
 ```
-  Reduction Pipeline:
+Reduction Pipeline:
 
-  Original System         Augmented Matrix         REF               RREF
-  ┌──────────────┐        ┌────────────┐        ┌────────────┐     ┌────────────┐
-  │ 2x + y = 5   │   →    │ 2  1 │ 5  │   →    │ 1  ½ │ 5/2│  →  │ 1  0 │ 2  │
-  │ 4x − y = 1   │        │ 4 −1 │ 1  │        │ 0 −3 │ −9 │     │ 0  1 │ 3  │
-  └──────────────┘        └────────────┘        └────────────┘     └────────────┘
-                                                                    x=2, y=3
-  Row Echelon Form (REF):          RREF (fully reduced):
-  • Leading 1 in each row           • All REF conditions +
-  • Each leading 1 is to the        • Leading 1 is the ONLY
-    right of the one above            nonzero entry in its column
-  • Zeros below each leading 1      • Zeros above AND below
+Original System         Augmented Matrix         REF               RREF
+┌──────────────┐        ┌────────────┐        ┌────────────┐     ┌────────────┐
+│ 2x + y = 5   │   →    │ 2  1 │ 5  │   →    │ 1  ½ │ 5/2│  →  │ 1  0 │ 2  │
+│ 4x − y = 1   │        │ 4 −1 │ 1  │        │ 0 −3 │ −9 │     │ 0  1 │ 3  │
+└──────────────┘        └────────────┘        └────────────┘     └────────────┘
+                                                                  x=2, y=3
+Row Echelon Form (REF):          RREF (fully reduced):
+• Leading 1 in each row           • All REF conditions +
+• Each leading 1 is to the        • Leading 1 is the ONLY
+  right of the one above            nonzero entry in its column
+• Zeros below each leading 1      • Zeros above AND below
 ```
 
 #### Real-World Use Cases

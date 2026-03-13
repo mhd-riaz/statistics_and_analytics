@@ -66,19 +66,19 @@ Think of it from a data perspective. Let the data you have now be `dataNow` — 
 Future data is different from the data we have, but both come from the **same place** — the **population**.
 
 ```
-  ┌───────────────────────────────── Population ──────────────────────────────────┐
-  │                 (universe of all possible data for a specified object)         │
-  │                                                                               │
-  │    Past Data        Present Data        Future Data                           │
-  │   (collected)       (observable)        (not yet seen)                        │
-  │       │                  │                   │                                │
-  │       └──── dataNow ─────┘                   │                                │
-  │              (sample)                    futureData                            │
-  │                  │                       (unknown)                             │
-  │                  ▼                                                             │
-  │             Statistic ──────── estimates ──────► Parameter                     │
-  │           (computed)                           (true but unknown)              │
-  └───────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────── Population ──────────────────────────────────┐
+│                 (universe of all possible data for a specified object)         │
+│                                                                               │
+│    Past Data        Present Data        Future Data                           │
+│   (collected)       (observable)        (not yet seen)                        │
+│       │                  │                   │                                │
+│       └──── dataNow ─────┘                   │                                │
+│              (sample)                    futureData                            │
+│                  │                       (unknown)                             │
+│                  ▼                                                             │
+│             Statistic ──────── estimates ──────► Parameter                     │
+│           (computed)                           (true but unknown)              │
+└───────────────────────────────────────────────────────────────────────────────┘
 ```
 
 1. **Population**:
@@ -115,11 +115,11 @@ Future data is different from the data we have, but both come from the **same pl
 The core statistical problem is to go **from the observed to the non-observed** — from the sample to the population — because the object we are interested in is not the statistic but the **parameter**, and the universe we are interested in is the **population**.
 
 ```
-  Observed World                        Non-observed World
-  ┌──────────────────┐    inference     ┌──────────────────┐
-  │     Sample       │ ──────────────►  │   Population     │
-  │   Statistic (x̄)  │                  │  Parameter (μ)   │
-  └──────────────────┘                  └──────────────────┘
+Observed World                        Non-observed World
+┌──────────────────┐    inference     ┌──────────────────┐
+│     Sample       │ ──────────────►  │   Population     │
+│   Statistic (x̄)  │                  │  Parameter (μ)   │
+└──────────────────┘                  └──────────────────┘
 ```
 
 This notion of a sample drawn from a population has defined the subject of statistics for many years — and is still being challenged today with **big data** that appears to be a population, not a sample.
@@ -133,11 +133,11 @@ This notion of a sample drawn from a population has defined the subject of stati
 **Estimation** is the process of using sample data to infer unknown population parameters.
 
 ```
-  Sample ──► Compute Statistic ──► Use as Estimate of Parameter
+Sample ──► Compute Statistic ──► Use as Estimate of Parameter
 
-  x̄  ≈  μ     (sample mean estimates population mean)
-  p̂  ≈  p     (sample proportion estimates population proportion)
-  s² ≈  σ²    (sample variance estimates population variance)
+x̄  ≈  μ     (sample mean estimates population mean)
+p̂  ≈  p     (sample proportion estimates population proportion)
+s² ≈  σ²    (sample variance estimates population variance)
 ```
 
 #### Real-World Use Cases
@@ -237,12 +237,12 @@ Where:
 **Big Data** is a set of data that cannot be managed, processed, or analyzed with traditional software or algorithms within a reasonable amount of time. It is characterized by the **5 V's**:
 
 ```
-  Big Data
-  ├── Volume    — massive quantities of data
-  ├── Velocity  — speed at which data is generated and processed
-  ├── Variety   — many different formats (text, images, logs, …)
-  ├── Value     — actionable insight that can be extracted
-  └── Veracity  — trustworthiness and accuracy of the data
+Big Data
+├── Volume    — massive quantities of data
+├── Velocity  — speed at which data is generated and processed
+├── Variety   — many different formats (text, images, logs, …)
+├── Value     — actionable insight that can be extracted
+└── Veracity  — trustworthiness and accuracy of the data
 ```
 
 _Example_: Walmart handles over 1 million purchase transactions per hour.
@@ -281,19 +281,19 @@ During older times, the rule of thumb was to use secondary data as collection of
 #### Types of Data
 
 ```
-  Data
-  ├── Qualitative (Categorical)
-  │   ├── Nominal   → labels with no order
-  │   ├── Binary    → only two outcomes
-  │   │   ├── Symmetric   (both outcomes equally important)
-  │   │   └── Asymmetric  (one outcome more important)
-  │   └── Ordinal   → ordered categories, gaps not meaningful
-  │
-  └── Quantitative (Numerical)
-      ├── Discrete  → integer values (counted)
-      └── Continuous → real numbers (measured)
-          ├── Interval → equal gaps, no true zero
-          └── Ratio    → equal gaps, true zero
+Data
+├── Qualitative (Categorical)
+│   ├── Nominal   → labels with no order
+│   ├── Binary    → only two outcomes
+│   │   ├── Symmetric   (both outcomes equally important)
+│   │   └── Asymmetric  (one outcome more important)
+│   └── Ordinal   → ordered categories, gaps not meaningful
+│
+└── Quantitative (Numerical)
+    ├── Discrete  → integer values (counted)
+    └── Continuous → real numbers (measured)
+        ├── Interval → equal gaps, no true zero
+        └── Ratio    → equal gaps, true zero
 ```
 
 ##### Qualitative Data (Categorical)
@@ -332,28 +332,28 @@ Values can be **integer** (1, 2, 3, …) or **real** (175 cm, 175.6 cm, 175.65 c
 #### Types of Datasets
 
 ```
-  Datasets
-  ├── Records
-  │   ├── Relational records
-  │   ├── Data matrix (numerical matrix, cross-tabs)
-  │   ├── Document data (text)
-  │   └── Transactional data
-  │
-  ├── Graph and Network
-  │   ├── World Wide Web
-  │   ├── Social / information networks
-  │   └── Molecular structures
-  │
-  ├── Ordered
-  │   ├── Video data (sequence of images)
-  │   ├── Temporal data (time-series)
-  │   ├── Sequential data (transaction sequences)
-  │   └── Genetic sequence data
-  │
-  └── Spatial, Image, and Multimedia
-      ├── Spatial data (maps)
-      ├── Image data
-      └── Video data
+Datasets
+├── Records
+│   ├── Relational records
+│   ├── Data matrix (numerical matrix, cross-tabs)
+│   ├── Document data (text)
+│   └── Transactional data
+│
+├── Graph and Network
+│   ├── World Wide Web
+│   ├── Social / information networks
+│   └── Molecular structures
+│
+├── Ordered
+│   ├── Video data (sequence of images)
+│   ├── Temporal data (time-series)
+│   ├── Sequential data (transaction sequences)
+│   └── Genetic sequence data
+│
+└── Spatial, Image, and Multimedia
+    ├── Spatial data (maps)
+    ├── Image data
+    └── Video data
 ```
 
 #### Measurement Scale Summary
@@ -464,17 +464,17 @@ Because observing an entire population is often expensive or impossible, statist
 Sampling techniques fall into two broad categories:
 
 ```
-  Sampling Methods
-  ├── Random (Probability-Based)
-  │   ├── Simple Random Sampling   → every member has equal chance
-  │   ├── Stratified Sampling      → divide into subgroups, sample each
-  │   ├── Cluster Sampling         → pick whole clusters, survey all inside
-  │   └── Systematic Sampling      → pick every k-th member from a list
-  │
-  └── Non-Random (Non-Probability)
-      ├── Snowball Sampling        → existing subjects recruit more
-      ├── Convenience Sampling     → whoever is easiest to reach
-      └── Judgmental Sampling      → researcher picks "typical" members
+Sampling Methods
+├── Random (Probability-Based)
+│   ├── Simple Random Sampling   → every member has equal chance
+│   ├── Stratified Sampling      → divide into subgroups, sample each
+│   ├── Cluster Sampling         → pick whole clusters, survey all inside
+│   └── Systematic Sampling      → pick every k-th member from a list
+│
+└── Non-Random (Non-Probability)
+    ├── Snowball Sampling        → existing subjects recruit more
+    ├── Convenience Sampling     → whoever is easiest to reach
+    └── Judgmental Sampling      → researcher picks "typical" members
 ```
 
 #### Random (Probability-Based) Sampling
