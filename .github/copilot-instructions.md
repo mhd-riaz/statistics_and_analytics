@@ -375,9 +375,17 @@ Track enrichment progress per unit. When resuming work, check the status below a
 | `hypothesis-testing.md`        | ✅ Fully enriched (sections 10–12) |
 | `anova.md`                     | ✅ Fully enriched (sections 13–15) |
 
-#### Units 3–4
+#### Unit 3 (`unit_3/`)
+
+| File                               | Status                            |
+| :--------------------------------- | :-------------------------------- |
+| `index.md`                         | ✅ Complete                       |
+| `linear-equations-and-matrices.md` | ✅ Fully enriched (sections 1–4)  |
+| `vector-spaces-and-eigen.md`       | ✅ Fully enriched (sections 5–7)  |
+| `pca-and-applications.md`          | ✅ Fully enriched (sections 8–10) |
+
+#### Unit 4
 
 | Unit      | Status         |
 | :-------- | :------------- |
-| `unit_3/` | ⬜ Not started |
 | `unit_4/` | ⬜ Not started |
