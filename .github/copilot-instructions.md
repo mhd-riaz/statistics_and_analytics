@@ -384,8 +384,11 @@ Track enrichment progress per unit. When resuming work, check the status below a
 | `vector-spaces-and-eigen.md`       | ✅ Fully enriched (sections 5–7)  |
 | `pca-and-applications.md`          | ✅ Fully enriched (sections 8–10) |
 
-#### Unit 4
+#### Unit 4 (`unit_4/`)
 
-| Unit      | Status         |
-| :-------- | :------------- |
-| `unit_4/` | ⬜ Not started |
+| File                          | Status                            |
+| :---------------------------- | :-------------------------------- |
+| `index.md`                    | ✅ Complete                       |
+| `functions-and-calculus.md`   | ✅ Fully enriched (sections 1–3)  |
+| `optimization-foundations.md` | ✅ Fully enriched (sections 4–6)  |
+| `gradient-methods.md`         | ✅ Fully enriched (sections 7–10) |
