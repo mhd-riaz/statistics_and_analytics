@@ -22,14 +22,18 @@ Hypothesis Testing
 │   └── One-Tailed vs Two-Tailed Tests
 │
 ├── 11. Parametric Tests
-│   ├── Z-Test (known σ, large n)
+│   ├── Z-Test for Mean (known σ, large n)
+│   ├── Z-Test for Proportion
 │   ├── One-Sample t-Test (unknown σ, small n)
+│   ├── Tail selection for one-sided vs two-sided tests
 │   └── When to Use Z vs t
 │
 └── 12. Non-Parametric Tests
     ├── Chi-Square Goodness-of-Fit Test
+    ├── Chi-Square Test of Independence
     ├── Mann-Whitney U Test
-    └── Parametric vs Non-Parametric Comparison
+    ├── Parametric vs Non-Parametric Comparison
+    └── Python workflows for classroom practice
 ```
 
 ---
@@ -262,6 +266,19 @@ The two most common parametric tests for means are the **Z-test** and the **t-te
 | **Converges to Z**    | —                                          | Yes, as $n \to \infty$                |
 | **Assumption**        | Population is normal (or large $n$ by CLT) | Population is approximately normal    |
 
+#### Tail Selection for Mean vs Proportion Tests
+
+Teacher notes and practicals use both **one-sided** and **two-sided** alternatives, especially for proportion testing. The decision depends on the wording of the claim.
+
+| Claim Type                         | Alternative Hypothesis | Tail Type                  | Typical Question                        |
+| :--------------------------------- | :--------------------- | :------------------------- | :-------------------------------------- |
+| Any change                         | $                      |
+| eq$                                | Two-sided              | "Has the process changed?" |
+| Only an increase matters           | $>$                    | Right-tailed               | "Did conversion rate improve?"          |
+| Only a decrease matters            | $<$                    | Left-tailed                | "Is the defect rate lower than before?" |
+| Proportion exceeds a benchmark     | $p > p_0$              | Right-tailed               | "Is pass rate above 80%?"               |
+| Proportion falls below a benchmark | $p < p_0$              | Left-tailed                | "Is approval rate below 50%?"           |
+
 #### Real-World Use Cases
 
 - **Z-Test**: Quality control in factories where $\sigma$ is known from years of historical data and sample sizes are large.
@@ -284,6 +301,15 @@ The two most common parametric tests for means are the **Z-test** and the **t-te
 4. Find the p-value from the $t$-distribution table with $df$ degrees of freedom.
 5. If $p \leq \alpha$, reject $H_0$.
 
+#### Steps — Z-Test for a Population Proportion
+
+1. State $H_0: p = p_0$ and choose $H_1$ as $p \neq p_0$, $p > p_0$, or $p < p_0$.
+2. Check that the normal approximation is reasonable: $np_0 \geq 5$ and $n(1-p_0) \geq 5$.
+3. Compute the sample proportion $\hat{p} = x/n$.
+4. Compute: $Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$.
+5. Find the p-value from the standard normal table using the correct tail.
+6. If $p \leq \alpha$, reject $H_0$.
+
 #### Formula — Z-Test
 
 $$
@@ -299,6 +325,35 @@ Where:
 |  $\mu_0$  | "mu naught"   | The hypothesized population mean (from $H_0$)               |
 | $\sigma$  | "sigma"       | The known population standard deviation                     |
 |    $n$    | "n"           | The sample size                                             |
+
+#### Formula — Z-Test for a Population Proportion
+
+$$
+Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}
+$$
+
+Where:
+
+| Symbol    | Pronunciation | Meaning                                           |
+| :-------- | :------------ | :------------------------------------------------ |
+| $Z$       | "z"           | The test statistic                                |
+| $\hat{p}$ | "p hat"       | The sample proportion                             |
+| $p_0$     | "p naught"    | The hypothesised population proportion from $H_0$ |
+| $n$       | "n"           | The sample size                                   |
+| $x$       | "x"           | The number of successes in the sample             |
+
+#### Hands-On in Python
+
+The teacher practical note emphasises doing these tests in Python. The most common classroom functions are:
+
+| Task                         | Library       | Function                                         |
+| :--------------------------- | :------------ | :----------------------------------------------- |
+| Z-test for a mean            | `statsmodels` | `statsmodels.stats.weightstats.ztest`            |
+| Z-test for a proportion      | `statsmodels` | `statsmodels.stats.proportion.proportions_ztest` |
+| Confidence interval for mean | `scipy.stats` | `stats.t.interval`                               |
+| One-way ANOVA                | `scipy.stats` | `stats.f_oneway`                                 |
+| Chi-square goodness-of-fit   | `scipy.stats` | `chisquare`                                      |
+| Chi-square independence      | `scipy.stats` | `chi2_contingency`                               |
 
 #### Formula — One-Sample t-Test
 
@@ -405,6 +460,98 @@ A coffee shop claims their large cup contains $\mu_0 = 16$ oz. A customer measur
 
 ---
 
+##### Example 3 — Z-Test for a Population Proportion (Right-Tailed)
+
+A university claims that at least $p_0 = 0.80$ (80%) of its graduates find employment within 6 months. A survey of $n = 200$ recent graduates finds that $x = 170$ are employed. Test at $\alpha = 0.05$ whether the true proportion exceeds 80%.
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $p_0 = 0.80$ | Claimed proportion ($H_0$) |
+> | $n = 200$ | Sample size |
+> | $x = 170$ | Number of employed graduates |
+> | $\hat{p} = 170/200 = 0.85$ | Sample proportion |
+> | $\alpha = 0.05$ | Significance level (right-tailed) |
+> | Find: Is $p > 0.80$? | |
+
+> **Step 1:** State the hypotheses.
+>
+> $$H_0: p = 0.80 \qquad H_1: p > 0.80$$
+>
+> **Step 2:** Check the normal approximation condition.
+>
+> $np_0 = 200 \times 0.80 = 160 \geq 5$ ✓
+>
+> $n(1-p_0) = 200 \times 0.20 = 40 \geq 5$ ✓
+>
+> **Step 3:** Compute the test statistic.
+>
+> $$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.85 - 0.80}{\sqrt{0.80 \times 0.20 / 200}} = \frac{0.05}{\sqrt{0.0008}} = \frac{0.05}{0.02828} = 1.768$$
+>
+> **Step 4:** Find the p-value (right-tailed).
+>
+> $$p = P(Z > 1.768) = 1 - 0.9615 = 0.0385$$
+>
+> **Step 5:** Compare to $\alpha$.
+>
+> $$p = 0.0385 < \alpha = 0.05$$
+>
+> **Step 6:** Decision.
+>
+> $$\boxed{\text{Reject } H_0}$$
+>
+> **Interpretation:** At the 5% significance level, there is sufficient evidence that more than 80% of graduates find employment within 6 months. The sample proportion of 85% is significantly above the claimed 80%.
+
+---
+
+##### Example 4 — Z-Test for a Proportion (Two-Tailed)
+
+A political strategist claims that exactly $p_0 = 0.50$ (50%) of voters favour a new policy. A random poll of $n = 400$ voters finds $x = 184$ in favour. Test at $\alpha = 0.01$ whether the true proportion differs from 50%.
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $p_0 = 0.50$ | Hypothesised proportion ($H_0$) |
+> | $n = 400$ | Sample size |
+> | $x = 184$ | Number in favour |
+> | $\hat{p} = 184/400 = 0.46$ | Sample proportion |
+> | $\alpha = 0.01$ | Significance level (two-tailed) |
+> | Find: Is $p \neq 0.50$? | |
+
+> **Step 1:** State the hypotheses.
+>
+> $$H_0: p = 0.50 \qquad H_1: p \neq 0.50$$
+>
+> **Step 2:** Check the normal approximation condition.
+>
+> $np_0 = 400 \times 0.50 = 200 \geq 5$ ✓
+>
+> $n(1-p_0) = 400 \times 0.50 = 200 \geq 5$ ✓
+>
+> **Step 3:** Compute the test statistic.
+>
+> $$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}} = \frac{0.46 - 0.50}{\sqrt{0.50 \times 0.50 / 400}} = \frac{-0.04}{\sqrt{0.000625}} = \frac{-0.04}{0.025} = -1.60$$
+>
+> **Step 4:** Find the p-value (two-tailed).
+>
+> $P(Z < -1.60) \approx 0.0548$
+>
+> $$p = 2 \times 0.0548 = 0.1096$$
+>
+> **Step 5:** Compare to $\alpha$.
+>
+> $$p = 0.1096 > \alpha = 0.01$$
+>
+> **Step 6:** Decision.
+>
+> $$\boxed{\text{Fail to reject } H_0}$$
+>
+> **Interpretation:** At the 1% significance level, there is not enough evidence to conclude that voter support differs from 50%. The observed sample proportion of 46% is within the range expected by chance.
+
+---
+
 ### 12. Non-Parametric Tests
 
 **Non-parametric tests** are hypothesis tests that do **not** assume the data follows a specific distribution. They are used when:
@@ -469,6 +616,48 @@ Where:
 4. Compute $\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$.
 5. Find the critical value from the $\chi^2$ table with $df = k - 1$.
 6. If $\chi^2 \geq \chi^2_{\text{critical}}$, reject $H_0$.
+
+#### Chi-Square Goodness-of-Fit vs Independence
+
+Both tests use the same $\chi^2$ idea, but they answer different questions.
+
+| Test Type            | What It Checks                                | Data Structure           | Degrees of Freedom |
+| :------------------- | :-------------------------------------------- | :----------------------- | :----------------- |
+| Goodness-of-fit      | Do observed counts match an expected pattern? | One categorical variable | $k - 1$            |
+| Test of independence | Are two categorical variables related?        | Contingency table        | $(r-1)(c-1)$       |
+
+#### Formula — Chi-Square Test of Independence
+
+For a contingency table, expected counts are computed from row and column totals:
+
+$$
+E_{ij} = \frac{(\text{Row Total}_i)(\text{Column Total}_j)}{N}
+$$
+
+$$
+\chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+$$
+
+Where:
+
+| Symbol   | Pronunciation        | Meaning                               |
+| :------- | :------------------- | :------------------------------------ |
+| $O_{ij}$ | "O sub i j"          | Observed count in row $i$, column $j$ |
+| $E_{ij}$ | "E sub i j"          | Expected count in row $i$, column $j$ |
+| $r$      | "r"                  | Number of rows                        |
+| $c$      | "c"                  | Number of columns                     |
+| $N$      | "capital N"          | Total number of observations          |
+| $df$     | "degrees of freedom" | $(r-1)(c-1)$                          |
+
+#### Steps — Chi-Square Test of Independence
+
+1. State $H_0$: the two categorical variables are independent.
+2. State $H_1$: the two categorical variables are associated.
+3. Build the contingency table of observed counts $O_{ij}$.
+4. Compute expected counts $E_{ij}$ using row totals, column totals, and $N$.
+5. Compute $\chi^2 = \sum \frac{(O_{ij} - E_{ij})^2}{E_{ij}}$.
+6. Use $df = (r-1)(c-1)$ and compare to the critical value or p-value.
+7. If $p \leq \alpha$, reject $H_0$ and conclude that the variables are associated.
 
 #### Formula — Mann-Whitney U Test
 
@@ -549,7 +738,66 @@ Test at $\alpha = 0.05$ whether the distribution is truly equal.
 
 ---
 
-##### Example 2 — Mann-Whitney U Test
+##### Example 2 — Chi-Square Test of Independence
+
+A researcher surveys 300 employees to test whether **job satisfaction** (Satisfied / Not satisfied) is independent of **department** (Sales / Engineering / HR). The observed counts are:
+
+|                   | Sales | Engineering |  HR   | **Row Total** |
+| :---------------- | :---: | :---------: | :---: | :-----------: |
+| **Satisfied**     |  60   |     80      |  40   |      180      |
+| **Not satisfied** |  40   |     20      |  60   |      120      |
+| **Column Total**  |  100  |     100     |  100  |    **300**    |
+
+Test at $\alpha = 0.05$.
+
+> **Given:**
+>
+> | Key Value | Description |
+> |:---|:---|
+> | $N = 300$ | Total observations |
+> | $r = 2$, $c = 3$ | 2 rows × 3 columns |
+> | $df = (r-1)(c-1) = (1)(2) = 2$ | Degrees of freedom |
+> | $\chi^2_{\text{critical}} = 5.991$ | Critical value for $df=2$, $\alpha=0.05$ |
+> | Find: Are department and satisfaction independent? | |
+
+> **Step 1:** State the hypotheses.
+>
+> $$H_0: \text{Job satisfaction and department are independent}$$
+> $$H_1: \text{Job satisfaction and department are associated}$$
+>
+> **Step 2:** Compute expected counts using $E_{ij} = \frac{(\text{Row Total}_i)(\text{Column Total}_j)}{N}$.
+>
+> | | Sales | Engineering | HR |
+> |:---|:---:|:---:|:---:|
+> | **Satisfied** | $\frac{180 \times 100}{300} = 60$ | $\frac{180 \times 100}{300} = 60$ | $\frac{180 \times 100}{300} = 60$ |
+> | **Not satisfied** | $\frac{120 \times 100}{300} = 40$ | $\frac{120 \times 100}{300} = 40$ | $\frac{120 \times 100}{300} = 40$ |
+>
+> **Step 3:** Compute $\chi^2$.
+>
+> | Cell | $O_{ij}$ | $E_{ij}$ | $(O_{ij}-E_{ij})^2/E_{ij}$ |
+> |:---|:---:|:---:|:---:|
+> | Satisfied, Sales | 60 | 60 | $0/60 = 0.000$ |
+> | Satisfied, Eng | 80 | 60 | $400/60 = 6.667$ |
+> | Satisfied, HR | 40 | 60 | $400/60 = 6.667$ |
+> | Not sat., Sales | 40 | 40 | $0/40 = 0.000$ |
+> | Not sat., Eng | 20 | 40 | $400/40 = 10.000$ |
+> | Not sat., HR | 60 | 40 | $400/40 = 10.000$ |
+>
+> $$\chi^2 = 0 + 6.667 + 6.667 + 0 + 10 + 10 = 33.334$$
+>
+> **Step 4:** Compare to the critical value.
+>
+> $$\chi^2 = 33.334 \gg \chi^2_{\text{critical}} = 5.991$$
+>
+> **Step 5:** Decision.
+>
+> $$\boxed{\text{Reject } H_0}$$
+>
+> **Interpretation:** At the 5% significance level, there is **strong evidence** that job satisfaction depends on department. Engineering has a much higher satisfaction rate than HR. The very large $\chi^2$ value indicates the association is highly significant.
+
+---
+
+##### Example 3 — Mann-Whitney U Test
 
 A researcher wants to test whether two study methods produce different exam scores. Because the data is from small groups and may not be normal, she uses the Mann-Whitney U test.
 

@@ -533,6 +533,21 @@ Linear algebra is not an isolated mathematical discipline — it is the **comput
 - **Finance**: Risk management uses covariance matrices and eigendecomposition to identify independent risk factors across portfolios.
 - **Recommendation Systems**: Netflix/Spotify use matrix factorisation (a form of eigendecomposition) to predict user preferences.
 
+#### Hands-On in Python
+
+The teacher notes include practical linear algebra work in Python. These are the core functions worth knowing for classwork and exams:
+
+| Task                       | Python Tool    | Typical Function or Operator             |
+| :------------------------- | :------------- | :--------------------------------------- |
+| Matrix creation            | `NumPy`        | `np.array(...)`                          |
+| Matrix multiplication      | `NumPy`        | `A @ B` or `np.dot(A, B)`                |
+| Determinant                | `NumPy`        | `np.linalg.det(A)`                       |
+| Solve linear system        | `NumPy`        | `np.linalg.solve(A, b)`                  |
+| Eigenvalues/eigenvectors   | `NumPy`        | `np.linalg.eig(A)`                       |
+| QR decomposition (Q and R) | `NumPy`        | `np.linalg.qr(A)`                        |
+| PCA from covariance matrix | `NumPy`        | `np.linalg.eig(np.cov(X, rowvar=False))` |
+| Applied PCA workflow       | `scikit-learn` | `sklearn.decomposition.PCA`              |
+
 #### Steps
 
 1. Translate the engineering problem into a linear algebra object: vector, matrix, or linear transformation.

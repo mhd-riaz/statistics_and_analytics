@@ -14,6 +14,7 @@ Vector Spaces & Eigenanalysis
 ├── 5. Vector Spaces and Subspaces
 │   ├── Definition and axioms
 │   ├── Common examples (ℝⁿ, function spaces)
+│   ├── Vector relationships and similarity
 │   ├── Subspaces (null space, column space, row space)
 │   └── Span of a set of vectors
 │
@@ -80,6 +81,18 @@ For all $\mathbf{u}, \mathbf{v}, \mathbf{w} \in V$ and scalars $c, d \in \mathbb
 | $P_n$                     | All polynomials of degree $\leq n$               |
 | $C[a,b]$                  | All continuous functions on $[a, b]$             |
 
+#### Vector Relationships and Similarity
+
+Teacher notes and sample questions also use vectors as geometric objects that can be compared for **alignment**, **orthogonality**, and **distance**.
+
+| Idea                    | Formula                                                                       | Interpretation                              | Common Use                              |
+| :---------------------- | :---------------------------------------------------------------------------- | :------------------------------------------ | :-------------------------------------- |
+| **Dot product**         | $\mathbf{u} \cdot \mathbf{v} = \sum u_i v_i$                                  | Large positive value means strong alignment | Similarity scoring, projections         |
+| **Orthogonal vectors**  | $\mathbf{u} \cdot \mathbf{v} = 0$                                             | Vectors are perpendicular                   | Independent directions, basis design    |
+| **Orthonormal vectors** | $\mathbf{u} \cdot \mathbf{v} = 0$ and $\|\mathbf{u}\| = \|\mathbf{v}\| = 1$   | Perpendicular unit vectors                  | Rotation matrices, QR factorisation     |
+| **Cosine similarity**   | $\cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}$ | Compares direction, ignoring magnitude      | Recommendation systems, text embeddings |
+| **Euclidean distance**  | $\|\mathbf{u}-\mathbf{v}\|$                                                   | Measures geometric closeness                | Clustering, nearest-neighbour methods   |
+
 #### Subspaces
 
 A **subspace** $W$ of $V$ is a non-empty subset of $V$ that is itself a vector space under the same operations. To verify, check three conditions:
@@ -100,6 +113,8 @@ A **subspace** $W$ of $V$ is a non-empty subset of $V$ that is itself a vector s
 
 - **Signal Processing**: Signals live in function spaces; filtering is projection onto subspaces.
 - **Machine Learning**: Feature spaces are vector spaces; models operate in subspaces of the full feature space.
+- **Recommendation Systems**: Dot products and cosine similarity compare user vectors and item vectors to rank likely matches.
+- **Clustering**: Euclidean distance is used to group similar observations and to assign points to nearby centroids.
 - **Quantum Mechanics**: Quantum states are vectors in a complex vector space (Hilbert space).
 - **Data Compression**: The null space identifies redundant information that can be discarded.
 - **Limitation**: Not all sets with "vector-like" elements form vector spaces — the axioms must all hold.
@@ -109,8 +124,9 @@ A **subspace** $W$ of $V$ is a non-empty subset of $V$ that is itself a vector s
 1. Identify the set of vectors or objects being tested.
 2. Check whether the zero vector is included when verifying a subspace.
 3. Test closure under addition and scalar multiplication.
-4. If working with spanning sets, express a general linear combination and describe all vectors it can generate.
-5. Conclude whether the set is a vector space, subspace, or spanning set.
+4. If comparing vectors, compute the dot product, cosine similarity, or Euclidean distance based on the question.
+5. If working with spanning sets, express a general linear combination and describe all vectors it can generate.
+6. Conclude whether the set is a vector space, subspace, or spanning set.
 
 #### Formula
 
@@ -145,6 +161,30 @@ Where:
 | $\text{Span}\{\ldots\}$ | "span of"     | The set of all possible linear combinations |
 |          $c_i$          | "c sub i"     | Scalar weights (can be any real number)     |
 |     $\mathbf{v}_i$      | "v sub i"     | The $i$-th vector in the spanning set       |
+
+##### Vector Comparison Formulas
+
+$$
+\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{n} u_i v_i
+$$
+
+$$
+\cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}
+$$
+
+$$
+d(\mathbf{u}, \mathbf{v}) = \|\mathbf{u} - \mathbf{v}\| = \sqrt{\sum_{i=1}^{n}(u_i-v_i)^2}
+$$
+
+Where:
+
+| Symbol                      | Pronunciation         | Meaning                                    |
+| :-------------------------- | :-------------------- | :----------------------------------------- |
+| $\mathbf{u}, \mathbf{v}$    | "u, v"                | Vectors being compared                     |
+| $\mathbf{u}\cdot\mathbf{v}$ | "u dot v"             | Dot product                                |
+| $\|\mathbf{u}\|$            | "norm of u"           | Length or magnitude of vector $\mathbf{u}$ |
+| $\theta$                    | "theta"               | Angle between the vectors                  |
+| $d(\mathbf{u},\mathbf{v})$  | "distance of u and v" | Euclidean distance                         |
 
 #### Examples
 

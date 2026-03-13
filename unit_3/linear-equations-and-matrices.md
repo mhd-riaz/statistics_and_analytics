@@ -201,17 +201,23 @@ A **matrix** is a rectangular array of numbers arranged in rows and columns. Mat
 
 #### Types of Matrices
 
-| Type                 | Notation     | Description                                         |
-| :------------------- | :----------- | :-------------------------------------------------- |
-| **Row matrix**       | $1 \times n$ | Single row                                          |
-| **Column matrix**    | $m \times 1$ | Single column                                       |
-| **Square matrix**    | $n \times n$ | Same number of rows and columns                     |
-| **Zero matrix**      | $O$          | All entries are 0                                   |
-| **Identity matrix**  | $I_n$        | Square matrix with 1s on the diagonal, 0s elsewhere |
-| **Diagonal matrix**  | $D$          | Square, non-zero entries only on the main diagonal  |
-| **Symmetric matrix** | $A = A^T$    | Equal to its own transpose                          |
-| **Upper triangular** | $U$          | All entries below the main diagonal are 0           |
-| **Lower triangular** | $L$          | All entries above the main diagonal are 0           |
+| Type                      | Notation     | Description                                          |
+| :------------------------ | :----------- | :--------------------------------------------------- |
+| **Row matrix**            | $1 \times n$ | Single row                                           |
+| **Column matrix**         | $m \times 1$ | Single column                                        |
+| **Square matrix**         | $n \times n$ | Same number of rows and columns                      |
+| **Rectangular matrix**    | $m \times n$ | Different numbers of rows and columns                |
+| **Zero matrix**           | $O$          | All entries are 0                                    |
+| **Identity matrix**       | $I_n$        | Square matrix with 1s on the diagonal, 0s elsewhere  |
+| **Diagonal matrix**       | $D$          | Square, non-zero entries only on the main diagonal   |
+| **Scalar matrix**         | $kI$         | Diagonal matrix with the same scalar on the diagonal |
+| **Symmetric matrix**      | $A = A^T$    | Equal to its own transpose                           |
+| **Skew-symmetric matrix** | $A^T = -A$   | Transpose equals the negative of the matrix          |
+| **Orthogonal matrix**     | $Q^TQ = I$   | Columns and rows are orthonormal                     |
+| **Upper triangular**      | $U$          | All entries below the main diagonal are 0            |
+| **Lower triangular**      | $L$          | All entries above the main diagonal are 0            |
+| **Sparse matrix**         | —            | Most entries are 0                                   |
+| **Dense matrix**          | —            | Most entries are non-zero                            |
 
 #### Real-World Use Cases
 
